@@ -1,18 +1,12 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 border-b border-brand-border backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-8 h-[68px] flex items-center justify-between">
         <Link href="#home" className="flex items-center gap-2.5 text-brand-ink hover:text-brand-ink no-underline">
-          <div className="flex flex-col gap-0.5">
-            <div className="flex gap-1 mb-[1px]">
-              <span className="w-[7px] h-[7px] rounded-[1px] bg-brand-red"></span>
-              <span className="w-[7px] h-[7px] rounded-[1px] bg-brand-orange"></span>
-              <span className="w-[7px] h-[7px] rounded-[1px] bg-brand-green"></span>
-            </div>
-          </div>
-          <span className="text-[22px] font-bold tracking-[-0.5px] text-brand-ink">icebrkr</span>
+          <Image src="/navlogo.png" alt="icebrkr logo" width={240} height={80} className="w-auto h-12 md:h-[56px] object-contain" />
         </Link>
         
         <ul className="hidden md:flex items-center gap-9 list-none">

@@ -10,10 +10,12 @@ import Team from './components/Team';
 import Investors from './components/Investors';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import SplashScreen from './components/SplashScreen';
 
 export default function Home() {
   return (
     <main>
+      <SplashScreen />
       <Navbar />
       <Hero />
       <TrustBar />
