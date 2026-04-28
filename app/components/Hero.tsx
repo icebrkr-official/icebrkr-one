@@ -3,7 +3,7 @@ import Link from 'next/link';
 export default function Hero() {
   return (
     <section id="home" className="pt-40 pb-24 bg-white relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-full md:w-[480px] h-full bg-brand-dark opacity-95" style={{ clipPath: 'polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%)' }}>
+      <div className="hidden md:block absolute top-0 right-0 w-[480px] h-full bg-brand-dark opacity-95" style={{ clipPath: 'polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%)' }}>
         <div className="absolute top-10 right-10 flex flex-col gap-2">
           <div className="h-1 rounded-[2px] bg-brand-red w-[120px]"></div>
           <div className="h-1 rounded-[2px] bg-brand-orange w-[90px]"></div>
