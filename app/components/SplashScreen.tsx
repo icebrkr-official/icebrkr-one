@@ -45,7 +45,7 @@ export default function SplashScreen() {
   const [angle, setAngle] = useState(0);
   const [loadingText, setLoadingText] = useState("");
 
-  const fullText = "Set your own Course with...";
+  const fullText = "Set your own Course with";
 
   useEffect(() => {
     setMounted(true);
