@@ -107,7 +107,7 @@ export default function Hero() {
           {/* Compass text arc label */}
           <path id="arcpath-hero" d="M 35 110 A 75 75 0 0 1 185 110" fill="none"/>
           <text fontFamily="DM Sans,sans-serif" fontSize="8.5" fontWeight="700" letterSpacing="3" fill="rgba(255,255,255,0.3)" textAnchor="middle">
-            <textPath href="#arcpath-hero" startOffset="50%">COMPASS · icebrkr · ZERO KNOWLEDGE</textPath>
+            <textPath href="#arcpath-hero" startOffset="50%">Set your own Course with icebrkr</textPath>
           </text>
 
           {/* Cardinal letters — brighter */}

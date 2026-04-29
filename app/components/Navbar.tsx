@@ -16,9 +16,9 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 border-b border-brand-border backdrop-blur-md">
-      <div className="max-w-7xl mx-auto px-4 md:px-8 h-[68px] flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 h-[80px] flex items-center justify-between">
         <Link href="#home" className="flex items-center gap-2.5 text-brand-ink hover:text-brand-ink no-underline" onClick={closeMobileMenu}>
-          <Image src="/navlogo.png" alt="icebrkr logo" width={240} height={200} className="w-auto h-10 md:h-[56px] object-contain" />
+          <Image src="/navlogo.png" alt="icebrkr logo" width={240} height={200} className="w-auto h-12 md:h-[72px] object-contain" />
         </Link>
         
         <ul className="hidden lg:flex items-center gap-6 list-none">
@@ -48,8 +48,8 @@ export default function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       <div 
-        className={`lg:hidden fixed top-[68px] left-0 right-0 bg-white/95 backdrop-blur-md transition-all duration-300 flex flex-col overflow-y-auto shadow-xl ${
-          isMobileMenuOpen ? 'max-h-[calc(100vh-68px)] opacity-100 border-b border-brand-border py-8 px-6' : 'max-h-0 opacity-0 pointer-events-none py-0 px-6'
+        className={`lg:hidden fixed top-[80px] left-0 right-0 bg-white/95 backdrop-blur-md transition-all duration-300 flex flex-col overflow-y-auto shadow-xl ${
+          isMobileMenuOpen ? 'max-h-[calc(100vh-80px)] opacity-100 border-b border-brand-border py-8 px-6' : 'max-h-0 opacity-0 pointer-events-none py-0 px-6'
         }`}
       >
         <ul className="flex flex-col gap-5 list-none m-0 p-0 pb-6">
