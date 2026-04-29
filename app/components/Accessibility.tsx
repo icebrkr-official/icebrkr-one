@@ -1,4 +1,7 @@
 import React from 'react';
+import { Brain, Ear, Eye, Hand, Languages, ShieldPlus } from 'lucide-react';
+
+import { IconBadge } from './IconBadge';
 
 export default function Accessibility() {
   return (
@@ -20,7 +23,7 @@ export default function Accessibility() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div className="bg-white/5 border border-white/10 rounded-xl p-6 md:p-8">
             <div className="flex items-start gap-4 mb-5">
-              <div className="w-12 h-12 rounded flex items-center justify-center text-xl shrink-0" style={{ background: 'rgba(39,174,96,.12)' }}>👁️</div>
+              <IconBadge icon={Eye} tone="green" size="lg" className="shrink-0 rounded-xl" />
               <div>
                 <div className="font-bold text-[15px] mb-1 text-white">Visual Impairment</div>
                 <div className="text-[12px] text-brand-muted">Low vision · Blind · Colour blind</div>
@@ -39,7 +42,7 @@ export default function Accessibility() {
 
           <div className="bg-white/5 border border-white/10 rounded-xl p-6 md:p-8">
             <div className="flex items-start gap-4 mb-5">
-              <div className="w-12 h-12 rounded flex items-center justify-center text-xl shrink-0" style={{ background: 'rgba(245,166,35,.12)' }}>👂</div>
+              <IconBadge icon={Ear} tone="orange" size="lg" className="shrink-0 rounded-xl" />
               <div>
                 <div className="font-bold text-[15px] mb-1 text-white">Hearing Impairment</div>
                 <div className="text-[12px] text-brand-muted">Deaf · Hard of hearing</div>
@@ -58,7 +61,7 @@ export default function Accessibility() {
 
           <div className="bg-white/5 border border-white/10 rounded-xl p-6 md:p-8">
             <div className="flex items-start gap-4 mb-5">
-              <div className="w-12 h-12 rounded flex items-center justify-center text-xl shrink-0" style={{ background: 'rgba(232,48,42,.12)' }}>🧠</div>
+              <IconBadge icon={Brain} tone="red" size="lg" className="shrink-0 rounded-xl" />
               <div>
                 <div className="font-bold text-[15px] mb-1 text-white">Cognitive & Learning</div>
                 <div className="text-[12px] text-brand-muted">Dyslexia · ADHD · Autism spectrum</div>
@@ -77,7 +80,7 @@ export default function Accessibility() {
 
           <div className="bg-white/5 border border-white/10 rounded-xl p-6 md:p-8">
             <div className="flex items-start gap-4 mb-5">
-              <div className="w-12 h-12 rounded flex items-center justify-center text-xl shrink-0" style={{ background: 'rgba(15,25,35,.15)' }}>✋</div>
+              <IconBadge icon={Hand} tone="dark" size="lg" className="shrink-0 rounded-xl border-white/10 bg-white/5 text-white/75" />
               <div>
                 <div className="font-bold text-[15px] mb-1 text-white">Motor Impairment</div>
                 <div className="text-[12px] text-brand-muted">Limited mobility · Switch access</div>
@@ -96,7 +99,7 @@ export default function Accessibility() {
 
           <div className="bg-white/5 border border-white/10 rounded-xl p-6 md:p-8">
             <div className="flex items-start gap-4 mb-5">
-              <div className="w-12 h-12 rounded flex items-center justify-center text-xl shrink-0" style={{ background: 'rgba(39,174,96,.12)' }}>👴</div>
+              <IconBadge icon={ShieldPlus} tone="green" size="lg" className="shrink-0 rounded-xl" />
               <div>
                 <div className="font-bold text-[15px] mb-1 text-white">Elderly & Age-Related</div>
                 <div className="text-[12px] text-brand-muted">Elderly parents · Carers</div>
@@ -115,7 +118,7 @@ export default function Accessibility() {
 
           <div className="bg-white/5 border border-white/10 rounded-xl p-6 md:p-8">
             <div className="flex items-start gap-4 mb-5">
-              <div className="w-12 h-12 rounded flex items-center justify-center text-xl shrink-0" style={{ background: 'rgba(245,166,35,.12)' }}>🌐</div>
+              <IconBadge icon={Languages} tone="orange" size="lg" className="shrink-0 rounded-xl" />
               <div>
                 <div className="font-bold text-[15px] mb-1 text-white">Language & Literacy</div>
                 <div className="text-[12px] text-brand-muted">Non-native · Low literacy</div>

@@ -1,15 +1,29 @@
+import {
+  Brain,
+  HeartPulse,
+  House,
+  LockKeyhole,
+  MapPin,
+  MessageSquare,
+  NotebookPen,
+  Shirt,
+  Snowflake,
+} from 'lucide-react';
+
+import { IconBadge } from './IconBadge';
+
 export default function Product() {
   const modules = [
-    { name: 'AIPA', icon: '🧠', color: 'red', desc: 'Personal AI Chief of Staff. Proactively manages your life, schedule, priorities, and decisions.' },
-    { name: 'IB-Health', icon: '❤️', color: 'green', desc: 'Private Wellness Intelligence. Health tracking and insights that never reach a cloud server.' },
-    { name: 'IB-Connect', icon: '💬', color: 'dark', desc: 'Privacy-first Messaging. Encrypted communications with zero-knowledge architecture.' },
-    { name: 'Journal AI', icon: '📔', color: 'orange', desc: 'Adaptive Life Journal. Your thoughts, goals, and reflections — private by design.' },
-    { name: 'Private Vault', icon: '🔐', color: 'red', desc: 'Documents & Identity. Military-grade local encryption for your most sensitive assets.' },
-    { name: 'Smart Home', icon: '🏠', color: 'green', desc: 'AI Home Intelligence. Local processing for a genuinely smart home — no vendor lock-in.' },
-    { name: 'Smart Fridge', icon: '🧊', color: 'dark', desc: 'AI Nutrition & Inventory. Tracks food, suggests meals, manages shopping — all on-device.' },
-    { name: 'IB-Map', icon: '📍', color: 'orange', desc: 'Private Navigation & Places. Routing and discovery without surrendering location data.' },
-    { name: 'Smart Closet', icon: '👔', color: 'red', desc: 'AI Style & Wardrobe. Outfit intelligence and personal styling — private and personalised.' },
-  ];
+    { name: 'AIPA', icon: Brain, color: 'red', desc: 'Personal AI Chief of Staff. Proactively manages your life, schedule, priorities, and decisions.' },
+    { name: 'IB-Health', icon: HeartPulse, color: 'green', desc: 'Private Wellness Intelligence. Health tracking and insights that never reach a cloud server.' },
+    { name: 'IB-Connect', icon: MessageSquare, color: 'dark', desc: 'Privacy-first Messaging. Encrypted communications with zero-knowledge architecture.' },
+    { name: 'Journal AI', icon: NotebookPen, color: 'orange', desc: 'Adaptive Life Journal. Your thoughts, goals, and reflections — private by design.' },
+    { name: 'Private Vault', icon: LockKeyhole, color: 'red', desc: 'Documents & Identity. Military-grade local encryption for your most sensitive assets.' },
+    { name: 'Smart Home', icon: House, color: 'green', desc: 'AI Home Intelligence. Local processing for a genuinely smart home — no vendor lock-in.' },
+    { name: 'Smart Fridge', icon: Snowflake, color: 'dark', desc: 'AI Nutrition & Inventory. Tracks food, suggests meals, manages shopping — all on-device.' },
+    { name: 'IB-Map', icon: MapPin, color: 'orange', desc: 'Private Navigation & Places. Routing and discovery without surrendering location data.' },
+    { name: 'Smart Closet', icon: Shirt, color: 'red', desc: 'AI Style & Wardrobe. Outfit intelligence and personal styling — private and personalised.' },
+  ] as const;
 
   return (
     <>
@@ -25,14 +39,7 @@ export default function Product() {
             {modules.map((m, i) => (
               <div key={i} className="border border-brand-border rounded-[10px] p-7 relative overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] animate-fade-in">
                 <div className={`absolute top-0 left-0 right-0 h-[3px] bg-brand-${m.color === 'dark' ? 'dark' : m.color}`}></div>
-                <div className={`w-11 h-11 rounded-[10px] flex items-center justify-center mb-4 text-xl ${
-                  m.color === 'red' ? 'bg-[#E8302A]/10' : 
-                  m.color === 'green' ? 'bg-[#27AE60]/10' : 
-                  m.color === 'orange' ? 'bg-[#F5A623]/10' : 
-                  'bg-[#0F1923]/10'
-                }`}>
-                  {m.icon}
-                </div>
+                <IconBadge icon={m.icon} tone={m.color} className="mb-4" />
                 <div className="font-bold text-[16px] text-brand-ink mb-1.5">{m.name}</div>
                 <div className="text-[13px] text-brand-muted leading-[1.5]">{m.desc}</div>
               </div>

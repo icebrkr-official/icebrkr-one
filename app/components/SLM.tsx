@@ -1,5 +1,15 @@
 "use client";
 import React, { useState } from 'react';
+import { GraduationCap, HardHat, Presentation, Wheat } from 'lucide-react';
+
+import { IconBadge } from './IconBadge';
+
+const personaCards = [
+  { icon: Wheat, tone: 'green', name: 'Farmer', meta: '18 languages · 200MB LoRA · Ready' },
+  { icon: HardHat, tone: 'orange', name: 'Worker', meta: '15 languages · 200MB LoRA · Ready' },
+  { icon: Presentation, tone: 'blue', name: 'Teacher', meta: '13 languages · 200MB LoRA · Ready' },
+  { icon: GraduationCap, tone: 'red', name: 'Student', meta: '20 languages · 200MB LoRA · Ready' }
+] as const;
 
 export default function SLM() {
   const [activeTab, setActiveTab] = useState('overview');
@@ -203,14 +213,9 @@ export default function SLM() {
           {activeTab === 'personas' && (
             <div className="animate-fade-in">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3.5 mt-2">
-                {[
-                  { icon: '🌾', name: 'Farmer', meta: '18 languages · 200MB LoRA · ✅ Ready' },
-                  { icon: '👷', name: 'Worker', meta: '15 languages · 200MB LoRA · ✅ Ready' },
-                  { icon: '👨‍🏫', name: 'Teacher', meta: '13 languages · 200MB LoRA · ✅ Ready' },
-                  { icon: '🎓', name: 'Student', meta: '20 languages · 200MB LoRA · ✅ Ready' }
-                ].map((p, i) => (
+                {personaCards.map((p, i) => (
                   <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-5 text-center">
-                    <div className="text-[28px] mb-2.5">{p.icon}</div>
+                    <IconBadge icon={p.icon} tone={p.tone} className="mx-auto mb-2.5 rounded-xl border-white/10 bg-white/5 text-white" />
                     <div className="font-bold text-[14px] text-white mb-1">{p.name}</div>
                     <div className="text-[11px] text-white/40">{p.meta}</div>
                   </div>

@@ -1,5 +1,16 @@
 "use client";
 import React, { useState } from 'react';
+import { Banknote, Bot, CreditCard, Rocket, Scale } from 'lucide-react';
+
+import { IconBadge } from './IconBadge';
+
+const units = [
+  { id: 1, icon: Banknote, title: 'Unit 1', sub: 'FinTech & Context', tone: 'blue', color: '#3B82F6', count: 18 },
+  { id: 2, icon: CreditCard, title: 'Unit 2', sub: 'Digital Payments', tone: 'green', color: '#27AE60', count: 18 },
+  { id: 3, icon: Rocket, title: 'Unit 3', sub: 'Digital Finance', tone: 'orange', color: '#F5A623', count: 18 },
+  { id: 4, icon: Scale, title: 'Unit 4', sub: 'Regulation', tone: 'violet', color: '#8B5CF6', count: 18 },
+  { id: 5, icon: Bot, title: 'Unit 5', sub: 'AI & Future', tone: 'red', color: '#E8302A', count: 18 }
+] as const;
 
 export default function Learn() {
   const [activeUnit, setActiveUnit] = useState(1);
@@ -26,13 +37,7 @@ export default function Learn() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-8">
-          {[
-            { id: 1, icon: '🏦', title: 'Unit 1', sub: 'FinTech & Context', color: '#3B82F6', count: 18 },
-            { id: 2, icon: '💳', title: 'Unit 2', sub: 'Digital Payments', color: 'var(--green)', count: 18 },
-            { id: 3, icon: '🚀', title: 'Unit 3', sub: 'Digital Finance', color: 'var(--orange)', count: 18 },
-            { id: 4, icon: '⚖️', title: 'Unit 4', sub: 'Regulation', color: '#8B5CF6', count: 18 },
-            { id: 5, icon: '🤖', title: 'Unit 5', sub: 'AI & Future', color: 'var(--red)', count: 18 }
-          ].map(unit => (
+          {units.map(unit => (
             <div 
               key={unit.id}
               onClick={() => setActiveUnit(unit.id)}
@@ -41,7 +46,7 @@ export default function Learn() {
               }`}
               style={{ borderColor: activeUnit === unit.id ? unit.color : 'var(--border)' }}
             >
-              <div className="text-[28px] mb-2">{unit.icon}</div>
+              <IconBadge icon={unit.icon} tone={unit.tone} className="mx-auto mb-2 rounded-xl" />
               <div className="font-bold text-[13px]" style={{ color: unit.color }}>{unit.title}</div>
               <div className="text-[12px] font-semibold text-brand-ink mt-1">{unit.sub}</div>
               <div className="text-[11px] text-brand-muted mt-2">{unit.count} cards</div>
@@ -149,8 +154,11 @@ export default function Learn() {
                   </div>
                 </div>
               </div>
-              <div className="mt-6 p-4 md:p-5 bg-white border border-brand-border rounded-xl text-[13px] text-brand-muted">
-                📚 Unit 1 covers 18 cards total: FinTech evolution, infrastructure, collaboration models, typology, emerging economies, opportunities, challenges, regulation, global hubs, trust, data, financial literacy, cashless society, inclusion metrics, RegTech, cybersecurity, environmental impact, and synthesis. Ask AIPA to generate exam prep cards for any topic.
+              <div className="mt-6 flex gap-3 rounded-xl border border-brand-border bg-white p-4 text-[13px] text-brand-muted md:p-5">
+                <IconBadge icon={Banknote} tone="blue" size="sm" className="shrink-0 rounded-lg" />
+                <div>
+                  Unit 1 covers 18 cards total: FinTech evolution, infrastructure, collaboration models, typology, emerging economies, opportunities, challenges, regulation, global hubs, trust, data, financial literacy, cashless society, inclusion metrics, RegTech, cybersecurity, environmental impact, and synthesis. Ask AIPA to generate exam prep cards for any topic.
+                </div>
               </div>
             </div>
           )}
@@ -250,8 +258,11 @@ export default function Learn() {
                   </div>
                 </div>
               </div>
-              <div className="mt-6 p-4 md:p-5 bg-white border border-brand-border rounded-xl text-[13px] text-brand-muted">
-                🤖 Unit 5 covers 18 cards on AI governance, machine learning bias, digital identity, KYC evolution, deepfake fraud, algorithmic trading risks, and the future of privacy-compliant AI. All 90 cards available via AIPA on-device.
+              <div className="mt-6 flex gap-3 rounded-xl border border-brand-border bg-white p-4 text-[13px] text-brand-muted md:p-5">
+                <IconBadge icon={Bot} tone="red" size="sm" className="shrink-0 rounded-lg" />
+                <div>
+                  Unit 5 covers 18 cards on AI governance, machine learning bias, digital identity, KYC evolution, deepfake fraud, algorithmic trading risks, and the future of privacy-compliant AI. All 90 cards available via AIPA on-device.
+                </div>
               </div>
             </div>
           )}
@@ -259,8 +270,13 @@ export default function Learn() {
           {/* Stubs for Unit 2, 3, 4 */}
           {[2, 3, 4].includes(activeUnit) && (
             <div className="animate-fade-in p-10 text-center border border-brand-border rounded-xl bg-white text-brand-muted">
-              <div className="text-[32px] mb-3">
-                {activeUnit === 2 ? '💳' : activeUnit === 3 ? '🚀' : '⚖️'}
+              <div className="mb-3 flex justify-center">
+                <IconBadge
+                  icon={activeUnit === 2 ? CreditCard : activeUnit === 3 ? Rocket : Scale}
+                  tone={activeUnit === 2 ? 'green' : activeUnit === 3 ? 'orange' : 'violet'}
+                  size="lg"
+                  className="rounded-xl"
+                />
               </div>
               <div className="font-bold text-[16px] text-brand-ink mb-2">
                 Unit {activeUnit} — {

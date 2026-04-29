@@ -105,13 +105,13 @@ export default function Hero() {
           <circle cx="10" cy="110" r="3.5" fill="rgba(255,255,255,0.35)"/>
 
           {/* Compass text arc label */}
-          <path id="arcpath-hero" d="M 35 110 A 75 75 0 0 1 185 110" fill="none"/>
-          <text fontFamily="DM Sans,sans-serif" fontSize="8.5" fontWeight="700" letterSpacing="3" fill="rgba(255,255,255,0.3)" textAnchor="middle">
+          <path id="arcpath-hero" d="M 28 110 A 82 82 0 0 1 192 110" fill="none"/>
+          <text fontFamily="DM Sans,sans-serif" fontSize="7" fontWeight="700" letterSpacing="2.2" fill="rgba(255,255,255,0.72)" textAnchor="middle">
             <textPath href="#arcpath-hero" startOffset="50%">Set your own Course with icebrkr</textPath>
           </text>
 
           {/* Cardinal letters — brighter */}
-          <text x="110" y="40" textAnchor="middle" fontFamily="DM Sans,sans-serif" fontSize="10" fontWeight="700" fill="rgba(255,255,255,0.7)" letterSpacing="1">N</text>
+          <text x="110" y="46" textAnchor="middle" fontFamily="DM Sans,sans-serif" fontSize="10" fontWeight="700" fill="rgba(255,255,255,0.78)" letterSpacing="1">N</text>
           <text x="195" y="114" textAnchor="middle" fontFamily="DM Sans,sans-serif" fontSize="10" fontWeight="700" fill="rgba(255,255,255,0.5)" letterSpacing="1">E</text>
           <text x="110" y="196" textAnchor="middle" fontFamily="DM Sans,sans-serif" fontSize="10" fontWeight="700" fill="rgba(255,255,255,0.5)" letterSpacing="1">S</text>
           <text x="25" y="114" textAnchor="middle" fontFamily="DM Sans,sans-serif" fontSize="10" fontWeight="700" fill="rgba(255,255,255,0.35)" letterSpacing="1">W</text>
@@ -130,7 +130,7 @@ export default function Hero() {
             <polygon points="110,52 115,106 110,116 105,106" fill="white"/>
             <polygon points="168,110 114,115 104,110 114,105" fill="white"/>
             <polygon points="110,168 105,114 110,104 115,114" fill="white"/>
-            <polygon points="52,110 106,105 116,110 106,115" fill="white"/>
+            <polygon points="36,110 106,105 116,110 106,115" fill="white"/>
           </g>
 
           {/* Animated needle */}
@@ -154,7 +154,7 @@ export default function Hero() {
 
         {/* "icebrkr · compass" label beneath */}
         <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 text-center">
-          <span className="text-[9px] font-bold tracking-[3px] uppercase text-white/30">icebrkr · compass</span>
+          <span className="text-[9px] font-bold tracking-[3px] uppercase text-white">icebrkr · compass</span>
         </div>
       </div>
 

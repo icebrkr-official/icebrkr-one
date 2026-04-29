@@ -1,5 +1,24 @@
 "use client";
 import React, { useState } from 'react';
+import {
+  Bot,
+  BriefcaseBusiness,
+  CircleDollarSign,
+  Globe,
+  GraduationCap,
+  Handshake,
+  LockKeyhole,
+  MapPin,
+  MessageSquare,
+  NotebookPen,
+  Plane,
+  Rocket,
+  Route,
+  Shirt,
+  Speech,
+} from 'lucide-react';
+
+import { IconBadge } from './IconBadge';
 
 const personas = [
   {
@@ -9,7 +28,7 @@ const personas = [
     title: <>Sophie, 38. Architect, mother of two.<br/>One app. Zero data sold.</>,
     sub: 'Sophie navigates high-stakes client meetings, crèche drop-offs, and running a household. icebrkr is the only AI that can handle her entire life context without monetising it.',
     profile: {
-      avatar: '👩‍💼',
+      avatarIcon: BriefcaseBusiness,
       name: 'Sophie Laurent',
       desc: <>Millennial · 38 · Lead Architect<br/>Working mother · Zurich</>,
       stats: [
@@ -24,9 +43,10 @@ const personas = [
     stories: [
       {
         id: 'sophie-1',
-        icon: '📍',
+        icon: Route,
         color: 'text-brand-orange',
         bg: 'bg-brand-orange/10',
+        tone: 'orange',
         title: 'Morning Route Calculation — Crèche to Office',
         sub: 'IB-Map · P1 Critical',
         metric: 'Never late',
@@ -39,9 +59,10 @@ const personas = [
       },
       {
         id: 'sophie-2',
-        icon: '🤖',
+        icon: Bot,
         color: 'text-brand-red',
         bg: 'bg-brand-red/10',
+        tone: 'red',
         title: 'Deep Work Guardian',
         sub: 'AIPA · P1 Critical',
         metric: '+8 hrs productive/week',
@@ -54,9 +75,10 @@ const personas = [
       },
       {
         id: 'sophie-3',
-        icon: '📔',
+        icon: NotebookPen,
         color: 'text-brand-orange',
         bg: 'bg-brand-orange/10',
+        tone: 'orange',
         title: 'Lunchtime Emotional Reset',
         sub: 'Journal AI + IB-Health · P2 High',
         metric: 'Wellbeing ↑ measurably',
@@ -69,9 +91,10 @@ const personas = [
       },
       {
         id: 'sophie-4',
-        icon: '🔐',
+        icon: LockKeyhole,
         color: 'text-brand-red',
         bg: 'bg-brand-red/10',
+        tone: 'red',
         title: 'Any Document in 10 Seconds',
         sub: 'Private Vault · P1 Critical',
         metric: '<10 sec retrieval',
@@ -91,7 +114,7 @@ const personas = [
     title: <>Kai, 21. Student, creator, job hunter.<br/>One app. Zero data sold.</>,
     sub: 'Kai studies business, creates content, job hunts, and navigates a complex social world — all while managing a tight budget. icebrkr is the only AI that works for him without working against him.',
     profile: {
-      avatar: '🧑‍🎓',
+      avatarIcon: GraduationCap,
       name: 'Kai Müller',
       desc: <>Gen Z · 21 · Business student<br/>Creator · Job hunter · Geneva</>,
       stats: [
@@ -106,9 +129,10 @@ const personas = [
     stories: [
       {
         id: 'kai-1',
-        icon: '🤖',
+        icon: Bot,
         color: 'text-brand-red',
         bg: 'bg-brand-red/10',
+        tone: 'red',
         title: 'Morning Brief — Classes, Deadlines, Social',
         sub: 'AIPA · P1 Critical',
         metric: '↓ 15 min/day',
@@ -122,9 +146,10 @@ const personas = [
       },
       {
         id: 'kai-2',
-        icon: '💬',
+        icon: MessageSquare,
         color: 'text-brand-dark',
         bg: 'bg-brand-dark/10',
+        tone: 'dark',
         title: '200-Message Group Chat in 10 Seconds',
         sub: 'IB-Connect · P2 High',
         metric: '↓ 40 min/day',
@@ -138,9 +163,10 @@ const personas = [
       },
       {
         id: 'kai-3',
-        icon: '👔',
+        icon: Shirt,
         color: 'text-brand-orange',
         bg: 'bg-brand-orange/10',
+        tone: 'orange',
         title: 'AR Try-On — Look Great Without Buying More',
         sub: 'Smart Closet · P1',
         metric: '↓ 9 decisions/day',
@@ -154,9 +180,10 @@ const personas = [
       },
       {
         id: 'kai-4',
-        icon: '🚀',
+        icon: Rocket,
         color: 'text-brand-red',
         bg: 'bg-brand-red/10',
+        tone: 'red',
         title: 'Job Application Tracker + Interview Prep',
         sub: 'AIPA · E08 Career · P2 High',
         metric: '0 missed deadlines',
@@ -170,9 +197,10 @@ const personas = [
       },
       {
         id: 'kai-5',
-        icon: '💶',
+        icon: CircleDollarSign,
         color: 'text-brand-green',
         bg: 'bg-brand-green/10',
+        tone: 'green',
         title: 'Multi-Currency Budget — Student Life',
         sub: 'Financial Intelligence · P1',
         metric: 'Budget never blown',
@@ -193,7 +221,7 @@ const personas = [
     title: <>Priya, 31. Digital nomad.<br/>52 countries. Zero data trail.</>,
     sub: 'Priya works remotely, travels full-time, and crosses 6 cultural contexts a month. icebrkr is the only AI that moves with her without tracking her.',
     profile: {
-      avatar: '✈️',
+      avatarIcon: Plane,
       name: 'Priya Sharma',
       desc: <>World traveller · 31 · UX Consultant<br/>Digital nomad · 52 countries visited</>,
       stats: [
@@ -208,9 +236,10 @@ const personas = [
     stories: [
       {
         id: 'priya-1',
-        icon: '📍',
+        icon: MapPin,
         color: 'text-brand-orange',
         bg: 'bg-brand-orange/10',
+        tone: 'orange',
         title: 'Smart Route + Airport Intelligence',
         sub: 'IB-Map + AIPA · P1 Critical',
         metric: '↓ 6 stress events/week',
@@ -224,9 +253,10 @@ const personas = [
       },
       {
         id: 'priya-2',
-        icon: '🌍',
+        icon: Globe,
         color: 'text-brand-dark',
         bg: 'bg-brand-dark/10',
+        tone: 'dark',
         title: 'Full Itinerary Builder — Day by Day',
         sub: 'AIPA + IB-Map · P1',
         metric: '↓ 3 hrs planning/trip',
@@ -240,9 +270,10 @@ const personas = [
       },
       {
         id: 'priya-3',
-        icon: '🗣️',
+        icon: Speech,
         color: 'text-brand-green',
         bg: 'bg-brand-green/10',
+        tone: 'green',
         title: 'Real-Time Translation — Signs, Menus, Conversations',
         sub: 'IB-Connect · P1 Critical',
         metric: 'Language barrier: eliminated',
@@ -256,9 +287,10 @@ const personas = [
       },
       {
         id: 'priya-4',
-        icon: '🤝',
+        icon: Handshake,
         color: 'text-brand-red',
         bg: 'bg-brand-red/10',
+        tone: 'red',
         title: 'Cultural Safety Layer — Video Calls Abroad',
         sub: 'IB-Connect + Cultural Bridge · P2',
         metric: '0 cultural missteps',
@@ -272,9 +304,10 @@ const personas = [
       },
       {
         id: 'priya-5',
-        icon: '💼',
+        icon: BriefcaseBusiness,
         color: 'text-brand-orange',
         bg: 'bg-brand-orange/10',
+        tone: 'orange',
         title: 'Smart Packing — Virtual Wardrobe for Any Trip',
         sub: 'Smart Closet · P2',
         metric: 'Always right-packed',
@@ -288,7 +321,7 @@ const personas = [
       }
     ]
   }
-];
+] as const;
 
 export default function Personas() {
   const [openItems, setOpenItems] = useState<Record<string, boolean>>({});
@@ -318,9 +351,7 @@ export default function Personas() {
               <div className="lg:w-[320px] shrink-0">
                 <div className="bg-white border border-brand-border rounded-xl p-7 shadow-sm sticky top-24">
                   <div className="flex items-center gap-4 mb-6 pb-6 border-b border-brand-border">
-                    <div className="w-14 h-14 bg-brand-bg rounded-full flex items-center justify-center text-[28px] border border-brand-border">
-                      {persona.profile.avatar}
-                    </div>
+                    <IconBadge icon={persona.profile.avatarIcon} tone="dark" className="h-14 w-14 rounded-full border-brand-border bg-brand-bg text-brand-ink [&_svg]:h-7 [&_svg]:w-7" />
                     <div>
                       <div className="font-bold text-[18px] text-brand-ink mb-1">{persona.profile.name}</div>
                       <div className="text-[12px] text-brand-muted leading-[1.5]">{persona.profile.desc}</div>
@@ -330,7 +361,7 @@ export default function Personas() {
                     {persona.profile.stats.map((stat, i) => (
                       <div key={i} className="flex justify-between items-center text-[13px]">
                         <span className="text-brand-muted font-medium">{stat.label}</span>
-                        <span className={`font-bold ${stat.isGreen ? 'text-brand-green' : 'text-brand-ink'}`}>{stat.value}</span>
+                        <span className={`font-bold ${'isGreen' in stat && stat.isGreen ? 'text-brand-green' : 'text-brand-ink'}`}>{stat.value}</span>
                       </div>
                     ))}
                   </div>
@@ -355,7 +386,7 @@ export default function Personas() {
                       onClick={() => toggleItem(story.id)}
                     >
                       <div className="flex items-center gap-4">
-                        <div className={`w-10 h-10 rounded-lg flex items-center justify-center text-[20px] shrink-0 ${story.bg}`}>{story.icon}</div>
+                        <IconBadge icon={story.icon} tone={story.tone} size="sm" className="shrink-0 rounded-lg" />
                         <div>
                           <div className="font-bold text-[15px] text-brand-ink leading-[1.3] mb-1">{story.title}</div>
                           <div className="text-[12px] font-semibold text-brand-muted">{story.sub}</div>

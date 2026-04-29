@@ -1,3 +1,7 @@
+import { Cog, GraduationCap, Landmark } from 'lucide-react';
+
+import { IconBadge } from './IconBadge';
+
 export default function Team() {
   return (
     <section id="team" className="py-[100px] bg-white">
@@ -51,7 +55,7 @@ export default function Team() {
             <div className="font-bold text-[18px] text-brand-ink mb-2">Technology & Delivery Partners</div>
             
             <div className="flex gap-5 items-start">
-              <div className="text-2xl shrink-0 mt-1">⚙️</div>
+              <IconBadge icon={Cog} tone="red" size="sm" className="shrink-0 rounded-lg" />
               <div>
                 <div className="font-bold text-[15px] text-brand-ink mb-1.5">Technomark</div>
                 <div className="text-[14px] text-brand-muted leading-[1.6]">Technology delivery partner. 19 SRM engineers on active sprints. Milestone-locked contracts. Sprint governance via VAIZ platform.</div>
@@ -59,7 +63,7 @@ export default function Team() {
             </div>
             
             <div className="flex gap-5 items-start">
-              <div className="text-2xl shrink-0 mt-1">🎓</div>
+              <IconBadge icon={GraduationCap} tone="orange" size="sm" className="shrink-0 rounded-lg" />
               <div>
                 <div className="font-bold text-[15px] text-brand-ink mb-1.5">SRM University</div>
                 <div className="text-[14px] text-brand-muted leading-[1.6]">19 engineers on active development sprints. 50,000+ captive first users from the SRM engineer cohort at go-live.</div>
@@ -67,7 +71,7 @@ export default function Team() {
             </div>
             
             <div className="flex gap-5 items-start">
-              <div className="text-2xl shrink-0 mt-1">🏛️</div>
+              <IconBadge icon={Landmark} tone="green" size="sm" className="shrink-0 rounded-lg" />
               <div>
                 <div className="font-bold text-[15px] text-brand-ink mb-1.5">Swiss Legal Architecture</div>
                 <div className="text-[14px] text-brand-muted leading-[1.6]">Incorporated in Switzerland. Six-jurisdiction compliance coverage from day one. nLPD + GDPR + EU AI Act ready.</div>

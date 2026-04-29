@@ -1,5 +1,8 @@
 "use client";
 import React, { useState } from 'react';
+import { Shirt, Snowflake, Truck } from 'lucide-react';
+
+import { IconBadge } from './IconBadge';
 
 export default function Future() {
   const [openItems, setOpenItems] = useState<Record<string, boolean>>({});
@@ -29,7 +32,7 @@ export default function Future() {
           <div className="bg-white border border-brand-border rounded-xl shadow-[0_4px_24px_rgba(0,0,0,0.04)] overflow-hidden flex flex-col">
             <div className="p-7 pb-5 border-b border-brand-border relative">
               <div className="absolute top-7 right-7 bg-black text-white text-[10px] font-bold uppercase tracking-[1px] py-1 px-2.5 rounded-sm">Post-Launch</div>
-              <div className="w-12 h-12 rounded flex items-center justify-center text-xl mb-4 bg-brand-red/10">👔</div>
+              <IconBadge icon={Shirt} tone="red" size="lg" className="mb-4 rounded-xl" />
               <div className="font-serif text-[24px] tracking-[-0.5px] leading-[1.1] mb-1">Smart Closet</div>
               <div className="text-[14px] text-brand-muted">AI Style & Wardrobe Intelligence</div>
             </div>
@@ -71,7 +74,7 @@ export default function Future() {
           <div className="bg-white border border-brand-border rounded-xl shadow-[0_4px_24px_rgba(0,0,0,0.04)] overflow-hidden flex flex-col">
             <div className="p-7 pb-5 border-b border-brand-border relative">
               <div className="absolute top-7 right-7 bg-black text-white text-[10px] font-bold uppercase tracking-[1px] py-1 px-2.5 rounded-sm">Patent Filed</div>
-              <div className="w-12 h-12 rounded flex items-center justify-center text-xl mb-4 bg-brand-green/10">🧊</div>
+              <IconBadge icon={Snowflake} tone="green" size="lg" className="mb-4 rounded-xl" />
               <div className="font-serif text-[24px] tracking-[-0.5px] leading-[1.1] mb-1">Smart Fridge</div>
               <div className="text-[14px] text-brand-muted">AI Nutrition & Inventory</div>
             </div>
@@ -108,13 +111,13 @@ export default function Future() {
               <div className={`overflow-hidden transition-all duration-300 ${openItems['fridge-led'] ? 'max-h-[500px]' : 'max-h-0'}`}>
                 <div className="px-7 pb-5 flex gap-2.5">
                   <div className="flex-1 p-3 bg-brand-green/10 border border-brand-green/20 rounded-lg text-center text-[12px]">
-                    <div className="font-bold text-brand-green mb-1">🟢 Green</div>Safe for you
+                    <div className="mb-1 flex items-center justify-center gap-2 font-bold text-brand-green"><span className="h-2.5 w-2.5 rounded-full bg-brand-green"></span>Green</div>Safe for you
                   </div>
                   <div className="flex-1 p-3 bg-brand-orange/10 border border-brand-orange/20 rounded-lg text-center text-[12px]">
-                    <div className="font-bold text-brand-orange mb-1">🟡 Yellow</div>Dietary conflict
+                    <div className="mb-1 flex items-center justify-center gap-2 font-bold text-brand-orange"><span className="h-2.5 w-2.5 rounded-full bg-brand-orange"></span>Yellow</div>Dietary conflict
                   </div>
                   <div className="flex-1 p-3 bg-brand-red/10 border border-brand-red/20 rounded-lg text-center text-[12px]">
-                    <div className="font-bold text-brand-red mb-1">🔴 Red</div>Allergen — do not consume
+                    <div className="mb-1 flex items-center justify-center gap-2 font-bold text-brand-red"><span className="h-2.5 w-2.5 rounded-full bg-brand-red"></span>Red</div>Allergen — do not consume
                   </div>
                 </div>
               </div>
@@ -136,7 +139,7 @@ export default function Future() {
           <div className="bg-white border border-brand-border rounded-xl shadow-[0_4px_24px_rgba(0,0,0,0.04)] overflow-hidden flex flex-col">
             <div className="p-7 pb-5 border-b border-brand-border relative">
               <div className="absolute top-7 right-7 bg-black text-white text-[10px] font-bold uppercase tracking-[1px] py-1 px-2.5 rounded-sm">Patent Filed</div>
-              <div className="w-12 h-12 rounded flex items-center justify-center text-xl mb-4 bg-brand-orange/10">🚚</div>
+              <IconBadge icon={Truck} tone="orange" size="lg" className="mb-4 rounded-xl" />
               <div className="font-serif text-[24px] tracking-[-0.5px] leading-[1.1] mb-1">Smart Delivery Hub</div>
               <div className="text-[14px] text-brand-muted">Mobile Contactless Dispatch</div>
             </div>
