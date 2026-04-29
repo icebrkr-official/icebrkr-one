@@ -18,7 +18,7 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 border-b border-brand-border backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-4 md:px-8 h-[68px] flex items-center justify-between">
         <Link href="#home" className="flex items-center gap-2.5 text-brand-ink hover:text-brand-ink no-underline" onClick={closeMobileMenu}>
-          <Image src="/navlogo.png" alt="icebrkr logo" width={240} height={80} className="w-auto h-10 md:h-[56px] object-contain" />
+          <Image src="/navlogo.png" alt="icebrkr logo" width={240} height={200} className="w-auto h-10 md:h-[56px] object-contain" />
         </Link>
         
         <ul className="hidden lg:flex items-center gap-6 list-none">

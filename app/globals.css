@@ -65,3 +65,12 @@
     width: 120px;
   }
 }
+
+@keyframes levitate {
+  0%, 100% {
+    transform: translateY(-50%);
+  }
+  50% {
+    transform: translateY(calc(-50% - 15px));
+  }
+}
