@@ -32,6 +32,13 @@ export default function Navbar() {
         }
         setSubmitStatus('error');
       } else {
+        // Send welcome email (fire-and-forget)
+        fetch('/api/send-early-access-email', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email }),
+        }).catch(() => {}); // silently ignore email errors
+
         setSubmitMessage('Success! You have been added to the early access list.');
         setSubmitStatus('success');
         setName('');
