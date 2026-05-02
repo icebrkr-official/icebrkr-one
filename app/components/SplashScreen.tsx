@@ -45,16 +45,18 @@ const playTick = () => {
 export default function SplashScreen() {
   const [loading, setLoading] = useState(true);
   const [fade, setFade] = useState(false);
-  const [mounted] = useState(true);
-  const [angle, setAngle] = useState(() => {
-    const bearings = [45, 90, 135, 180, 225, 270, 315];
-    return bearings[Math.floor(Math.random() * bearings.length)] + (Math.random() - 0.5) * 20;
-  });
+  const [mounted, setMounted] = useState(false);
+  const [angle, setAngle] = useState(45);
   const [loadingText, setLoadingText] = useState("");
 
   const fullText = "Set your own Course with";
 
   useEffect(() => {
+    // Initialize random angle on client mount
+    setMounted(true);
+    const bearings = [45, 90, 135, 180, 225, 270, 315];
+    setAngle(bearings[Math.floor(Math.random() * bearings.length)] + (Math.random() - 0.5) * 20);
+
     // Rotate the needle shortly after mount
     const angleTimer = setTimeout(() => {
       const bearings = [45, 90, 135, 180, 225, 270, 315];

@@ -160,10 +160,6 @@ export default function Hero() {
 
       <div className="max-w-7xl mx-auto px-8 relative z-10">
         <div className="max-w-[640px] animate-fade-in">
-          <div className="inline-flex items-center gap-2 bg-brand-accent-light border border-brand-border px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide text-brand-muted uppercase mb-7">
-            <span className="w-1.5 h-1.5 rounded-full bg-brand-green animate-pulse"></span>
-            Live July 2026 · Created in Switzerland
-          </div>
           
           <h1 className="font-serif text-[clamp(42px,5vw,64px)] leading-[1.1] text-brand-ink mb-6 tracking-[-1px]">
             The only <em className="italic text-brand-red not-italic font-serif">AI Life OS</em><br />
@@ -181,6 +177,10 @@ export default function Hero() {
             <Link href="#investors" className="bg-transparent text-brand-ink px-8 py-3.5 rounded-md font-semibold text-[15px] border-[1.5px] border-brand-border transition-all duration-150 hover:border-brand-ink hover:-translate-y-[1px] inline-block">
               Investor Relations →
             </Link>
+          </div>
+          <div className="inline-flex items-center gap-2 bg-brand-accent-light border border-brand-border px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide text-brand-muted uppercase mb-7">
+            <span className="w-1.5 h-1.5 rounded-full bg-brand-green animate-pulse"></span>
+            Live July 2026 · Created in Switzerland
           </div>
           
           <div className="flex gap-12 flex-wrap">
