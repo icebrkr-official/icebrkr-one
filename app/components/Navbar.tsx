@@ -80,8 +80,8 @@ export default function Navbar() {
           <li className="w-[1px] h-3.5 bg-brand-border mx-1"></li>
           <li><Link href="#market" className="text-[13px] font-medium text-brand-muted no-underline tracking-[0.2px] transition-colors duration-200 hover:text-brand-ink">Market</Link></li>
           <li><Link href="#team" className="text-[13px] font-medium text-brand-muted no-underline tracking-[0.2px] transition-colors duration-200 hover:text-brand-ink">Team</Link></li>
-          <li><button onClick={() => setIsModalOpen(true)} className="bg-brand-dark text-white px-[20px] py-2 rounded-md font-semibold text-[13px] transition-colors duration-200 hover:bg-brand-dark2 ml-2 cursor-pointer border-none">Sign Up for Early Access</button></li>
-          <li><Link href="#investors" className="bg-brand-dark text-white px-[20px] py-2 rounded-md font-semibold text-[13px] transition-colors duration-200 hover:bg-brand-dark2 ml-2">Invest Now</Link></li>
+          <li><button onClick={() => setIsModalOpen(true)} className="bg-brand-dark text-white px-6 py-2.5 rounded-md font-semibold text-[13px] transition-colors duration-200 hover:bg-brand-dark2 ml-2 cursor-pointer border-none inline-flex items-center justify-center min-w-[180px] h-[40px] whitespace-nowrap">Sign Up for Early Access</button></li>
+          <li><Link href="#investors" className="bg-brand-dark text-white px-6 py-2.5 rounded-md font-semibold text-[13px] transition-colors duration-200 hover:bg-brand-dark2 ml-2 inline-flex items-center justify-center min-w-[180px] h-[40px]">Invest Now</Link></li>
         </ul>
         
         <button 
@@ -112,8 +112,8 @@ export default function Navbar() {
           <li className="w-full h-[1px] bg-brand-border my-1"></li>
           <li><Link href="#market" className="text-[18px] font-bold text-brand-ink no-underline block" onClick={closeMobileMenu}>Market</Link></li>
           <li><Link href="#team" className="text-[18px] font-bold text-brand-ink no-underline block" onClick={closeMobileMenu}>Team</Link></li>
-          <li className="mt-2"><button onClick={() => { setIsModalOpen(true); closeMobileMenu(); }} className="bg-brand-dark text-white px-6 py-3 rounded-md font-semibold text-[16px] block text-center w-full cursor-pointer border-none">Sign Up for Early Access</button></li>
-          <li className="mt-2"><Link href="#investors" className="bg-brand-dark text-white px-6 py-3 rounded-md font-semibold text-[16px] block text-center w-full" onClick={closeMobileMenu}>Invest Now</Link></li>
+          <li className="mt-2"><button onClick={() => { setIsModalOpen(true); closeMobileMenu(); }} className="bg-brand-dark text-white px-6 py-3.5 rounded-md font-semibold text-[16px] flex items-center justify-center w-full cursor-pointer border-none h-[52px]">Sign Up for Early Access</button></li>
+          <li className="mt-2"><Link href="#investors" className="bg-brand-dark text-white px-6 py-3.5 rounded-md font-semibold text-[16px] flex items-center justify-center w-full h-[52px]" onClick={closeMobileMenu}>Invest Now</Link></li>
         </ul>
       </div>
     </nav>
@@ -121,58 +121,64 @@ export default function Navbar() {
       {/* Early Access Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-sm">
-          <div className="bg-white rounded-xl p-8 max-w-md w-full mx-4 shadow-2xl relative">
-            <button 
-              onClick={() => setIsModalOpen(false)}
-              className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 bg-transparent border-none cursor-pointer p-2"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-            <h2 className="text-2xl font-bold mb-2 text-brand-ink">Early Access</h2>
-            <p className="text-brand-muted mb-6">Join the waitlist for exclusive early access to icebrkr.</p>
-            
-            <form onSubmit={handleEarlyAccessSubmit} className="flex flex-col gap-4">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-brand-ink mb-1">Name</label>
-                <input 
-                  type="text" 
-                  id="name" 
-                  required
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-dark focus:border-transparent text-brand-ink"
-                  placeholder="John Doe"
-                />
-              </div>
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-brand-ink mb-1">Email</label>
-                <input 
-                  type="email" 
-                  id="email" 
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-dark focus:border-transparent text-brand-ink"
-                  placeholder="john@example.com"
-                />
-              </div>
-              
-              {submitMessage && (
-                <div className={`p-3 rounded-md text-sm ${submitStatus === 'success' ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'}`}>
-                  {submitMessage}
-                </div>
-              )}
-              
+          {/* Gradient border wrapper */}
+          <div className="relative max-w-md w-full mx-4 rounded-xl p-[5px] overflow-hidden shadow-2xl gradient-border-wrapper">
+            {/* Spinning gradient border */}
+            <div className="gradient-border-spinner" />
+            {/* Inner content */}
+            <div className="bg-white rounded-[10px] p-8 relative z-10">
               <button 
-                type="submit" 
-                disabled={isSubmitting}
-                className="w-full bg-brand-dark text-white py-2.5 rounded-md font-semibold transition-colors duration-200 hover:bg-brand-dark2 disabled:opacity-70 mt-2 border-none cursor-pointer flex justify-center items-center"
+                onClick={() => setIsModalOpen(false)}
+                className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 bg-transparent border-none cursor-pointer p-2 z-20"
               >
-                {isSubmitting ? 'Submitting...' : 'Sign Up Now'}
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
               </button>
-            </form>
+              <h2 className="text-2xl font-bold mb-2 text-brand-ink">Early Access</h2>
+              <p className="text-brand-muted mb-6">Join the waitlist for exclusive early access to icebrkr.</p>
+              
+              <form onSubmit={handleEarlyAccessSubmit} className="flex flex-col gap-4">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-brand-ink mb-1">Name</label>
+                  <input 
+                    type="text" 
+                    id="name" 
+                    required
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-dark focus:border-transparent text-brand-ink"
+                    placeholder="John Doe"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-brand-ink mb-1">Email</label>
+                  <input 
+                    type="email" 
+                    id="email" 
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-dark focus:border-transparent text-brand-ink"
+                    placeholder="john@example.com"
+                  />
+                </div>
+                
+                {submitMessage && (
+                  <div className={`p-3 rounded-md text-sm ${submitStatus === 'success' ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'}`}>
+                    {submitMessage}
+                  </div>
+                )}
+                
+                <button 
+                  type="submit" 
+                  disabled={isSubmitting}
+                  className="w-full bg-brand-dark text-white py-2.5 rounded-md font-semibold transition-colors duration-200 hover:bg-brand-dark2 disabled:opacity-70 mt-2 border-none cursor-pointer flex justify-center items-center"
+                >
+                  {isSubmitting ? 'Submitting...' : 'Sign Up Now'}
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       )}
