@@ -129,7 +129,7 @@ export async function POST(request: Request) {
                       </p>
                       <p style="margin:0;font-size:12px;color:#5e7682">
                         You received this email because you signed up for early access at
-                        <a href="${siteUrl}" style="color:#F5A623;text-decoration:none">icebrkr.com</a>
+                        <a href="${siteUrl}" style="color:#F5A623;text-decoration:none">icebrkr.one</a>
                       </p>
                     </td>
                   </tr>
