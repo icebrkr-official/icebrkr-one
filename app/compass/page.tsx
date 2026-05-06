@@ -474,7 +474,7 @@ export default function CompassPage() {
               <circle cx="350" cy="350" r="140" fill="white" />
               <circle cx="350" cy="350" r="140" fill="none" stroke="#E2E8F0" strokeWidth="1.5" />
               <foreignObject x="200" y="278" width="300" height="64">
-                <div xmlns="http://www.w3.org/1999/xhtml" className="flex items-center justify-center h-full">
+                <div className="flex items-center justify-center h-full">
                   <img src="/maillogo.webp" alt="icebrkr logo" style={{ height: '56px', width: 'auto', objectFit: 'contain' }} />
                 </div>
               </foreignObject>
