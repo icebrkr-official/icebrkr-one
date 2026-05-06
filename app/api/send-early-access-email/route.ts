@@ -125,7 +125,7 @@ export async function POST(request: Request) {
                   <tr>
                     <td style="background-color:#1C2B3A;border-radius:0 0 16px 16px;padding:24px 32px;text-align:center">
                       <p style="margin:0 0 6px;font-size:13px;color:#8aa0ad">
-                        &copy; ${new Date().getFullYear()} icebrkr &mdash; Break the ice, build the bond.
+                        &copy; ${new Date().getFullYear()} icebrkr &mdash; Breaking the ice. Bridging the Gaps.
                       </p>
                       <p style="margin:0;font-size:12px;color:#5e7682">
                         You received this email because you signed up for early access at
