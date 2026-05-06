@@ -62,7 +62,7 @@ export default function Navbar() {
 
           {/* Logo */}
           <Link href="/" className="flex items-center no-underline flex-shrink-0" onClick={closeMobileMenu}>
-            <Image src="/maillogo.webp" alt="icebrkr logo" width={180} height={48} className="h-12 w-auto object-contain" priority />
+            <Image src="/maillogo.webp" alt="icebrkr logo" width={280} height={72} className="h-[72px] w-auto object-contain" priority />
           </Link>
 
           {/* Desktop nav */}
