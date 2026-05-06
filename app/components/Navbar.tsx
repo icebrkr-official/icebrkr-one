@@ -61,17 +61,12 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 md:px-8 h-[80px] flex items-center justify-between">
 
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 text-brand-ink hover:text-brand-ink no-underline flex-shrink-0 lg:mr-8" onClick={closeMobileMenu}>
-            <div className="flex gap-[3px] mt-1">
-              <span className="w-[6px] h-[6px] rounded-[1.5px] bg-[#E8302A] block" />
-              <span className="w-[6px] h-[6px] rounded-[1.5px] bg-[#F5A623] block" />
-              <span className="w-[6px] h-[6px] rounded-[1.5px] bg-[#27AE60] block" />
-            </div>
-            <div className="text-[28px] font-bold tracking-[-0.5px]">icebrkr</div>
+          <Link href="/" className="flex items-center no-underline flex-shrink-0" onClick={closeMobileMenu}>
+            <Image src="/maillogo.webp" alt="icebrkr logo" width={180} height={48} className="h-12 w-auto object-contain" priority />
           </Link>
 
           {/* Desktop nav */}
-          <ul className="hidden lg:flex items-center gap-4 xl:gap-5 list-none ml-auto">
+          <ul className="hidden lg:flex items-center gap-4 xl:gap-5 list-none ml-8 flex-1">
             <li><Link href="/#product"     className="text-[13px] font-medium text-brand-muted no-underline tracking-[0.2px] transition-colors duration-200 hover:text-brand-ink">Product</Link></li>
             <li><Link href="/#slm"         className="text-[13px] font-medium text-brand-muted no-underline tracking-[0.2px] transition-colors duration-200 hover:text-brand-ink">SLM</Link></li>
             <li><Link href="/#future"      className="text-[13px] font-medium text-brand-muted no-underline tracking-[0.2px] transition-colors duration-200 hover:text-brand-ink">Future</Link></li>
@@ -80,37 +75,12 @@ export default function Navbar() {
             <li><Link href="/#learn"       className="text-[13px] font-medium text-brand-muted no-underline tracking-[0.2px] transition-colors duration-200 hover:text-brand-ink">Learn</Link></li>
             <li><Link href="/#patents"     className="text-[13px] font-medium text-brand-muted no-underline tracking-[0.2px] transition-colors duration-200 hover:text-brand-ink">Patents</Link></li>
 
-            {/* ── COMPASS link with accent badge */}
-            <li>
-              <Link
-                href="/compass"
-                className="
-                  relative inline-flex items-center gap-1.5
-                  text-[13px] font-bold no-underline tracking-[0.2px]
-                  text-brand-ink transition-all duration-200
-                  group
-                "
-              >
-                {/* Tri-dot accent */}
-                <span className="flex gap-[3px] items-center">
-                  <span className="w-[5px] h-[5px] rounded-[1px] bg-brand-red   transition-transform duration-300 group-hover:scale-110" />
-                  <span className="w-[5px] h-[5px] rounded-[1px] bg-brand-orange transition-transform duration-300 group-hover:scale-110 delay-[30ms]" />
-                  <span className="w-[5px] h-[5px] rounded-[1px] bg-brand-green  transition-transform duration-300 group-hover:scale-110 delay-[60ms]" />
-                </span>
-                COMPASS
-                {/* Animated underline */}
-                <span className="
-                  absolute -bottom-0.5 left-0 h-[1.5px] w-0
-                  bg-gradient-to-r from-brand-red via-brand-orange to-brand-green
-                  transition-all duration-300 group-hover:w-full rounded-full
-                " />
-              </Link>
-            </li>
+            <li><Link href="/compass" className="text-[13px] font-medium text-brand-muted no-underline tracking-[0.2px] transition-colors duration-200 hover:text-brand-ink">COMPASS</Link></li>
 
             <li className="w-[1px] h-3.5 bg-brand-border mx-1" />
             <li><Link href="/#market" className="text-[13px] font-medium text-brand-muted no-underline tracking-[0.2px] transition-colors duration-200 hover:text-brand-ink">Market</Link></li>
             <li><Link href="/#team"   className="text-[13px] font-medium text-brand-muted no-underline tracking-[0.2px] transition-colors duration-200 hover:text-brand-ink">Team</Link></li>
-            <li>
+            <li className="ml-auto">
               <button
                 onClick={() => setIsModalOpen(true)}
                 className="bg-brand-dark text-white px-5 py-2 rounded-md font-semibold text-[13px] transition-colors duration-200 hover:bg-brand-dark2 cursor-pointer border-none inline-flex items-center justify-center h-[38px] whitespace-nowrap"
@@ -154,24 +124,7 @@ export default function Navbar() {
             <li><Link href="/#learn"         className="text-[18px] font-bold text-brand-ink no-underline block" onClick={closeMobileMenu}>Learn</Link></li>
             <li><Link href="/#patents"       className="text-[18px] font-bold text-brand-ink no-underline block" onClick={closeMobileMenu}>Patents</Link></li>
 
-            {/* ── COMPASS mobile item */}
-            <li>
-              <Link
-                href="/compass"
-                onClick={closeMobileMenu}
-                className="flex items-center gap-2 text-[18px] font-bold text-brand-ink no-underline"
-              >
-                <span className="flex gap-[3px]">
-                  <span className="w-[6px] h-[6px] rounded-[1px] bg-brand-red   inline-block" />
-                  <span className="w-[6px] h-[6px] rounded-[1px] bg-brand-orange inline-block" />
-                  <span className="w-[6px] h-[6px] rounded-[1px] bg-brand-green  inline-block" />
-                </span>
-                COMPASS
-                <span className="ml-1 text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full bg-brand-green/10 text-brand-green border border-brand-green/20">
-                  Architecture
-                </span>
-              </Link>
-            </li>
+            <li><Link href="/compass" className="text-[18px] font-bold text-brand-ink no-underline block" onClick={closeMobileMenu}>COMPASS</Link></li>
 
             <li className="w-full h-[1px] bg-brand-border my-1" />
             <li><Link href="/#market" className="text-[18px] font-bold text-brand-ink no-underline block" onClick={closeMobileMenu}>Market</Link></li>

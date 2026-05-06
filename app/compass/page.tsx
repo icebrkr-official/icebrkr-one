@@ -394,41 +394,7 @@ export default function CompassPage() {
     <>
       <Navbar />
 
-      <div className="compass-page min-h-screen" style={{ background: '#F0F4F8', fontFamily: "'DM Sans', sans-serif" }}>
-        <div className="compass-page-header" style={{ background: '#0F1923', padding: '18px 40px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'relative', overflow: 'hidden', marginTop: '80px' }}>
-        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg,#E8302A,#F5A623,#27AE60)' }} />
-        <div className="flex items-center gap-2.5">
-          <div className="flex gap-1">
-            <span style={{ width: 8, height: 8, borderRadius: 1.5, background: '#E8302A', display: 'block' }} />
-            <span style={{ width: 8, height: 8, borderRadius: 1.5, background: '#F5A623', display: 'block' }} />
-            <span style={{ width: 8, height: 8, borderRadius: 1.5, background: '#27AE60', display: 'block' }} />
-          </div>
-          <div>
-            <div style={{ fontSize: 22, fontWeight: 700, color: '#fff', letterSpacing: -.3 }}>icebrkr</div>
-            <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: 3, textTransform: 'uppercase', color: 'rgba(255,255,255,.3)' }}>COMPASS · AI Life OS</div>
-          </div>
-        </div>
-        <div className="text-center hidden sm:block">
-          <h1 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 22, color: '#fff', letterSpacing: -.3 }}>Interactive Architecture Map</h1>
-          <p style={{ fontSize: 11, color: 'rgba(255,255,255,.4)', marginTop: 2 }}>Click any segment to explore modules, security layers, and features</p>
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 6, background: 'rgba(245,166,35,.15)', border: '1px solid rgba(245,166,35,.3)', padding: '7px 16px', borderRadius: 100, fontSize: 11, fontWeight: 700, color: '#F5A623', letterSpacing: .5 }}>
-          <span className="compass-pulse-dot" style={{ width: 6, height: 6, borderRadius: '50%', background: '#27AE60', display: 'inline-block' }} />
-          Live July 2026
-        </div>
-      </div>
-      <div className="compass-top-badges" style={{ background: '#0F1923', borderBottom: '1px solid rgba(255,255,255,.06)', padding: '12px 40px', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', gap: 10 }}>
-        {[
-          ['🛡', 'Zero-Knowledge Architecture'], ['📱', 'On-Device AI Inference'],
-          ['✅', 'EU AI Act Compliant'], ['🇨🇭', 'Swiss Infrastructure'],
-          ['📋', 'Patent-Pending UBTS'], ['🌍', '25+ Languages'],
-          ['🔐', 'AES-256-GCM Encryption'], ['9', 'Integrated Modules'],
-        ].map(([icon, label]) => (
-          <div key={label} style={{ display: 'flex', alignItems: 'center', gap: 6, background: 'rgba(255,255,255,.04)', border: '1px solid rgba(255,255,255,.1)', padding: '6px 14px', borderRadius: 100, fontSize: 11, fontWeight: 600, color: 'rgba(255,255,255,.7)' }}>
-            <span style={{ fontSize: 13 }}>{icon}</span>{label}
-          </div>
-        ))}
-      </div>
+      <div className="compass-page min-h-screen" style={{ background: '#F0F4F8', fontFamily: "'DM Sans', sans-serif", paddingTop: '80px' }}>
       <div className="compass-main-layout">
         <div className="compass-side-panel compass-side-left">
           <div className="compass-side-title">Technology Stack</div>
@@ -507,12 +473,13 @@ export default function CompassPage() {
               <circle cx="350" cy="350" r="142" fill="white" filter="url(#centerShadow)" />
               <circle cx="350" cy="350" r="140" fill="white" />
               <circle cx="350" cy="350" r="140" fill="none" stroke="#E2E8F0" strokeWidth="1.5" />
-              <rect x="318" y="290" width="10" height="10" rx="2" fill="#E8302A" />
-              <rect x="333" y="290" width="10" height="10" rx="2" fill="#F5A623" />
-              <rect x="348" y="290" width="10" height="10" rx="2" fill="#27AE60" />
-              <text x="350" y="326" textAnchor="middle" fontFamily="DM Sans,sans-serif" fontSize="14" fontWeight="800" fill="#1A1A1A" letterSpacing="-.2">icebrkr</text>
-              <text x="350" y="350" textAnchor="middle" fontFamily="DM Serif Display,serif" fontSize="30" fontWeight="400" fill="#0F1923" letterSpacing="-1">COMPASS</text>
-              <text x="350" y="372" textAnchor="middle" fontFamily="DM Sans,sans-serif" fontSize="9" fontWeight="700" fill="#94A3B8" letterSpacing="2.5">AI LIFE OPERATING SYSTEM</text>
+              <foreignObject x="200" y="278" width="300" height="64">
+                <div xmlns="http://www.w3.org/1999/xhtml" className="flex items-center justify-center h-full">
+                  <img src="/maillogo.webp" alt="icebrkr logo" style={{ height: '56px', width: 'auto', objectFit: 'contain' }} />
+                </div>
+              </foreignObject>
+              <text x="350" y="354" textAnchor="middle" fontFamily="DM Serif Display,serif" fontSize="26" fontWeight="400" fill="#0F1923" letterSpacing="-1">COMPASS</text>
+              <text x="350" y="374" textAnchor="middle" fontFamily="DM Sans,sans-serif" fontSize="9" fontWeight="700" fill="#94A3B8" letterSpacing="2.5">AI LIFE OPERATING SYSTEM</text>
               <line x1="270" y1="384" x2="430" y2="384" stroke="#E2E8F0" strokeWidth="1" />
               <text x="290" y="402" textAnchor="middle" fontFamily="DM Sans,sans-serif" fontSize="18" fontWeight="800" fill="#0F1923">9</text>
               <text x="290" y="416" textAnchor="middle" fontFamily="DM Sans,sans-serif" fontSize="9" fill="#94A3B8" fontWeight="600">MODULES</text>
