@@ -25,19 +25,18 @@ export default function Navbar() {
         .insert([{ name, email }]);
 
       if (error) {
-        if (error.code === '23505') { // Unique constraint violation (Postgres)
+        if (error.code === '23505') {
           setSubmitMessage('This email is already registered for early access.');
         } else {
           setSubmitMessage(error.message || 'An error occurred. Please try again.');
         }
         setSubmitStatus('error');
       } else {
-        // Send welcome email (fire-and-forget)
         fetch('/api/send-early-access-email', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ name, email }),
-        }).catch(() => {}); // silently ignore email errors
+        }).catch(() => {});
 
         setSubmitMessage('Success! You have been added to the early access list.');
         setSubmitStatus('success');
@@ -53,81 +52,149 @@ export default function Navbar() {
     }
   };
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false);
-  };
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+  const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
   return (
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 border-b border-brand-border backdrop-blur-md">
-      <div className="max-w-7xl mx-auto px-4 md:px-8 h-[80px] flex items-center justify-between">
-        <Link href="#home" className="flex items-center gap-2.5 text-brand-ink hover:text-brand-ink no-underline" onClick={closeMobileMenu}>
-          <Image src="/navlogo.png" alt="icebrkr logo" width={240} height={200} className="w-auto h-12 md:h-[72px] object-contain" />
-        </Link>
-        
-        <ul className="hidden lg:flex items-center gap-6 list-none">
-          <li><Link href="#product" className="text-[13px] font-medium text-brand-muted no-underline tracking-[0.2px] transition-colors duration-200 hover:text-brand-ink">Product</Link></li>
-          <li><Link href="#slm" className="text-[13px] font-medium text-brand-muted no-underline tracking-[0.2px] transition-colors duration-200 hover:text-brand-ink">SLM</Link></li>
-          <li><Link href="#future" className="text-[13px] font-medium text-brand-muted no-underline tracking-[0.2px] transition-colors duration-200 hover:text-brand-ink">Future</Link></li>
-          <li><Link href="#persona" className="text-[13px] font-medium text-brand-muted no-underline tracking-[0.2px] transition-colors duration-200 hover:text-brand-ink">Personas</Link></li>
-          <li><Link href="#ib-challenged" className="text-[13px] font-medium text-brand-muted no-underline tracking-[0.2px] transition-colors duration-200 hover:text-brand-ink">Accessibility</Link></li>
-          <li><Link href="#learn" className="text-[13px] font-medium text-brand-muted no-underline tracking-[0.2px] transition-colors duration-200 hover:text-brand-ink">Learn</Link></li>
-          <li><Link href="#patents" className="text-[13px] font-medium text-brand-muted no-underline tracking-[0.2px] transition-colors duration-200 hover:text-brand-ink">Patents</Link></li>
-          <li className="w-[1px] h-3.5 bg-brand-border mx-1"></li>
-          <li><Link href="#market" className="text-[13px] font-medium text-brand-muted no-underline tracking-[0.2px] transition-colors duration-200 hover:text-brand-ink">Market</Link></li>
-          <li><Link href="#team" className="text-[13px] font-medium text-brand-muted no-underline tracking-[0.2px] transition-colors duration-200 hover:text-brand-ink">Team</Link></li>
-          <li><button onClick={() => setIsModalOpen(true)} className="bg-brand-dark text-white px-6 py-2.5 rounded-md font-semibold text-[13px] transition-colors duration-200 hover:bg-brand-dark2 ml-2 cursor-pointer border-none inline-flex items-center justify-center min-w-[180px] h-[40px] whitespace-nowrap">Sign Up for Early Access</button></li>
-          <li><Link href="#investors" className="bg-brand-dark text-white px-6 py-2.5 rounded-md font-semibold text-[13px] transition-colors duration-200 hover:bg-brand-dark2 ml-2 inline-flex items-center justify-center min-w-[180px] h-[40px]">Invest Now</Link></li>
-        </ul>
-        
-        <button 
-          className="lg:hidden flex flex-col gap-1.5 cursor-pointer relative z-[60] p-2 bg-transparent border-none outline-none" 
-          onClick={toggleMobileMenu}
-          aria-label="Toggle mobile menu"
-        >
-          <span className={`block w-6 h-[2px] bg-brand-ink transition-transform duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-[8px]' : ''}`}></span>
-          <span className={`block w-6 h-[2px] bg-brand-ink transition-opacity duration-300 ${isMobileMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
-          <span className={`block w-6 h-[2px] bg-brand-ink transition-transform duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-[8px]' : ''}`}></span>
-        </button>
-      </div>
+        <div className="max-w-7xl mx-auto px-4 md:px-8 h-[80px] flex items-center justify-between">
 
-      {/* Mobile Menu Dropdown */}
-      <div 
-        className={`lg:hidden fixed top-[80px] left-0 right-0 bg-white/95 backdrop-blur-md transition-all duration-300 flex flex-col overflow-y-auto shadow-xl ${
-          isMobileMenuOpen ? 'max-h-[calc(100vh-80px)] opacity-100 border-b border-brand-border py-8 px-6' : 'max-h-0 opacity-0 pointer-events-none py-0 px-6'
-        }`}
-      >
-        <ul className="flex flex-col gap-5 list-none m-0 p-0 pb-6">
-          <li><Link href="#product" className="text-[18px] font-bold text-brand-ink no-underline block" onClick={closeMobileMenu}>Product</Link></li>
-          <li><Link href="#slm" className="text-[18px] font-bold text-brand-ink no-underline block" onClick={closeMobileMenu}>SLM</Link></li>
-          <li><Link href="#future" className="text-[18px] font-bold text-brand-ink no-underline block" onClick={closeMobileMenu}>Future</Link></li>
-          <li><Link href="#persona" className="text-[18px] font-bold text-brand-ink no-underline block" onClick={closeMobileMenu}>Personas</Link></li>
-          <li><Link href="#ib-challenged" className="text-[18px] font-bold text-brand-ink no-underline block" onClick={closeMobileMenu}>Accessibility</Link></li>
-          <li><Link href="#learn" className="text-[18px] font-bold text-brand-ink no-underline block" onClick={closeMobileMenu}>Learn</Link></li>
-          <li><Link href="#patents" className="text-[18px] font-bold text-brand-ink no-underline block" onClick={closeMobileMenu}>Patents</Link></li>
-          <li className="w-full h-[1px] bg-brand-border my-1"></li>
-          <li><Link href="#market" className="text-[18px] font-bold text-brand-ink no-underline block" onClick={closeMobileMenu}>Market</Link></li>
-          <li><Link href="#team" className="text-[18px] font-bold text-brand-ink no-underline block" onClick={closeMobileMenu}>Team</Link></li>
-          <li className="mt-2"><button onClick={() => { setIsModalOpen(true); closeMobileMenu(); }} className="bg-brand-dark text-white px-6 py-3.5 rounded-md font-semibold text-[16px] flex items-center justify-center w-full cursor-pointer border-none h-[52px]">Sign Up for Early Access</button></li>
-          <li className="mt-2"><Link href="#investors" className="bg-brand-dark text-white px-6 py-3.5 rounded-md font-semibold text-[16px] flex items-center justify-center w-full h-[52px]" onClick={closeMobileMenu}>Invest Now</Link></li>
-        </ul>
-      </div>
-    </nav>
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2.5 text-brand-ink hover:text-brand-ink no-underline" onClick={closeMobileMenu}>
+            <Image src="/navlogo.png" alt="icebrkr logo" width={240} height={200} className="w-auto h-12 md:h-[72px] object-contain" />
+          </Link>
+
+          {/* Desktop nav */}
+          <ul className="hidden lg:flex items-center gap-6 list-none">
+            <li><Link href="/#product"     className="text-[13px] font-medium text-brand-muted no-underline tracking-[0.2px] transition-colors duration-200 hover:text-brand-ink">Product</Link></li>
+            <li><Link href="/#slm"         className="text-[13px] font-medium text-brand-muted no-underline tracking-[0.2px] transition-colors duration-200 hover:text-brand-ink">SLM</Link></li>
+            <li><Link href="/#future"      className="text-[13px] font-medium text-brand-muted no-underline tracking-[0.2px] transition-colors duration-200 hover:text-brand-ink">Future</Link></li>
+            <li><Link href="/#persona"     className="text-[13px] font-medium text-brand-muted no-underline tracking-[0.2px] transition-colors duration-200 hover:text-brand-ink">Personas</Link></li>
+            <li><Link href="/#ib-challenged" className="text-[13px] font-medium text-brand-muted no-underline tracking-[0.2px] transition-colors duration-200 hover:text-brand-ink">Accessibility</Link></li>
+            <li><Link href="/#learn"       className="text-[13px] font-medium text-brand-muted no-underline tracking-[0.2px] transition-colors duration-200 hover:text-brand-ink">Learn</Link></li>
+            <li><Link href="/#patents"     className="text-[13px] font-medium text-brand-muted no-underline tracking-[0.2px] transition-colors duration-200 hover:text-brand-ink">Patents</Link></li>
+
+            {/* ── COMPASS link with accent badge */}
+            <li>
+              <Link
+                href="/compass"
+                className="
+                  relative inline-flex items-center gap-1.5
+                  text-[13px] font-bold no-underline tracking-[0.2px]
+                  text-brand-ink transition-all duration-200
+                  group
+                "
+              >
+                {/* Tri-dot accent */}
+                <span className="flex gap-[3px] items-center">
+                  <span className="w-[5px] h-[5px] rounded-[1px] bg-brand-red   transition-transform duration-300 group-hover:scale-110" />
+                  <span className="w-[5px] h-[5px] rounded-[1px] bg-brand-orange transition-transform duration-300 group-hover:scale-110 delay-[30ms]" />
+                  <span className="w-[5px] h-[5px] rounded-[1px] bg-brand-green  transition-transform duration-300 group-hover:scale-110 delay-[60ms]" />
+                </span>
+                COMPASS
+                {/* Animated underline */}
+                <span className="
+                  absolute -bottom-0.5 left-0 h-[1.5px] w-0
+                  bg-gradient-to-r from-brand-red via-brand-orange to-brand-green
+                  transition-all duration-300 group-hover:w-full rounded-full
+                " />
+              </Link>
+            </li>
+
+            <li className="w-[1px] h-3.5 bg-brand-border mx-1" />
+            <li><Link href="/#market" className="text-[13px] font-medium text-brand-muted no-underline tracking-[0.2px] transition-colors duration-200 hover:text-brand-ink">Market</Link></li>
+            <li><Link href="/#team"   className="text-[13px] font-medium text-brand-muted no-underline tracking-[0.2px] transition-colors duration-200 hover:text-brand-ink">Team</Link></li>
+            <li>
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="bg-brand-dark text-white px-6 py-2.5 rounded-md font-semibold text-[13px] transition-colors duration-200 hover:bg-brand-dark2 ml-2 cursor-pointer border-none inline-flex items-center justify-center min-w-[180px] h-[40px] whitespace-nowrap"
+              >
+                Sign Up for Early Access
+              </button>
+            </li>
+            <li>
+              <Link href="/#investors" className="bg-brand-dark text-white px-6 py-2.5 rounded-md font-semibold text-[13px] transition-colors duration-200 hover:bg-brand-dark2 ml-2 inline-flex items-center justify-center min-w-[180px] h-[40px]">
+                Invest Now
+              </Link>
+            </li>
+          </ul>
+
+          {/* Hamburger */}
+          <button
+            className="lg:hidden flex flex-col gap-1.5 cursor-pointer relative z-[60] p-2 bg-transparent border-none outline-none"
+            onClick={toggleMobileMenu}
+            aria-label="Toggle mobile menu"
+          >
+            <span className={`block w-6 h-[2px] bg-brand-ink transition-transform duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-[8px]' : ''}`} />
+            <span className={`block w-6 h-[2px] bg-brand-ink transition-opacity duration-300 ${isMobileMenuOpen ? 'opacity-0' : 'opacity-100'}`} />
+            <span className={`block w-6 h-[2px] bg-brand-ink transition-transform duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-[8px]' : ''}`} />
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        <div
+          className={`lg:hidden fixed top-[80px] left-0 right-0 bg-white/95 backdrop-blur-md transition-all duration-300 flex flex-col overflow-y-auto shadow-xl ${
+            isMobileMenuOpen
+              ? 'max-h-[calc(100vh-80px)] opacity-100 border-b border-brand-border py-8 px-6'
+              : 'max-h-0 opacity-0 pointer-events-none py-0 px-6'
+          }`}
+        >
+          <ul className="flex flex-col gap-5 list-none m-0 p-0 pb-6">
+            <li><Link href="/#product"       className="text-[18px] font-bold text-brand-ink no-underline block" onClick={closeMobileMenu}>Product</Link></li>
+            <li><Link href="/#slm"           className="text-[18px] font-bold text-brand-ink no-underline block" onClick={closeMobileMenu}>SLM</Link></li>
+            <li><Link href="/#future"        className="text-[18px] font-bold text-brand-ink no-underline block" onClick={closeMobileMenu}>Future</Link></li>
+            <li><Link href="/#persona"       className="text-[18px] font-bold text-brand-ink no-underline block" onClick={closeMobileMenu}>Personas</Link></li>
+            <li><Link href="/#ib-challenged" className="text-[18px] font-bold text-brand-ink no-underline block" onClick={closeMobileMenu}>Accessibility</Link></li>
+            <li><Link href="/#learn"         className="text-[18px] font-bold text-brand-ink no-underline block" onClick={closeMobileMenu}>Learn</Link></li>
+            <li><Link href="/#patents"       className="text-[18px] font-bold text-brand-ink no-underline block" onClick={closeMobileMenu}>Patents</Link></li>
+
+            {/* ── COMPASS mobile item */}
+            <li>
+              <Link
+                href="/compass"
+                onClick={closeMobileMenu}
+                className="flex items-center gap-2 text-[18px] font-bold text-brand-ink no-underline"
+              >
+                <span className="flex gap-[3px]">
+                  <span className="w-[6px] h-[6px] rounded-[1px] bg-brand-red   inline-block" />
+                  <span className="w-[6px] h-[6px] rounded-[1px] bg-brand-orange inline-block" />
+                  <span className="w-[6px] h-[6px] rounded-[1px] bg-brand-green  inline-block" />
+                </span>
+                COMPASS
+                <span className="ml-1 text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full bg-brand-green/10 text-brand-green border border-brand-green/20">
+                  Architecture
+                </span>
+              </Link>
+            </li>
+
+            <li className="w-full h-[1px] bg-brand-border my-1" />
+            <li><Link href="/#market" className="text-[18px] font-bold text-brand-ink no-underline block" onClick={closeMobileMenu}>Market</Link></li>
+            <li><Link href="/#team"   className="text-[18px] font-bold text-brand-ink no-underline block" onClick={closeMobileMenu}>Team</Link></li>
+            <li className="mt-2">
+              <button
+                onClick={() => { setIsModalOpen(true); closeMobileMenu(); }}
+                className="bg-brand-dark text-white px-6 py-3.5 rounded-md font-semibold text-[16px] flex items-center justify-center w-full cursor-pointer border-none h-[52px]"
+              >
+                Sign Up for Early Access
+              </button>
+            </li>
+            <li className="mt-2">
+              <Link href="/#investors" className="bg-brand-dark text-white px-6 py-3.5 rounded-md font-semibold text-[16px] flex items-center justify-center w-full h-[52px]" onClick={closeMobileMenu}>
+                Invest Now
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </nav>
 
       {/* Early Access Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-sm">
-          {/* Gradient border wrapper */}
           <div className="relative max-w-md w-full mx-4 rounded-xl p-[5px] overflow-hidden shadow-2xl gradient-border-wrapper">
-            {/* Spinning gradient border */}
             <div className="gradient-border-spinner" />
-            {/* Inner content */}
             <div className="bg-white rounded-[10px] p-8 relative z-10">
-              <button 
+              <button
                 onClick={() => setIsModalOpen(false)}
                 className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 bg-transparent border-none cursor-pointer p-2 z-20"
               >
@@ -137,42 +204,35 @@ export default function Navbar() {
               </button>
               <h2 className="text-2xl font-bold mb-2 text-brand-ink">Early Access</h2>
               <p className="text-brand-muted mb-6">Join the waitlist for exclusive early access to icebrkr.</p>
-              
+
               <form onSubmit={handleEarlyAccessSubmit} className="flex flex-col gap-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-brand-ink mb-1">Name</label>
-                  <input 
-                    type="text" 
-                    id="name" 
-                    required
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
+                  <input
+                    type="text" id="name" required value={name}
+                    onChange={e => setName(e.target.value)}
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-dark focus:border-transparent text-brand-ink"
                     placeholder="John Doe"
                   />
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-brand-ink mb-1">Email</label>
-                  <input 
-                    type="email" 
-                    id="email" 
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                  <input
+                    type="email" id="email" required value={email}
+                    onChange={e => setEmail(e.target.value)}
                     className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-dark focus:border-transparent text-brand-ink"
                     placeholder="john@example.com"
                   />
                 </div>
-                
+
                 {submitMessage && (
                   <div className={`p-3 rounded-md text-sm ${submitStatus === 'success' ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'}`}>
                     {submitMessage}
                   </div>
                 )}
-                
-                <button 
-                  type="submit" 
-                  disabled={isSubmitting}
+
+                <button
+                  type="submit" disabled={isSubmitting}
                   className="w-full bg-brand-dark text-white py-2.5 rounded-md font-semibold transition-colors duration-200 hover:bg-brand-dark2 disabled:opacity-70 mt-2 border-none cursor-pointer flex justify-center items-center"
                 >
                   {isSubmitting ? 'Submitting...' : 'Sign Up Now'}

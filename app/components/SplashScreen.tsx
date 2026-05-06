@@ -59,7 +59,6 @@ export default function SplashScreen() {
 
     // Rotate the needle shortly after mount
     const angleTimer = setTimeout(() => {
-      const bearings = [45, 90, 135, 180, 225, 270, 315];
       const randomBearing = bearings[Math.floor(Math.random() * bearings.length)] + (Math.random() - 0.5) * 20;
       setAngle(randomBearing);
       playTick();
