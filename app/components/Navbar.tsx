@@ -61,12 +61,17 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 md:px-8 h-[80px] flex items-center justify-between">
 
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 text-brand-ink hover:text-brand-ink no-underline" onClick={closeMobileMenu}>
-            <Image src="/navlogo.png" alt="icebrkr logo" width={240} height={200} className="w-auto h-12 md:h-[72px] object-contain" />
+          <Link href="/" className="flex items-center gap-2 text-brand-ink hover:text-brand-ink no-underline flex-shrink-0 lg:mr-8" onClick={closeMobileMenu}>
+            <div className="flex gap-[3px] mt-1">
+              <span className="w-[6px] h-[6px] rounded-[1.5px] bg-[#E8302A] block" />
+              <span className="w-[6px] h-[6px] rounded-[1.5px] bg-[#F5A623] block" />
+              <span className="w-[6px] h-[6px] rounded-[1.5px] bg-[#27AE60] block" />
+            </div>
+            <div className="text-[28px] font-bold tracking-[-0.5px]">icebrkr</div>
           </Link>
 
           {/* Desktop nav */}
-          <ul className="hidden lg:flex items-center gap-6 list-none">
+          <ul className="hidden lg:flex items-center gap-4 xl:gap-5 list-none ml-auto">
             <li><Link href="/#product"     className="text-[13px] font-medium text-brand-muted no-underline tracking-[0.2px] transition-colors duration-200 hover:text-brand-ink">Product</Link></li>
             <li><Link href="/#slm"         className="text-[13px] font-medium text-brand-muted no-underline tracking-[0.2px] transition-colors duration-200 hover:text-brand-ink">SLM</Link></li>
             <li><Link href="/#future"      className="text-[13px] font-medium text-brand-muted no-underline tracking-[0.2px] transition-colors duration-200 hover:text-brand-ink">Future</Link></li>
@@ -108,13 +113,13 @@ export default function Navbar() {
             <li>
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="bg-brand-dark text-white px-6 py-2.5 rounded-md font-semibold text-[13px] transition-colors duration-200 hover:bg-brand-dark2 ml-2 cursor-pointer border-none inline-flex items-center justify-center min-w-[180px] h-[40px] whitespace-nowrap"
+                className="bg-brand-dark text-white px-5 py-2 rounded-md font-semibold text-[13px] transition-colors duration-200 hover:bg-brand-dark2 cursor-pointer border-none inline-flex items-center justify-center h-[38px] whitespace-nowrap"
               >
                 Sign Up for Early Access
               </button>
             </li>
             <li>
-              <Link href="/#investors" className="bg-brand-dark text-white px-6 py-2.5 rounded-md font-semibold text-[13px] transition-colors duration-200 hover:bg-brand-dark2 ml-2 inline-flex items-center justify-center min-w-[180px] h-[40px]">
+              <Link href="/#investors" className="bg-brand-dark text-white px-5 py-2 rounded-md font-semibold text-[13px] transition-colors duration-200 hover:bg-brand-dark2 inline-flex items-center justify-center h-[38px] whitespace-nowrap">
                 Invest Now
               </Link>
             </li>
