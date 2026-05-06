@@ -417,7 +417,7 @@ export default function CompassPage() {
           Live July 2026
         </div>
       </div>
-      <div style={{ background: '#0F1923', borderBottom: '1px solid rgba(255,255,255,.06)', padding: '12px 40px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', gap: 10 }}>
+      <div className="compass-top-badges" style={{ background: '#0F1923', borderBottom: '1px solid rgba(255,255,255,.06)', padding: '12px 40px', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', gap: 10 }}>
         {[
           ['🛡', 'Zero-Knowledge Architecture'], ['📱', 'On-Device AI Inference'],
           ['✅', 'EU AI Act Compliant'], ['🇨🇭', 'Swiss Infrastructure'],
@@ -620,13 +620,14 @@ export default function CompassPage() {
         .compass-legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 600; color: #475569; cursor: pointer; padding: 5px 10px; border-radius: 6px; transition: background .15s; background: transparent; border: none; font-family: 'DM Sans', sans-serif; }
         .compass-legend-item:hover { background: rgba(0,0,0,.05); }
         .compass-legend-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+        .compass-top-badges { display: flex; }
         .compass-mobile-tabs { display: none; }
         .compass-mobile-panel { display: none; }
         .compass-modal::-webkit-scrollbar { width: 5px; }
         .compass-modal::-webkit-scrollbar-track { background: #F8FAFC; }
         .compass-modal::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 3px; }
         @media (max-width: 1200px) { .compass-main-layout { grid-template-columns: 200px 1fr 200px; padding: 20px 12px; } .compass-wheel-container, .compass-wheel-svg { width: 580px; height: 580px; } }
-        @media (max-width: 960px) { .compass-main-layout { grid-template-columns: 1fr; padding: 16px; } .compass-side-left, .compass-side-right { display: none; } .compass-wheel-container, .compass-wheel-svg { width: min(90vw, 540px); height: min(90vw, 540px); } .compass-mobile-tabs { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 24px; width: 100%; max-width: 540px; } .compass-tab-btn { padding: 8px 16px; border-radius: 100px; font-size: 12px; font-weight: 700; border: 1.5px solid #E2E8F0; background: #fff; color: #475569; cursor: pointer; transition: all .2s; font-family: 'DM Sans', sans-serif; } .compass-tab-btn.active { background: #0F1923; color: #fff; border-color: #0F1923; } .compass-mobile-panel { display: block; width: 100%; max-width: 540px; margin-top: 16px; background: #fff; border-radius: 12px; padding: 16px; border: 1px solid #E8ECF0; } }
+        @media (max-width: 960px) { .compass-top-badges { display: none !important; } .compass-main-layout { grid-template-columns: 1fr; padding: 16px; } .compass-side-left, .compass-side-right { display: none; } .compass-wheel-container, .compass-wheel-svg { width: min(90vw, 540px); height: min(90vw, 540px); } .compass-mobile-tabs { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 24px; width: 100%; max-width: 540px; } .compass-tab-btn { padding: 8px 16px; border-radius: 100px; font-size: 12px; font-weight: 700; border: 1.5px solid #E2E8F0; background: #fff; color: #475569; cursor: pointer; transition: all .2s; font-family: 'DM Sans', sans-serif; } .compass-tab-btn.active { background: #0F1923; color: #fff; border-color: #0F1923; } .compass-mobile-panel { display: block; width: 100%; max-width: 540px; margin-top: 16px; background: #fff; border-radius: 12px; padding: 16px; border: 1px solid #E8ECF0; } }
         @media (max-width: 480px) { .compass-page-header { padding: 14px 16px !important; flex-wrap: wrap; gap: 10px; } .compass-wheel-container, .compass-wheel-svg { width: min(88vw, 380px); height: min(88vw, 380px); } .compass-legend { gap: 6px; } .compass-legend-item { font-size: 10px; padding: 4px 8px; } }
       `}</style>
       </div>
