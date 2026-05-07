@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 
 export default function Footer() {
@@ -28,7 +30,7 @@ export default function Footer() {
           <div>
             <div className="text-[10px] font-bold uppercase tracking-[1px] text-white/40 mb-3.5">Product</div>
             <ul className="list-none flex flex-col gap-2">
-              <li><Link href="#product" className="text-[13px] text-white/50 hover:text-white transition-colors">COMPASS Overview</Link></li>
+              <li><button onClick={() => window.dispatchEvent(new Event('openCompassPopup'))} className="text-[13px] text-white/50 hover:text-white transition-colors border-none bg-transparent cursor-pointer p-0 m-0 text-left font-inherit">COMPASS Overview</button></li>
               <li><Link href="#slm" className="text-[13px] text-white/50 hover:text-white transition-colors">SLM Technology</Link></li>
               <li><Link href="#future" className="text-[13px] text-white/50 hover:text-white transition-colors">Future Features</Link></li>
               <li><Link href="#genz" className="text-[13px] text-white/50 hover:text-white transition-colors">GenZ Persona</Link></li>

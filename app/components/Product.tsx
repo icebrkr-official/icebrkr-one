@@ -63,7 +63,10 @@ export default function Product() {
       <section id="compass" className="py-[100px] bg-brand-bg">
         <div className="max-w-7xl mx-auto px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="bg-brand-dark rounded-2xl p-10 text-center relative overflow-hidden animate-fade-in">
+            <div 
+              onClick={() => setIsCompassOpen(true)} 
+              className="bg-brand-dark rounded-2xl p-10 text-center relative overflow-hidden animate-fade-in cursor-pointer transition-transform duration-300 hover:scale-[1.02] hover:shadow-2xl group"
+            >
               <div className="absolute top-10 left-10 flex flex-col gap-2">
                 <div className="h-1 rounded-[2px] bg-brand-red w-8"></div>
                 <div className="h-1 rounded-[2px] bg-brand-orange w-6"></div>
@@ -74,7 +77,10 @@ export default function Product() {
               <div className="w-16 h-[2px] bg-white/20 mx-auto mb-8"></div>
               <div className="text-2xl font-serif text-white mb-2">Your Data. Your Asset.</div>
               <div className="text-[13px] text-white/50 mb-10">On-device SLM · Zero egress · Swiss servers · EU AI Act compliant</div>
-              <button onClick={() => setIsCompassOpen(true)} className="bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-full px-8 py-3.5 font-bold text-[15px] cursor-pointer transition-all duration-300 transform hover:scale-105">
+              <button 
+                onClick={(e) => { e.stopPropagation(); setIsCompassOpen(true); }} 
+                className="bg-white/10 hover:bg-white/20 group-hover:bg-white/20 text-white border border-white/20 rounded-full px-8 py-3.5 font-bold text-[15px] cursor-pointer transition-all duration-300 transform hover:scale-105"
+              >
                 Explore COMPASS Wheel
               </button>
             </div>
