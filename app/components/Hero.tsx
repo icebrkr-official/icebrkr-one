@@ -171,9 +171,12 @@ export default function Hero() {
           </p>
           
           <div className="flex gap-4 flex-wrap mb-16">
-            <Link href="#product" className="bg-brand-dark text-white px-8 py-3.5 rounded-md font-semibold text-[15px] transition-all duration-150 hover:bg-brand-dark2 hover:-translate-y-[1px] inline-block">
+            <button 
+              onClick={() => { window.dispatchEvent(new Event('openCompassPopup')); }}
+              className="bg-brand-dark text-white px-8 py-3.5 rounded-md font-semibold text-[15px] transition-all duration-150 hover:bg-brand-dark2 hover:-translate-y-[1px] inline-block cursor-pointer border-none"
+            >
               Explore COMPASS
-            </Link>
+            </button>
             <Link href="#investors" className="bg-transparent text-brand-ink px-8 py-3.5 rounded-md font-semibold text-[15px] border-[1.5px] border-brand-border transition-all duration-150 hover:border-brand-ink hover:-translate-y-[1px] inline-block">
               Investor Relations →
             </Link>

@@ -75,7 +75,7 @@ export default function Navbar() {
             <li><Link href="/#learn"       className="text-[13px] font-medium text-brand-muted no-underline tracking-[0.2px] transition-colors duration-200 hover:text-brand-ink">Learn</Link></li>
             <li><Link href="/#patents"     className="text-[13px] font-medium text-brand-muted no-underline tracking-[0.2px] transition-colors duration-200 hover:text-brand-ink">Patents</Link></li>
 
-            <li><Link href="/compass" className="text-[13px] font-medium text-brand-muted no-underline tracking-[0.2px] transition-colors duration-200 hover:text-brand-ink">COMPASS</Link></li>
+            <li><Link href="/#compass" className="text-[13px] font-medium text-brand-muted no-underline tracking-[0.2px] transition-colors duration-200 hover:text-brand-ink">COMPASS</Link></li>
 
             <li className="w-[1px] h-3.5 bg-brand-border mx-1" />
             <li><Link href="/#market" className="text-[13px] font-medium text-brand-muted no-underline tracking-[0.2px] transition-colors duration-200 hover:text-brand-ink">Market</Link></li>
@@ -124,7 +124,7 @@ export default function Navbar() {
             <li><Link href="/#learn"         className="text-[18px] font-bold text-brand-ink no-underline block" onClick={closeMobileMenu}>Learn</Link></li>
             <li><Link href="/#patents"       className="text-[18px] font-bold text-brand-ink no-underline block" onClick={closeMobileMenu}>Patents</Link></li>
 
-            <li><Link href="/compass" className="text-[18px] font-bold text-brand-ink no-underline block" onClick={closeMobileMenu}>COMPASS</Link></li>
+            <li><Link href="/#compass" className="text-[18px] font-bold text-brand-ink no-underline block" onClick={closeMobileMenu}>COMPASS</Link></li>
 
             <li className="w-full h-[1px] bg-brand-border my-1" />
             <li><Link href="/#market" className="text-[18px] font-bold text-brand-ink no-underline block" onClick={closeMobileMenu}>Market</Link></li>

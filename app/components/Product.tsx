@@ -1,3 +1,6 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import {
   Brain,
   HeartPulse,
@@ -11,8 +14,17 @@ import {
 } from 'lucide-react';
 
 import { IconBadge } from './IconBadge';
+import CompassPopup from './CompassPopup';
 
 export default function Product() {
+  const [isCompassOpen, setIsCompassOpen] = useState(false);
+
+  useEffect(() => {
+    const handleOpen = () => setIsCompassOpen(true);
+    window.addEventListener('openCompassPopup', handleOpen);
+    return () => window.removeEventListener('openCompassPopup', handleOpen);
+  }, []);
+
   const modules = [
     { name: 'AIPA', icon: Brain, color: 'red', desc: 'Personal AI Chief of Staff. Proactively manages your life, schedule, priorities, and decisions.' },
     { name: 'IB-Health', icon: HeartPulse, color: 'green', desc: 'Private Wellness Intelligence. Health tracking and insights that never reach a cloud server.' },
@@ -61,7 +73,10 @@ export default function Product() {
               <div className="text-[14px] font-semibold tracking-[2px] uppercase text-brand-orange mb-8">9 Modules · Private AI</div>
               <div className="w-16 h-[2px] bg-white/20 mx-auto mb-8"></div>
               <div className="text-2xl font-serif text-white mb-2">Your Data. Your Asset.</div>
-              <div className="text-[13px] text-white/50">On-device SLM · Zero egress · Swiss servers · EU AI Act compliant</div>
+              <div className="text-[13px] text-white/50 mb-10">On-device SLM · Zero egress · Swiss servers · EU AI Act compliant</div>
+              <button onClick={() => setIsCompassOpen(true)} className="bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-full px-8 py-3.5 font-bold text-[15px] cursor-pointer transition-all duration-300 transform hover:scale-105">
+                Explore COMPASS Wheel
+              </button>
             </div>
             
             <div className="flex flex-col gap-8 animate-fade-in">
@@ -97,6 +112,8 @@ export default function Product() {
           </div>
         </div>
       </section>
+
+      <CompassPopup isOpen={isCompassOpen} onClose={() => setIsCompassOpen(false)} />
     </>
   );
 }
