@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
-import { getSupabaseClient } from '../../lib/supabaseClient';
+import { supabase } from '../../lib/supabaseClient';
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -18,8 +18,6 @@ export default function Navbar() {
     setIsSubmitting(true);
     setSubmitMessage('');
     setSubmitStatus('idle');
-
-    const supabase = getSupabaseClient();
 
     if (!supabase) {
       setSubmitMessage('Early access signup is not configured yet.');
