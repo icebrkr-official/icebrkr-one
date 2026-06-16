@@ -2,7 +2,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
-import { supabase } from '../../lib/supabaseClient';
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -19,23 +18,20 @@ export default function Navbar() {
     setSubmitMessage('');
     setSubmitStatus('idle');
 
-    if (!supabase) {
-      setSubmitMessage('Early access signup is not configured yet.');
-      setSubmitStatus('error');
-      setIsSubmitting(false);
-      return;
-    }
-
     try {
-      const { error } = await supabase
-        .from('early_access')
-        .insert([{ name, email }] as any);
+      const response = await fetch('/api/early-access', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email }),
+      });
 
-      if (error) {
-        if (error.code === '23505') {
+      const data = await response.json();
+
+      if (!response.ok) {
+        if (data.error === 'duplicate_email') {
           setSubmitMessage('This email is already registered for early access.');
         } else {
-          setSubmitMessage(error.message || 'An error occurred. Please try again.');
+          setSubmitMessage(data.message || 'An error occurred. Please try again.');
         }
         setSubmitStatus('error');
       } else {
