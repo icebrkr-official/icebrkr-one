@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>icebrkr — Pick your generation · AI Life OS</title>
+<meta name="description" content="icebrkr adapts to your generation. Privacy-first AI Life OS — on-device, zero-knowledge, never sells a byte.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Lora:ital,wght@0,400;0,600;1,400&family=Special+Elite&family=Orbitron:wght@500;700;900&family=Space+Grotesk:wght@400;500;700&family=Press+Start+2P&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;700&family=Bungee&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --bg:#0d0e12; --bg2:#141620; --surface:#1b1e2b; --text:#f4f4f6; --dim:#a3a7b8; --border:#2a2e40;
+    --a1:#ff5252; --a2:#ffb020; --a3:#22c55e;
+    --fdisplay:'Space Grotesk',sans-serif; --fbody:'Inter',system-ui,sans-serif; --faccent:'Space Grotesk',sans-serif;
+    --radius:16px; --glow:none; --texture:none;
+  }
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:var(--fbody);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  .accent{color:var(--a1)}
+
+  /* ---------- LOGO ---------- */
+  .logo{display:flex;align-items:center;gap:10px;font-family:var(--fdisplay);font-weight:800;font-size:22px;letter-spacing:-.5px}
+  .lights{display:flex;gap:4px}
+  .lights i{width:12px;height:12px;border-radius:3px;display:block}
+  .lights i:nth-child(1){background:#ff5252}.lights i:nth-child(2){background:#ffb020}.lights i:nth-child(3){background:#22c55e}
+
+  /* ================= PICKER (split panels) ================= */
+  #picker{position:fixed;inset:0;z-index:60;background:#0c0d12;color:#f4f4f6;overflow:hidden;font-family:'Space Grotesk',sans-serif}
+  #picker.hide{opacity:0;pointer-events:none;transition:opacity .5s ease}
+  .pick-bar{position:absolute;top:0;left:0;right:0;z-index:12;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 22px}
+  .pick-bar .logo{color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+  .pick-hint{font-family:'Space Grotesk',sans-serif;font-size:12.5px;color:#e7e9f2;background:rgba(10,11,15,.42);border:1px solid rgba(255,255,255,.16);padding:8px 15px;border-radius:100px;backdrop-filter:blur(8px);font-weight:600}
+  .pick-hint b{color:#fff}
+
+  .panels{display:flex;height:100vh;width:100%}
+  .panel{position:relative;flex:1 1 0;min-width:0;cursor:pointer;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:64px 34px 56px;color:var(--pt);background:var(--pbg);transition:flex-grow .5s cubic-bezier(.4,0,.2,1),filter .4s}
+  .panels:hover .panel{filter:saturate(.85) brightness(.94)}
+  .panel:hover,.panel:focus-visible{flex-grow:2.3;filter:none!important}
+  .panel:focus-visible{outline:3px solid #fff;outline-offset:-4px}
+  .panel .bgtex{position:absolute;inset:0;background-image:var(--ptex);background-size:var(--ptexS,auto);opacity:var(--ptexO,1);mix-blend-mode:var(--ptexB,normal);pointer-events:none}
+  .panel .seam{position:absolute;top:0;bottom:0;right:0;width:1px;background:rgba(0,0,0,.15)}
+  .panel>*{position:relative;z-index:2}
+  .p-era{font-family:var(--pf-acc);font-size:12px;letter-spacing:2.5px;text-transform:uppercase;font-weight:700;color:var(--pa);margin-bottom:12px}
+  .p-name{font-family:var(--pf-disp);font-size:clamp(26px,3.4vw,46px);line-height:1.02;letter-spacing:-1px;font-weight:var(--pfw,800);max-width:14ch}
+  .p-years{font-family:var(--pf-body);font-size:14px;opacity:.72;margin-top:8px}
+  .p-reveal{max-height:0;opacity:0;overflow:hidden;transition:max-height .55s cubic-bezier(.4,0,.2,1),opacity .45s ease .05s}
+  .panel:hover .p-reveal,.panel:focus-visible .p-reveal,.panel.open .p-reveal{max-height:440px;opacity:1}
+  .p-swatch{display:flex;gap:7px;margin:20px 0 16px}
+  .p-swatch i{width:28px;height:28px;border-radius:7px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}
+  .p-moments{list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+  .p-moments li{font-family:var(--pf-body);font-size:13.5px;opacity:.92;padding-left:16px;position:relative;white-space:nowrap}
+  .p-moments li::before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--pa)}
+  .p-icons{display:flex;gap:14px;margin-bottom:16px}
+  .p-icons svg{width:26px;height:26px;color:var(--pa)}
+  .p-slang{font-family:var(--pf-slang);font-style:italic;font-size:15px;margin-bottom:22px;opacity:.95}
+  .p-enter{display:inline-flex;align-items:center;gap:8px;font-family:var(--pf-acc);font-weight:700;font-size:14px;background:var(--pa);color:var(--pbtn,#fff);border:none;padding:12px 22px;border-radius:100px;cursor:pointer;transition:transform .2s,box-shadow .2s}
+  .p-enter:hover{transform:translateY(-2px);box-shadow:0 12px 26px -12px var(--pa)}
+
+  .rail{flex:0 0 60px;position:relative;background:#0c0d12;display:flex;align-items:center;justify-content:center;z-index:3}
+  .rail button{width:46px;height:46px;border-radius:50%;border:1px solid #343a52;background:#161925;color:#fff;font-size:24px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .25s,background .2s,border-color .2s;line-height:1}
+  .rail button:hover{transform:scale(1.12) rotate(90deg);background:#20233a;border-color:#fff}
+  .rail .cusp{position:absolute;top:26px;left:50%;transform:translateX(-50%);writing-mode:vertical-rl;font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:#7a7f96;font-weight:700}
+
+  /* ================= MIX MODAL ================= */
+  .modal{position:fixed;inset:0;z-index:80;background:rgba(6,7,11,.72);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:24px}
+  .modal.open{display:flex}
+  .mix-box{width:min(560px,100%);background:#12141d;border:1px solid #2a2e40;border-radius:22px;padding:30px;font-family:'Space Grotesk',sans-serif}
+  .mix-box h3{font-size:22px;letter-spacing:-.5px}
+  .mix-box .sub{color:#9aa0b4;font-size:14px;margin:4px 0 22px}
+  .mix-prev{border-radius:16px;padding:26px 22px;margin-bottom:8px;transition:background .12s linear}
+  .mix-prev .mp-era{font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;opacity:.85}
+  .mix-prev .mp-title{font-size:26px;font-weight:800;letter-spacing:-.5px;line-height:1.1;margin:6px 0 8px}
+  .mix-prev .mp-slang{font-style:italic;font-size:15px;opacity:.9}
+  .mix-ratio{display:flex;justify-content:space-between;font-size:12px;color:#9aa0b4;margin:18px 0 6px;font-weight:600}
+  input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:6px;border-radius:5px;background:#2a2e40;outline:none}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:#fff;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.5)}
+  input[type=range]::-moz-range-thumb{width:22px;height:22px;border:none;border-radius:50%;background:#fff;cursor:pointer}
+  .mix-actions{display:flex;gap:12px;margin-top:24px}
+  .mix-actions button{flex:1;padding:14px;border-radius:12px;border:none;font-weight:700;font-size:15px;cursor:pointer;font-family:inherit}
+  .mix-enter{background:#fff;color:#111}
+  .mix-cancel{background:transparent;border:1px solid #2a2e40!important;color:#c7cbdb}
+
+  /* ================= SITE ================= */
+  #site{display:none}
+  #site.show{display:block;animation:morphin .55s ease}
+  @keyframes morphin{from{opacity:0;transform:scale(.985)}to{opacity:1;transform:none}}
+  body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;background-image:var(--texture);background-size:var(--texSize,auto);opacity:var(--texOpacity,1);mix-blend-mode:var(--texBlend,normal)}
+  #site>*{position:relative;z-index:2}
+
+  nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+  nav .logo{font-family:var(--fdisplay)}
+  .nav-r{display:flex;align-items:center;gap:14px}
+  .btn{padding:11px 20px;border-radius:calc(var(--radius) - 4px);font-weight:700;font-size:14px;cursor:pointer;border:none;font-family:var(--faccent);transition:transform .18s,box-shadow .2s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-primary{background:var(--a1);color:#fff;box-shadow:var(--glow)}
+  .btn-ghost{background:transparent;border:1px solid var(--border);color:var(--text)}
+  .btn-chip{background:var(--surface);border:1px solid var(--border);color:var(--dim);font-size:13px;padding:8px 14px}
+
+  header.hero{padding:70px 0 40px;overflow:hidden}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:var(--faccent);font-size:13px;font-weight:600;color:var(--dim);background:var(--surface);border:1px solid var(--border);padding:7px 14px;border-radius:100px;margin-bottom:22px}
+  .hero h1{font-family:var(--fdisplay);font-size:clamp(38px,5.4vw,64px);line-height:1.02;letter-spacing:var(--dispTrack,-1.5px);font-weight:var(--dispWeight,800)}
+  .hero .sub{color:var(--dim);font-size:18px;max-width:520px;margin:22px 0 30px;font-family:var(--fbody)}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+
+  /* phone */
+  .phone{width:290px;justify-self:center;background:var(--surface);border:1px solid var(--border);border-radius:34px;padding:14px;box-shadow:0 40px 80px -30px rgba(0,0,0,.6),var(--glow)}
+  .phone-scr{background:var(--bg2);border-radius:24px;padding:16px;height:520px;overflow:hidden;display:flex;flex-direction:column;gap:11px}
+  .phone-top{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--dim);margin-bottom:2px}
+  .greet{font-family:var(--fdisplay);font-size:20px;font-weight:700;margin-bottom:4px}
+  .fcard{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:13px 14px;border-left:3px solid var(--fc,var(--a1))}
+  .fcard .fh{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;margin-bottom:5px}
+  .fcard .fh .ft{color:var(--dim);font-weight:500;margin-left:auto;font-size:11px}
+  .fcard .fb{font-size:12.5px;color:var(--dim);line-height:1.45}
+
+  section{padding:64px 0}
+  .stag{font-family:var(--faccent);font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--a1)}
+  .shead{font-family:var(--fdisplay);font-size:clamp(28px,3.6vw,40px);letter-spacing:-.8px;line-height:1.08;margin:10px 0 8px;font-weight:var(--dispWeight,800)}
+  .ssub{color:var(--dim);max-width:600px;font-size:16px}
+
+  .mods{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;margin-top:38px}
+  .mod{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px;transition:transform .18s,border-color .2s,box-shadow .2s;cursor:default}
+  .mod:hover{transform:translateY(-4px);border-color:var(--a1);box-shadow:0 18px 40px -22px var(--a1)}
+  .mod .ic{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:22px;background:color-mix(in srgb,var(--a1) 16%,transparent);margin-bottom:12px}
+  .mod h4{font-family:var(--faccent);font-size:16px;font-weight:700;letter-spacing:-.2px}
+  .mod p{font-size:13px;color:var(--dim);margin-top:4px}
+
+  /* era-artifact icons */
+  .art-icons{display:flex;gap:12px}
+  .art-icons svg{width:26px;height:26px;color:var(--a1);opacity:.9}
+  .hero-artifacts{display:flex;align-items:center;gap:14px;margin-top:26px;flex-wrap:wrap}
+  .art-label{font-family:var(--faccent);font-size:13px;color:var(--dim);font-weight:600}
+  .col .art-icons{margin:2px 0 2px}
+  .col .art-icons svg{width:24px;height:24px;color:var(--cA);opacity:.95}
+
+  /* current state */
+  .state{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:34px}
+  .scard{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px 16px;text-align:center}
+  .scard b{display:block;font-family:var(--fdisplay);font-size:26px;color:var(--a1);letter-spacing:-.5px}
+  .scard span{display:block;font-size:12px;color:var(--dim);margin-top:6px;line-height:1.35}
+
+  /* tour */
+  .tour{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;margin-top:38px}
+  .tour-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;gap:8px;transition:transform .18s,border-color .2s,box-shadow .2s}
+  .tour-card:hover{transform:translateY(-4px);border-color:var(--a1);box-shadow:0 18px 40px -22px var(--a1)}
+  .tour-card .tic{width:44px;height:44px;border-radius:11px;display:flex;align-items:center;justify-content:center;background:color-mix(in srgb,var(--a1) 15%,transparent);color:var(--a1)}
+  .tour-card .tic svg{width:24px;height:24px}
+  .tour-card h4{font-family:var(--faccent);font-size:16px;font-weight:700}
+  .tour-card p{font-size:13px;color:var(--dim);flex:1}
+  .tour-card .open{font-family:var(--faccent);font-weight:700;font-size:13.5px;color:var(--a1);display:flex;align-items:center;gap:6px}
+  .tour-card .kind{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--dim);font-weight:700}
+
+  @media(max-width:820px){.state{grid-template-columns:repeat(3,1fr)}}
+
+  .deep{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:38px}
+  .dcard{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:26px}
+  .dcard .dl{font-family:var(--faccent);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--a3);font-weight:700}
+  .dcard .dn{font-family:var(--fdisplay);font-size:40px;font-weight:800;margin:8px 0 10px;color:var(--a1)}
+  .dcard p{font-size:14px;color:var(--dim)}
+
+  .trust{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+  .trust span{background:var(--surface);border:1px solid var(--border);border-radius:100px;padding:10px 18px;font-size:13.5px;font-weight:600;font-family:var(--faccent)}
+  .trust span b{color:var(--a3)}
+
+  .final{text-align:center;padding:80px 0}
+  .final h2{font-family:var(--fdisplay);font-size:clamp(30px,4.4vw,50px);letter-spacing:-1px;font-weight:var(--dispWeight,800)}
+  .final p{color:var(--dim);margin:14px 0 28px;font-size:17px}
+  .final .hero-cta{justify-content:center}
+
+  footer{border-top:1px solid var(--border);padding:40px 0}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+  footer .ftag{color:var(--dim);font-size:14px;max-width:340px}
+  .contact{display:flex;flex-direction:column;gap:8px;font-size:14px;font-weight:600;font-family:var(--faccent)}
+  .contact a{display:flex;align-items:center;gap:9px;color:var(--text)}
+  .contact a .ci{color:var(--a3)}
+
+  /* toast */
+  .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(120px);background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:14px 20px;z-index:90;box-shadow:0 20px 50px -20px rgba(0,0,0,.6);transition:transform .35s cubic-bezier(.2,.9,.3,1.3);font-family:var(--faccent);font-weight:600;font-size:14px}
+  .toast.show{transform:translateX(-50%) translateY(0)}
+
+  @media(max-width:900px){
+    .panels{flex-direction:column;height:auto;min-height:100vh}
+    .panel{flex:none;min-height:34vh;padding:88px 26px 34px}
+    .panel:hover,.panel:focus-visible{flex-grow:0}
+    .panels:hover .panel{filter:none}
+    .p-reveal{max-height:600px;opacity:1}
+    .p-moments li{white-space:normal}
+    .panel .seam{right:0;left:0;top:auto;bottom:0;width:auto;height:1px}
+    .rail{flex:none;height:56px;width:100%}
+    .rail .cusp{writing-mode:horizontal-tb;top:8px;letter-spacing:1px}
+    .hero .wrap{grid-template-columns:1fr;gap:36px}
+    .phone{order:-1}
+    .deep{grid-template-columns:1fr}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<!-- =============== PICKER =============== -->
+<div id="picker">
+  <div class="pick-bar">
+    <div class="logo"><span class="lights"><i></i><i></i><i></i></span>icebrkr</div>
+    <div class="pick-hint">Pick the world you grew up in — hover to explore · <b>+</b> to mix eras</div>
+  </div>
+  <div class="panels" id="pickGrid"></div>
+</div>
+
+<!-- =============== MIX MODAL =============== -->
+<div class="modal" id="mixModal">
+  <div class="mix-box">
+    <h3 id="mixTitle">On the cusp?</h3>
+    <p class="sub" id="mixSub">Slide to set your blend. The whole site takes on the mix.</p>
+    <div class="mix-prev" id="mixPrev">
+      <div class="mp-era" id="mpEra"></div>
+      <div class="mp-title" id="mpTitle"></div>
+      <div class="mp-slang" id="mpSlang"></div>
+    </div>
+    <div class="mix-ratio"><span id="mixLabL"></span><span id="mixLabR"></span></div>
+    <input type="range" id="mixRange" min="0" max="100" value="50">
+    <div class="mix-actions">
+      <button class="mix-cancel" onclick="closeMix()">Back</button>
+      <button class="mix-enter" id="mixEnterBtn">Enter this mix →</button>
+    </div>
+  </div>
+</div>
+
+<!-- =============== SITE =============== -->
+<div id="site">
+  <nav><div class="wrap">
+    <div class="logo"><span class="lights"><i></i><i></i><i></i></span>icebrkr</div>
+    <div class="nav-r">
+      <button class="btn btn-chip" onclick="backToPicker()">↺ change era</button>
+      <button class="btn btn-primary" data-slot="navCta" onclick="toast('You\'re on the list.')"></button>
+    </div>
+  </div></nav>
+
+  <header class="hero"><div class="wrap">
+    <div>
+      <span class="eyebrow"><span class="lights"><i></i><i></i><i></i></span><span data-slot="eyebrow"></span></span>
+      <h1 data-slot="heroTitle"></h1>
+      <p class="sub" data-slot="heroSub"></p>
+      <div class="hero-cta">
+        <button class="btn btn-primary" data-slot="ctaP" onclick="toast('You\'re on the list.')"></button>
+        <a href="#modules" class="btn btn-ghost" data-slot="ctaS"></a>
+      </div>
+      <div class="artifacts hero-artifacts"><div class="art-icons" id="heroArt"></div><span class="art-label" data-slot="artLabel"></span></div>
+    </div>
+    <div class="phone"><div class="phone-scr">
+      <div class="phone-top"><span>Fri · 9:41</span><span class="lights"><i></i><i></i><i></i></span></div>
+      <div class="greet" data-slot="greet"></div>
+      <div id="feed"></div>
+    </div></div>
+  </div></header>
+
+  <section id="modules"><div class="wrap">
+    <div class="stag">The COMPASS ecosystem</div>
+    <h2 class="shead" data-slot="modTitle"></h2>
+    <p class="ssub" data-slot="modSub"></p>
+    <div class="mods" id="modGrid"></div>
+  </div></section>
+
+  <section><div class="wrap">
+    <div class="stag" data-slot="deepTag"></div>
+    <h2 class="shead" data-slot="deepTitle"></h2>
+    <p class="ssub">We don't compete on foundation models — we build a model of you. On-device, owned by one.</p>
+    <div class="deep">
+      <div class="dcard"><div class="dl">The model</div><div class="dn">&lt;20ms</div><p>An on-device personal model per user, learning only from your consented signals. Zero raw-data egress.</p></div>
+      <div class="dcard"><div class="dl">The moat</div><div class="dn">Week 3</div><p>Day one it's a newborn. By week three it knows you. The moat is the months of you that can't be copied.</p></div>
+      <div class="dcard"><div class="dl">The science</div><div class="dn">n = 1</div><p>A dataset of exactly one. Not personalisation — per-user model science. Impossible to clone.</p></div>
+    </div>
+    <div class="trust">
+      <span><b>✓</b> Zero-knowledge — data stays on device</span>
+      <span><b>✓</b> Swiss-hosted · region-pinned</span>
+      <span><b>✓</b> EU AI Act · GDPR · nLPD ready</span>
+      <span><b>✓</b> Works offline · 40+ languages</span>
+    </div>
+  </div></section>
+
+  <section class="state-sec"><div class="wrap">
+    <div class="stag">Where we are today</div>
+    <h2 class="shead">Building in the open</h2>
+    <div class="state">
+      <div class="scard"><b>Q4 2026</b><span>COMPASS full-stack go-live</span></div>
+      <div class="scard"><b>CHF 5M</b><span>Seed round — open now</span></div>
+      <div class="scard"><b>30+</b><span>Student tech engineers active</span></div>
+      <div class="scard"><b>17</b><span>Patents ready to file</span></div>
+      <div class="scard"><b>6</b><span>Compliance jurisdictions</span></div>
+      <div class="scard"><b>16</b><span>COMPASS modules shipping</span></div>
+    </div>
+  </div></section>
+
+  <section id="tour"><div class="wrap">
+    <div class="stag">Take the tour</div>
+    <h2 class="shead">See the whole company</h2>
+    <p class="ssub">The full picture — product architecture, the deeptech, the market, and the live COMPASS flow.</p>
+    <div class="tour" id="tourGrid"></div>
+  </div></section>
+
+  <section class="final"><div class="wrap">
+    <h2 data-slot="finalTitle"></h2>
+    <p data-slot="finalSub"></p>
+    <div class="hero-cta">
+      <button class="btn btn-primary" data-slot="ctaP2" onclick="toast('You\'re on the list.')"></button>
+      <button class="btn btn-ghost" onclick="backToPicker()">Pick a different era</button>
+    </div>
+  </div></section>
+
+  <footer><div class="wrap">
+    <div>
+      <div class="logo" style="margin-bottom:10px"><span class="lights"><i></i><i></i><i></i></span>icebrkr</div>
+      <p class="ftag" data-slot="footTag"></p>
+    </div>
+    <div class="contact">
+      <a href="https://wa.me/41799114608"><span class="ci">◉</span> +41 79 911 4608</a>
+      <a href="mailto:bennet@icebrkr.one"><span class="ci">✉</span> bennet@icebrkr.one</a>
+      <a href="https://www.icebrkr.one"><span class="ci">🌐</span> www.icebrkr.one</a>
+    </div>
+  </div></footer>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============ SVG ICONS ============ */
+const SVG={
+ vinyl:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.6"/><circle cx="12" cy="12" r=".6" fill="currentColor" stroke="none"/>',
+ phone:'<path d="M15.5 14.5l2.3-1a1 1 0 0 1 1 .2l2 2a1 1 0 0 1 0 1.4l-1 1a2 2 0 0 1-2 .5A17 17 0 0 1 5 5a2 2 0 0 1 .5-2l1-1a1 1 0 0 1 1.4 0l2 2a1 1 0 0 1 .2 1l-1 2.3a1 1 0 0 0 .2 1l3.7 3.7a1 1 0 0 0 1 .2z"/>',
+ tv:'<rect x="3" y="8" width="18" height="12" rx="1.6"/><path d="M8 8 12 4l4 4"/><circle cx="17.3" cy="14" r="1.1"/>',
+ radio:'<rect x="3" y="9" width="18" height="10" rx="1.6"/><circle cx="8" cy="14" r="2.4"/><path d="M13.5 12.5h4M13.5 15.5h4M6 9 17 5"/>',
+ cassette:'<rect x="3" y="6" width="18" height="12" rx="1.6"/><circle cx="9" cy="12" r="1.8"/><circle cx="15" cy="12" r="1.8"/><path d="M7 16.5h10"/>',
+ floppy:'<path d="M5 4h11l3 3v13H5z"/><path d="M8 4v5h7V4M8 20v-6h8v6"/>',
+ pad:'<rect x="3" y="8" width="18" height="8.5" rx="4.25"/><path d="M8 11v3M6.5 12.5h3"/><circle cx="15.5" cy="11.8" r="1"/><circle cx="17.8" cy="14" r="1"/>',
+ disc:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.6"/><path d="M12 3a9 9 0 0 1 6.4 2.6"/>',
+ phone2:'<rect x="7" y="3" width="10" height="18" rx="2.4"/><path d="M10.5 18.5h3"/>',
+ chat:'<path d="M20 14.5a2 2 0 0 1-2 2H9l-4 3.5V6a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2z"/><path d="M8.5 9.5h7M8.5 12.5h4"/>',
+ play:'<circle cx="12" cy="12" r="9"/><path d="M10 8.5 16 12l-6 3.5z" fill="currentColor" stroke="none"/>',
+ hash:'<path d="M9.5 4 7.5 20M16.5 4l-2 16M4.5 9.5h15.5M3.8 14.5h15.5"/>',
+ deck:'<rect x="3" y="4" width="18" height="13" rx="1.6"/><path d="M9 21h6M12 17v4"/>',
+ arch:'<rect x="3" y="4" width="6" height="6" rx="1"/><rect x="15" y="4" width="6" height="6" rx="1"/><rect x="9" y="14" width="6" height="6" rx="1"/><path d="M6 10v2a2 2 0 0 0 2 2h1M18 10v2a2 2 0 0 1-2 2h-1"/>',
+ chip:'<rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/>',
+ flow:'<rect x="3" y="9" width="6" height="6" rx="1"/><rect x="15" y="9" width="6" height="6" rx="1"/><path d="M9 12h6M13 10l2 2-2 2"/>',
+ grid:'<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>'
+};
+const icon=n=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${SVG[n]||''}</svg>`;
+const ERA_ICONS={analog:['vinyl','phone','tv','radio'],neon:['cassette','floppy','pad','disc'],feed:['phone2','chat','play','hash']};
+
+/* ============ TOUR LINKS (set to your hosted paths) ============ */
+const LINKS={
+ deck:'assets/icebrkr_pitch_deck.pdf',
+ architecture:'assets/icebrkr_COMPASS_Architecture.pdf',
+ deeptech:'assets/icebrkr_Deeptech_Investor_Slide.pdf',
+ flow:'compass-flow.html',
+ hub:'aipa-hub.html'
+};
+const TOUR=[
+ ['deck','Pitch deck','The full story — problem, solution, market, roadmap.','PDF','deck'],
+ ['arch','COMPASS architecture','AIPA entry point, dual-path routing, consent-gated modules.','PDF','architecture'],
+ ['chip','Deeptech brief','<20ms on-device, Week 3, n=1 — the model of you.','PDF','deeptech'],
+ ['flow','COMPASS flow','Walk a live request through the 16-module system.','Interactive','flow'],
+ ['grid','AIPA hub','The AI Life OS interface — every module in one place.','Interactive','hub']
+];
+
+/* ============ MODULES (shared, styled per era) ============ */
+const MODULES=[
+ ["AIPA Core","🧭","Your AI chief of staff — the one entry point"],
+ ["IB Connect","💬","Gen-bridge messaging across every age"],
+ ["IB Vault","🔒","Encrypted docs behind a consent gate"],
+ ["IB Health","❤️","Private wellness that never leaves your phone"],
+ ["IB Map","🗺️","Private navigation, no location selling"],
+ ["IB Fridge","🥗","Nutrition AI from what's in your kitchen"],
+ ["IB Closet","👗","AI style from your own wardrobe"],
+ ["IB Home","🏠","Local AI for a smarter home"],
+ ["IB Bud","💰","Money management & budgeting"],
+ ["IB Career","🎯","Voice-first career guidance"],
+ ["IB Skill","🎓","Learn skills from photos & videos"],
+ ["IB Learn","📚","Your patient educational assistant"],
+ ["IB Travel","✈️","Travel planning, start to finish"],
+ ["IB Astro","🔮","Astrological insights, just for fun"],
+ ["IB Art","🎨","A private creative studio"],
+ ["Journal AI","📓","Private journaling that stays yours"],
+ ["IB Pay","💳","Payments, on your terms"],
+ ["IB Wallet","👛","One wallet, fully local"],
+ ["IB Scan","📸","Scan & digitise anything"],
+ ["IB Mandi","🛒","A fair local marketplace"],
+ ["IB Dream","🌙","Make sense of your dreams"],
+ ["IB Share","🤝","15% of revenue back to the community"]
+];
+
+/* ============ GENERATION THEMES ============ */
+const GEN={
+ analog:{
+   id:'analog', era:'The Analog Years', name:'Boomers & before',
+   yrs:'Silent + Boomers · pre-1965', pickTag:'Post-war optimism, vinyl, and the moon.',
+   palette:['#F3ECD9','#E0A82E','#6B7A3A','#C5561F','#7A4A2B'],
+   events:['Moon landing, 1969','Woodstock & the Beatles','Colour TV arrives at home'],
+   fashion:'Bell-bottoms, tweed, mustard-&-avocado kitchens, chrome diners.',
+   slang:'"Groovy." "Far out." "The bee\'s knees."', slangFont:"'Special Elite',monospace",
+   colors:{bg:'#F3ECD9',bg2:'#EBE2CC',surface:'#F8F3E4',text:'#2B2622',dim:'#6E6355',border:'#D9CDB0',a1:'#C5561F',a2:'#E0A82E',a3:'#6B7A3A'},
+   fonts:{display:"'DM Serif Display',serif",body:"'Lora',serif",accent:"'Special Elite',monospace"},
+   disp:{track:'-.5px',weight:'400'}, glow:'none',
+   texture:"radial-gradient(rgba(122,74,43,.18) 1px,transparent 1.4px)", texSize:'11px 11px', texOpacity:'.5', texBlend:'multiply',
+   copy:{
+     navCta:'Join the list', eyebrow:'A quieter kind of clever',
+     heroTitle:'Your day,<br>all squared away.',
+     heroSub:"AIPA is your proactive assistant — it lines up your day and keeps it in one tidy feed. No app-hopping, no fuss, and not one byte sold.",
+     ctaP:'Sign me up →', ctaS:'Take a gander', greet:'Well, hello there 👋',
+     feed:[['📻','Morning briefing','now','Leave in 12 minutes — roads are clear as a bell.'],['☎️','Call reminder','8 min','Ring your granddaughter back — she left word at half past nine.'],['🗞️','Letter ready','20 min','Your reply to the Hendersons is typed up and ready to post.']],
+     modTitle:'One tidy toolbox', modSub:'Everything in one place — and it stays on your device.',
+     deepTag:'The deeptech layer', deepTitle:'A model built just for you',
+     finalTitle:'Ready to get squared away?', finalSub:'Join the list. Be first through the door.',
+     artLabel:'For the record-player generation.', footTag:'Groovy tech that never sells you out.'
+   }
+ },
+ neon:{
+   id:'neon', era:'The Neon Years', name:'Gen X & Millennials',
+   yrs:'Gen X + Millennials · 1965–1996', pickTag:'MTV, dial-up, LAN parties, Y2K chrome.',
+   palette:['#0B0B12','#FF2E9A','#21E6FF','#8A5CFF','#C9D2E3'],
+   events:['MTV launches, 1981','The Web goes public, 1991','Grunge, Tamagotchi, Y2K'],
+   fashion:'Neon windbreakers, grunge flannel, frosted tips, holographic everything.',
+   slang:'"Rad." "As if." "Da bomb."', slangFont:"'Orbitron',sans-serif",
+   colors:{bg:'#0B0B12',bg2:'#12121e',surface:'#181828',text:'#F2F3FB',dim:'#9aa0c4',border:'#2a2b45',a1:'#FF2E9A',a2:'#21E6FF',a3:'#8A5CFF'},
+   fonts:{display:"'Orbitron',sans-serif",body:"'Space Grotesk',sans-serif",accent:"'Space Grotesk',sans-serif"},
+   disp:{track:'-1px',weight:'800'}, glow:'0 0 30px -6px rgba(255,46,154,.55)',
+   texture:"repeating-linear-gradient(0deg,rgba(33,230,255,.05) 0 1px,transparent 1px 3px),linear-gradient(90deg,rgba(138,92,255,.05) 1px,transparent 1px)", texSize:'auto,40px 40px', texOpacity:'1', texBlend:'screen',
+   copy:{
+     navCta:'Get on the list', eyebrow:'Powered by on-device AI',
+     heroTitle:'Your whole day.<br>No app-hopping. As if.',
+     heroSub:"AIPA lines up your day in one feed and actually gets you. Private by design, on-device, zero data theft. Totally.",
+     ctaP:'Hook me up →', ctaS:'Peep the demo', greet:'Sup 🤙',
+     feed:[['⚡','Leave now','now',"Traffic's building on the 101 — bounce in 8 or you're toast."],['💾','Draft saved','5 min',"Reply to Sarah's proposal is queued up. Da bomb."],['🎧','Mixtape ready','12 min','Focus playlist loaded for your 2pm grind session.']],
+     modTitle:'The whole stack. No filler.', modSub:"Every module, on-device. As if we'd upload your life.",
+     deepTag:'The deeptech layer', deepTitle:'A model that knows you — not the cloud',
+     finalTitle:'Ready to jack in?', finalSub:'Get on the list before it drops.',
+     artLabel:'For the mixtape generation.', footTag:'All that — minus the data theft.'
+   }
+ },
+ feed:{
+   id:'feed', era:'The Feed Years', name:'Gen Z & Alphas',
+   yrs:'Gen Z + Alpha · 1997–now', pickTag:"TikTok, memes, AI, brainrot. it's giving future.",
+   palette:['#F7F7F5','#A8C3A0','#C9B8FF','#FF6B6B','#C6FF3D'],
+   events:['Smartphone-native from birth','TikTok + the creator economy','The AI boom, fr fr'],
+   fashion:"gorpcore, cottagecore, 'that girl' neutrals, Y2K revival, hyperpop.",
+   slang:'"rizz." "no cap." "it\'s giving."', slangFont:"'Bricolage Grotesque',sans-serif",
+   colors:{bg:'#F7F7F5',bg2:'#EFEFEC',surface:'#FFFFFF',text:'#14151A',dim:'#6a6d78',border:'#E2E2DC',a1:'#FF6B6B',a2:'#C6FF3D',a3:'#8B7BD8'},
+   fonts:{display:"'Bricolage Grotesque',sans-serif",body:"'Inter',sans-serif",accent:"'Space Grotesk',sans-serif"},
+   disp:{track:'-1.5px',weight:'800'}, glow:'0 14px 40px -18px rgba(255,107,107,.5)',
+   texture:"radial-gradient(600px 300px at 10% 0%,rgba(201,184,255,.35),transparent),radial-gradient(500px 300px at 100% 20%,rgba(198,255,61,.25),transparent)", texSize:'auto', texOpacity:'1', texBlend:'normal',
+   copy:{
+     navCta:'lock in', eyebrow:'privacy-first · on-device',
+     heroTitle:'your day, fr fr.<br>no app-switching. it just ate.',
+     heroSub:"AIPA runs your whole day in one feed and it's lowkey bussin. privacy-first, on-device, we don't sell a single byte. no cap.",
+     ctaP:'lock me in →', ctaS:"show me (it's giving)", greet:'hey bestie 👋',
+     feed:[['🚨','leave now bestie','now',"traffic's cooked on the 101. dip in 8 or you're late, no cap."],['✨','draft\'s ready','5 min','reply to sarah is done and it ate. just hit send.'],['🎧','focus mode','12 min','study playlist queued for your 2pm lock-in. based.']],
+     modTitle:"the whole ecosystem. it's giving everything.", modSub:"every module runs on-device. we're not delulu about your privacy.",
+     deepTag:'the deeptech layer', deepTitle:'a model of you. built different.',
+     finalTitle:'ready to lock in?', finalSub:'join the list before it blows up.',
+     artLabel:'for the group-chat generation.', footTag:"privacy-first AI that's actually bussin."
+   }
+ }
+};
+const ORDER=['analog','neon','feed'];
+const CUSP={ 'analog_neon':'Gen Jones', 'neon_feed':'Zillennial' };
+
+/* ============ COLOR BLEND ============ */
+const h2r=h=>{h=h.replace('#','');return[parseInt(h.slice(0,2),16),parseInt(h.slice(2,4),16),parseInt(h.slice(4,6),16)]};
+const r2h=a=>'#'+a.map(x=>Math.round(x).toString(16).padStart(2,'0')).join('');
+const mixHex=(a,b,t)=>{const A=h2r(a),B=h2r(b);return r2h([0,1,2].map(i=>A[i]+(B[i]-A[i])*t))};
+function blendColors(ca,cb,t){const o={};for(const k in ca)o[k]=mixHex(ca[k],cb[k],t);return o;}
+
+/* ============ APPLY THEME ============ */
+function setVars(c,f,disp,glow,tex){
+  const r=document.documentElement.style;
+  for(const k in c) r.setProperty('--'+k,c[k]);
+  r.setProperty('--fdisplay',f.display);r.setProperty('--fbody',f.body);r.setProperty('--faccent',f.accent);
+  r.setProperty('--dispTrack',disp.track);r.setProperty('--dispWeight',disp.weight);
+  r.setProperty('--glow',glow);
+  r.setProperty('--texture',tex.texture);r.setProperty('--texSize',tex.texSize);
+  r.setProperty('--texOpacity',tex.texOpacity);r.setProperty('--texBlend',tex.texBlend);
+  document.body.style.setProperty('background-size',tex.texSize);
+}
+function fillCopy(copy){
+  document.querySelectorAll('[data-slot]').forEach(el=>{
+    const k=el.dataset.slot;
+    if(k==='ctaP2'){el.innerHTML=copy.ctaP;return;}
+    if(copy[k]!==undefined) el.innerHTML=copy[k];
+  });
+  // feed
+  const f=document.getElementById('feed');f.innerHTML='';
+  const acc=['var(--a1)','var(--a2)','var(--a3)'];
+  copy.feed.forEach((it,i)=>{
+    f.insertAdjacentHTML('beforeend',
+     `<div class="fcard" style="--fc:${acc[i%3]}"><div class="fh"><span>${it[0]}</span>${it[1]}<span class="ft">${it[2]}</span></div><div class="fb">${it[3]}</div></div>`);
+  });
+}
+function buildModules(){
+  const g=document.getElementById('modGrid');g.innerHTML='';
+  const acc=['var(--a1)','var(--a2)','var(--a3)'];
+  MODULES.forEach((m,i)=>{
+    g.insertAdjacentHTML('beforeend',
+     `<div class="mod" style="--a1:${acc[i%3]}"><div class="ic">${m[1]}</div><h4>${m[0]}</h4><p>${m[2]}</p></div>`);
+  });
+}
+function renderHeroArt(gid){
+  document.getElementById('heroArt').innerHTML=(ERA_ICONS[gid]||[]).map(icon).join('');
+}
+function buildTour(){
+  const t=document.getElementById('tourGrid');if(!t)return;t.innerHTML='';
+  TOUR.forEach(([ic,title,desc,kind,key])=>{
+    t.insertAdjacentHTML('beforeend',
+     `<a class="tour-card" href="${LINKS[key]}" target="_blank" rel="noopener">
+        <div class="tic">${icon(ic)}</div>
+        <div class="kind">${kind}</div>
+        <h4>${title}</h4><p>${desc}</p>
+        <span class="open">Open →</span>
+      </a>`);
+  });
+}
+function applyGen(g){
+  setVars(g.colors,g.fonts,g.disp,g.glow,{texture:g.texture,texSize:g.texSize,texOpacity:g.texOpacity,texBlend:g.texBlend});
+  fillCopy(g.copy);
+}
+function enter(gid){
+  applyGen(GEN[gid]);
+  buildModules();renderHeroArt(gid);buildTour();
+  document.getElementById('picker').classList.add('hide');
+  const site=document.getElementById('site');site.classList.add('show');
+  window.scrollTo(0,0);
+  setTimeout(()=>document.getElementById('picker').style.display='none',520);
+}
+function backToPicker(){
+  const p=document.getElementById('picker');p.style.display='';requestAnimationFrame(()=>p.classList.remove('hide'));
+  document.getElementById('site').classList.remove('show');
+  window.scrollTo(0,0);
+}
+
+/* ============ MIX ============ */
+let mixA,mixB;
+function openMix(aid,bid){
+  mixA=GEN[aid];mixB=GEN[bid];
+  document.getElementById('mixModal').classList.add('open');
+  document.getElementById('mixTitle').textContent='On the cusp? Meet the '+CUSP[aid+'_'+bid]+'.';
+  document.getElementById('mixSub').textContent='Slide to set your blend of '+mixA.name+' and '+mixB.name+'. The whole site takes the mix.';
+  document.getElementById('mixLabL').textContent=mixA.name;
+  document.getElementById('mixLabR').textContent=mixB.name;
+  const rng=document.getElementById('mixRange');rng.value=50;updateMix();
+  rng.oninput=updateMix;
+  document.getElementById('mixEnterBtn').onclick=enterMix;
+}
+function closeMix(){document.getElementById('mixModal').classList.remove('open');}
+function currentMix(){
+  const t=document.getElementById('mixRange').value/100;
+  const colors=blendColors(mixA.colors,mixB.colors,t);
+  const dom=t<0.5?mixA:mixB;
+  return {t,colors,dom};
+}
+function updateMix(){
+  const {t,colors,dom}=currentMix();
+  const p=document.getElementById('mixPrev');
+  p.style.background=colors.surface;p.style.color=colors.text;p.style.border='1px solid '+colors.border;
+  const eA=Math.round((1-t)*100),eB=100-eA;
+  document.getElementById('mpEra').textContent=eA+'% '+mixA.name+'  ·  '+eB+'% '+mixB.name;
+  document.getElementById('mpEra').style.color=colors.a1;
+  document.getElementById('mpTitle').innerHTML=dom.copy.heroTitle;
+  document.getElementById('mpTitle').style.fontFamily=dom.fonts.display;
+  document.getElementById('mpSlang').textContent=dom.slang;
+  document.getElementById('mpSlang').style.fontFamily=dom.slangFont;
+}
+function enterMix(){
+  const {t,colors,dom}=currentMix();
+  const tex={texture:dom.texture,texSize:dom.texSize,texOpacity:dom.texOpacity,texBlend:dom.texBlend};
+  setVars(colors,dom.fonts,dom.disp,dom.glow,tex);
+  fillCopy(dom.copy);buildModules();renderHeroArt(dom.id);buildTour();
+  closeMix();
+  document.getElementById('picker').classList.add('hide');
+  document.getElementById('site').classList.add('show');window.scrollTo(0,0);
+  setTimeout(()=>document.getElementById('picker').style.display='none',520);
+}
+
+/* ============ BUILD PICKER ============ */
+const PBG={
+ analog:'linear-gradient(155deg,#F3ECD9 0%,#E9D8B6 55%,#DFC698 100%)',
+ neon:'radial-gradient(70% 55% at 88% 100%,rgba(33,230,255,.30),transparent),radial-gradient(65% 55% at 8% 88%,rgba(255,46,154,.32),transparent),radial-gradient(135% 120% at 22% -12%,#1d1338 0%,#0B0B12 62%)',
+ feed:'radial-gradient(58% 48% at 92% 12%,rgba(255,107,107,.22),transparent),radial-gradient(50% 45% at 4% 96%,rgba(198,255,61,.28),transparent),linear-gradient(160deg,#FFFFFF 0%,#F1EEFF 52%,#E9F6D7 100%)'
+};
+const PBTN={analog:'#fff',neon:'#fff',feed:'#fff'};
+function buildPicker(){
+  const grid=document.getElementById('pickGrid');grid.innerHTML='';
+  ORDER.forEach((gid,i)=>{
+    const g=GEN[gid],c=g.colors;
+    const sw=g.palette.map(x=>`<i style="background:${x}"></i>`).join('');
+    const ev=g.events.map(e=>`<li>${e}</li>`).join('');
+    const ic=(ERA_ICONS[gid]||[]).map(icon).join('');
+    const st=`--pbg:${PBG[gid]};--pt:${c.text};--pa:${c.a1};--pbtn:${PBTN[gid]};`
+      +`--pf-disp:${g.fonts.display};--pf-body:${g.fonts.body};--pf-acc:${g.fonts.accent};--pf-slang:${g.slangFont};--pfw:${g.disp.weight};`
+      +`--ptex:${g.texture};--ptexS:${g.texSize};--ptexO:${g.texOpacity};--ptexB:${g.texBlend}`;
+    grid.insertAdjacentHTML('beforeend',
+     `<div class="panel" style="${st}" tabindex="0" role="button" aria-label="Enter ${g.era}"
+        onclick="enter('${gid}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();enter('${gid}')}">
+        <div class="bgtex"></div><div class="seam"></div>
+        <div class="p-era">${g.era}</div>
+        <div class="p-name">${g.name}</div>
+        <div class="p-years">${g.yrs}</div>
+        <div class="p-reveal">
+          <div class="p-swatch">${sw}</div>
+          <ul class="p-moments">${ev}</ul>
+          <div class="p-icons">${ic}</div>
+          <div class="p-slang">${g.slang}</div>
+          <button class="p-enter" onclick="event.stopPropagation();enter('${gid}')">Enter this era →</button>
+        </div>
+     </div>`);
+    if(i<ORDER.length-1){
+      const nid=ORDER[i+1];
+      grid.insertAdjacentHTML('beforeend',
+       `<div class="rail"><div class="cusp">${CUSP[gid+'_'+nid]}</div>
+          <button aria-label="Mix ${g.name} and ${GEN[nid].name}" onclick="openMix('${gid}','${nid}')">+</button></div>`);
+    }
+  });
+}
+
+/* ============ TOAST ============ */
+let tT;
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(tT);tT=setTimeout(()=>t.classList.remove('show'),2600);}
+
+buildPicker();
+document.getElementById('mixModal').addEventListener('click',e=>{if(e.target.id==='mixModal')closeMix();});
+</script>
+</body>
+</html>

@@ -260,7 +260,7 @@ export default function Hero() {
                 Get Early Access
               </button>
               <Link 
-                href="#product"
+                href="/how-it-works"
                 className="bg-transparent hover:bg-gray-50 text-brand-ink px-8 py-3.5 rounded-full font-semibold text-[15px] border border-brand-ink transition-all duration-200 hover:-translate-y-[0.5px] inline-flex items-center justify-center"
               >
                 See How It Works
