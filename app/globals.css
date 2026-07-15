@@ -14,6 +14,29 @@
   --color-brand-accent-light: #F0F4F8;
   --font-sans: var(--font-dm-sans), 'DM Sans', ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-dm-serif-display), 'DM Serif Display', ui-serif, Georgia, serif;
+
+  --animate-float-urgent: float-urgent 6s ease-in-out infinite;
+  --animate-float-ontrack: float-ontrack 7s ease-in-out infinite;
+  --animate-float-important: float-important 5s ease-in-out infinite;
+  --animate-radar-wave: radar-wave 8s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+
+  @keyframes float-urgent {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-10px) scale(1.02); }
+  }
+  @keyframes float-ontrack {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-14px) scale(1.02); }
+  }
+  @keyframes float-important {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-8px) scale(1.02); }
+  }
+  @keyframes radar-wave {
+    0% { transform: scale(0.6); opacity: 0; }
+    10% { opacity: 0.35; }
+    100% { transform: scale(1.6); opacity: 0; }
+  }
 }
 
 @layer base {
