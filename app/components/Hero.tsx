@@ -692,8 +692,8 @@ export default function Hero() {
             {/* FLOATING GLASSMORPHIC BADGES */}
             
             {/* Urgent Badge (Top-Left) */}
-            <div className="absolute top-[18%] left-[-4%] md:left-[-6%] z-20 animate-float-urgent bg-white/70 backdrop-blur-md border border-white/80 rounded-[20px] p-2 flex items-center justify-center shadow-lg hover:scale-105 transition-all duration-300">
-              <div className="flex items-center gap-2 border border-red-100 bg-white/90 rounded-full py-1.5 px-4">
+            <div className="absolute top-[18%] left-[calc(50%-150px)] md:left-[calc(50%-220px)] z-20 animate-float-urgent bg-[#E8302A]/10 backdrop-blur-md border border-white/30 rounded-[20px] p-1.5 flex items-center justify-center shadow-[0_8px_32px_0_rgba(232,48,42,0.15)] cursor-pointer transition-all duration-300 badge-jelly">
+              <div className="flex items-center gap-2 border border-white/40 bg-white/35 backdrop-blur-sm rounded-full py-1.5 px-4">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E8302A] opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[#E8302A]"></span>
@@ -703,8 +703,8 @@ export default function Hero() {
             </div>
             
             {/* On Track Badge (Middle-Right) */}
-            <div className="absolute top-[46%] right-[-4%] md:right-[-6%] z-20 animate-float-ontrack bg-white/70 backdrop-blur-md border border-white/80 rounded-[20px] p-2 flex items-center justify-center shadow-lg hover:scale-105 transition-all duration-300">
-              <div className="flex items-center gap-2 border border-green-100 bg-white/90 rounded-full py-1.5 px-4">
+            <div className="absolute top-[46%] right-[calc(50%-150px)] md:right-[calc(50%-220px)] z-20 animate-float-ontrack bg-[#27AE60]/10 backdrop-blur-md border border-white/30 rounded-[20px] p-1.5 flex items-center justify-center shadow-[0_8px_32px_0_rgba(39,174,96,0.15)] cursor-pointer transition-all duration-300 badge-jelly">
+              <div className="flex items-center gap-2 border border-white/40 bg-white/35 backdrop-blur-sm rounded-full py-1.5 px-4">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#27AE60] opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[#27AE60]"></span>
@@ -714,8 +714,8 @@ export default function Hero() {
             </div>
             
             {/* Important Badge (Bottom-Left) */}
-            <div className="absolute bottom-[20%] left-[-4%] md:left-[-6%] z-20 animate-float-important bg-white/70 backdrop-blur-md border border-white/80 rounded-[20px] p-2 flex items-center justify-center shadow-lg hover:scale-105 transition-all duration-300">
-              <div className="flex items-center gap-2 border border-orange-100 bg-white/90 rounded-full py-1.5 px-4">
+            <div className="absolute bottom-[20%] left-[calc(50%-150px)] md:left-[calc(50%-220px)] z-20 animate-float-important bg-[#F5A623]/10 backdrop-blur-md border border-white/30 rounded-[20px] p-1.5 flex items-center justify-center shadow-[0_8px_32px_0_rgba(245,166,35,0.15)] cursor-pointer transition-all duration-300 badge-jelly">
+              <div className="flex items-center gap-2 border border-white/40 bg-white/35 backdrop-blur-sm rounded-full py-1.5 px-4">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#F5A623] opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[#F5A623]"></span>
