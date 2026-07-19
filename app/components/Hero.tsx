@@ -248,7 +248,7 @@ export default function Hero() {
             
             {/* Subtitle */}
             <p className="text-base md:text-lg text-brand-muted leading-relaxed mb-8 max-w-[500px]">
-              ICEBRKR organizes everything across your apps and shows you only what matters - <span className="font-semibold text-brand-ink">ranked by priority</span>
+              icebrkr organizes everything across your apps and shows you only what matters - <span className="font-semibold text-brand-ink">ranked by priority</span>
             </p>
             
             {/* Action Buttons */}
