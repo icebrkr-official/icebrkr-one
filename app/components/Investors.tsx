@@ -1,21 +1,21 @@
 export default function Investors() {
   return (
-    <section id="investors" className="py-[100px] bg-brand-dark text-white">
-      <div className="max-w-7xl mx-auto px-8">
-        <div className="animate-fade-in text-center mb-16">
-          <div className="inline-flex items-center gap-2 text-[12px] font-bold tracking-[1px] uppercase text-brand-orange bg-[#F5A623]/10 px-4 py-2 rounded-[100px] border border-[#F5A623]/20 mb-6">
+    <section id="investors" className="py-16 md:py-24 bg-brand-dark text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+        <div className="animate-fade-in text-center mb-10 md:mb-16">
+          <div className="inline-flex items-center gap-2 text-[11px] sm:text-[12px] font-bold tracking-[1px] uppercase text-brand-orange bg-[#F5A623]/10 px-3.5 py-2 rounded-[100px] border border-[#F5A623]/20 mb-6">
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" fill="#F5A623" opacity="0.3"/><circle cx="6" cy="6" r="2" fill="#F5A623"/></svg>
             Seed Round Open — Close Before 1 July 2026
           </div>
-          <h2 className="font-serif text-[clamp(40px,6vw,64px)] leading-[1.1] tracking-[-1px] text-white mb-6">CHF 5,000,000<br />Seed Round</h2>
-          <p className="text-[18px] text-white/60 leading-[1.6] max-w-[640px] mx-auto">The only privacy-compliant AI Life OS architecturally ready for EU AI Act enforcement. Investable now, before the compliance window closes.</p>
+          <h2 className="font-serif text-[clamp(32px,6vw,64px)] leading-[1.1] tracking-[-1px] text-white mb-6">CHF 5,000,000<br />Seed Round</h2>
+          <p className="text-[15px] sm:text-[18px] text-white/60 leading-[1.6] max-w-[640px] mx-auto">The only privacy-compliant AI Life OS architecturally ready for EU AI Act enforcement. Investable now, before the compliance window closes.</p>
         </div>
 
-        <div className="bg-gradient-to-r from-brand-red via-brand-orange to-brand-green p-[2px] rounded-[12px] max-w-[800px] mx-auto mb-16 animate-fade-in">
-          <div className="bg-brand-dark rounded-[10px] p-10 text-center">
+        <div className="bg-gradient-to-r from-brand-red via-brand-orange to-brand-green p-[2px] rounded-[12px] max-w-[800px] mx-auto mb-10 md:mb-16 animate-fade-in">
+          <div className="bg-brand-dark rounded-[10px] p-6 sm:p-10 text-center">
             <div className="text-[11px] font-bold tracking-[1px] uppercase text-white/50 mb-3">Potential Return — Seed to Seed 1</div>
-            <div className="font-serif text-[64px] tracking-[-2px] text-white mb-3 leading-none">40×</div>
-            <div className="text-[13px] text-white/60">Seed (CHF 7.5M pre-money) → Seed 1 (CHF 50M pre-money) · 18 months · Milestone-gated</div>
+            <div className="font-serif text-[48px] sm:text-[64px] tracking-[-2px] text-white mb-3 leading-none">40×</div>
+            <div className="text-[12px] sm:text-[13px] text-white/60">Seed (CHF 7.5M pre-money) → Seed 1 (CHF 50M pre-money) · 18 months · Milestone-gated</div>
           </div>
         </div>
 

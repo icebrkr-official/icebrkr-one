@@ -1,15 +1,15 @@
 export default function Market() {
   return (
-    <section id="market" className="py-[100px] bg-white">
-      <div className="max-w-7xl mx-auto px-8">
+    <section id="market" className="py-16 md:py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         <div className="animate-fade-in">
           <span className="inline-block text-[11px] font-bold uppercase tracking-[1.5px] text-brand-red mb-4">Market Opportunity</span>
-          <h2 className="font-serif text-[clamp(32px,4vw,48px)] leading-[1.15] tracking-[-0.5px] mb-5 text-brand-ink">A $407B market forming.<br />Zero dominant privacy players.</h2>
-          <p className="text-[17px] text-brand-muted leading-[1.7] max-w-[560px]">The privacy-first segment of the personal AI OS market is investable now — no compliant platform exists at scale.</p>
+          <h2 className="font-serif text-[clamp(28px,4vw,48px)] leading-[1.15] tracking-[-0.5px] mb-5 text-brand-ink">A $407B market forming.<br className="hidden sm:inline" />Zero dominant privacy players.</h2>
+          <p className="text-[15px] sm:text-[17px] text-brand-muted leading-[1.7] max-w-[560px]">The privacy-first segment of the personal AI OS market is investable now — no compliant platform exists at scale.</p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-14">
-          <div className="border border-brand-border rounded-[10px] p-9 text-center animate-fade-in">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10 md:mt-14">
+          <div className="border border-brand-border rounded-[10px] p-6 sm:p-9 text-center animate-fade-in">
             <div className="font-serif text-5xl tracking-[-2px] mb-2 text-brand-red">$407B</div>
             <div className="text-[14px] font-semibold text-brand-ink mb-2">Personal AI OS Global TAM by 2030</div>
             <div className="text-xs text-brand-muted">IMARC Group 2024</div>

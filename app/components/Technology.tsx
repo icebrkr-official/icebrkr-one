@@ -1,15 +1,15 @@
 export default function Technology() {
   return (
-    <section id="technology" className="py-[100px] bg-brand-bg">
-      <div className="max-w-7xl mx-auto px-8">
+    <section id="technology" className="py-16 md:py-24 bg-brand-bg">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         <div className="animate-fade-in">
           <span className="inline-block text-[11px] font-bold uppercase tracking-[1.5px] text-brand-red mb-4">Architecture</span>
-          <h2 className="font-serif text-[clamp(32px,4vw,48px)] leading-[1.15] tracking-[-0.5px] mb-5 text-brand-ink">An architectural moat<br />US-cloud AI cannot replicate</h2>
-          <p className="text-[17px] text-brand-muted leading-[1.7] max-w-[560px]">On-device SLM inference and privately-owned Swiss servers create a structural compliance advantage that competitors cannot acquire by policy alone.</p>
+          <h2 className="font-serif text-[clamp(28px,4vw,48px)] leading-[1.15] tracking-[-0.5px] mb-5 text-brand-ink">An architectural moat<br className="hidden sm:inline" />US-cloud AI cannot replicate</h2>
+          <p className="text-[15px] sm:text-[17px] text-brand-muted leading-[1.7] max-w-[560px]">On-device SLM inference and privately-owned Swiss servers create a structural compliance advantage that competitors cannot acquire by policy alone.</p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mt-14 items-center">
-          <div className="bg-brand-dark rounded-xl p-10 text-white relative overflow-hidden animate-fade-in">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 mt-10 md:mt-14 items-center">
+          <div className="bg-brand-dark rounded-xl p-6 sm:p-10 text-white relative overflow-hidden animate-fade-in">
             <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-brand-red via-brand-orange to-brand-green"></div>
             
             <div className="text-[11px] font-bold tracking-[1.5px] uppercase text-brand-orange mb-5">On-Device SLM Stack</div>

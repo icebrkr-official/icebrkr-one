@@ -79,20 +79,20 @@ export default function Team() {
   };
 
   return (
-    <section id="team" className="py-[100px] bg-white relative">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="team" className="py-16 md:py-24 bg-white relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Leadership & Ecosystem Overview */}
         <div className="animate-fade-in">
           <span className="inline-block text-[11px] font-bold uppercase tracking-[1.5px] text-brand-red mb-4">Leadership</span>
-          <h2 className="font-serif text-[clamp(32px,4vw,48px)] leading-[1.15] tracking-[-0.5px] mb-5 text-brand-ink">
-            25 years of enterprise AI.<br />One fixed deadline.
+          <h2 className="font-serif text-[clamp(28px,4vw,48px)] leading-[1.15] tracking-[-0.5px] mb-5 text-brand-ink">
+            25 years of enterprise AI.<br className="hidden sm:inline" />One fixed deadline.
           </h2>
-          <p className="text-[17px] text-brand-muted leading-[1.7] max-w-[560px]">
+          <p className="text-[15px] sm:text-[17px] text-brand-muted leading-[1.7] max-w-[560px]">
             Bennet&apos;s track record at Roche, Swiss Re, and UNHCR is the guarantee behind every milestone commitment.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 mt-14 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-20 mt-10 md:mt-14 items-start">
           <div className="border border-brand-border rounded-xl overflow-hidden animate-fade-in shadow-sm hover:shadow-md transition-shadow">
             <div className="bg-brand-dark p-10 text-center relative">
               <div className="w-24 h-24 rounded-full bg-gradient-to-br from-brand-red to-brand-orange mx-auto mb-4 flex items-center justify-center font-serif text-[32px] text-white shadow-inner">
@@ -376,37 +376,37 @@ export default function Team() {
 
       {/* Member Details Modal */}
       {activeMember && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm animate-fade-in" onClick={closeModal}>
           <div
-            className="relative w-full max-w-2xl bg-white rounded-3xl overflow-hidden shadow-2xl border border-brand-border flex flex-col md:flex-row max-h-[90vh]"
+            className="relative w-full max-w-2xl bg-white rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border border-brand-border flex flex-col md:flex-row max-h-[85vh] md:max-h-[90vh]"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close button */}
             <button
               onClick={closeModal}
-              className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-black/40 text-white hover:bg-black/70 flex items-center justify-center transition-colors"
+              className="absolute top-3 right-3 z-20 w-8 h-8 md:w-9 md:h-9 rounded-full bg-black/50 text-white hover:bg-black/80 flex items-center justify-center transition-colors cursor-pointer"
             >
-              <X className="w-5 h-5" />
+              <X className="w-4 h-4 md:w-5 md:h-5" />
             </button>
 
             {/* Navigation buttons */}
             <button
               onClick={() => navigateModal('prev')}
-              className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/80 hover:bg-white text-brand-ink shadow-md flex items-center justify-center transition-colors"
+              className="absolute left-2 md:left-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 md:w-10 md:h-10 rounded-full bg-white/90 hover:bg-white text-brand-ink shadow-md flex items-center justify-center transition-colors cursor-pointer"
               title="Previous member"
             >
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronLeft className="w-4 h-4 md:w-5 md:h-5" />
             </button>
             <button
               onClick={() => navigateModal('next')}
-              className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/80 hover:bg-white text-brand-ink shadow-md flex items-center justify-center transition-colors"
+              className="absolute right-2 md:right-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 md:w-10 md:h-10 rounded-full bg-white/90 hover:bg-white text-brand-ink shadow-md flex items-center justify-center transition-colors cursor-pointer"
               title="Next member"
             >
-              <ChevronRight className="w-5 h-5" />
+              <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
             </button>
 
             {/* Left side Image */}
-            <div className="w-full md:w-1/2 bg-slate-100 relative min-h-[260px] md:min-h-[400px] flex items-center justify-center">
+            <div className="w-full md:w-1/2 bg-slate-100 relative h-[220px] sm:h-[260px] md:h-auto md:min-h-[400px] flex items-center justify-center shrink-0">
               {activeMember.photo && !imgErrors[activeMember.id] ? (
                 <img
                   src={activeMember.photo}
@@ -414,17 +414,17 @@ export default function Team() {
                   className="w-full h-full object-cover object-center"
                 />
               ) : (
-                <div className="w-32 h-32 rounded-full bg-gradient-to-tr from-brand-red to-brand-orange text-white font-serif font-bold text-4xl flex items-center justify-center shadow-lg">
+                <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full bg-gradient-to-tr from-brand-red to-brand-orange text-white font-serif font-bold text-3xl sm:text-4xl flex items-center justify-center shadow-lg">
                   {getInitials(activeMember.name)}
                 </div>
               )}
             </div>
 
             {/* Right side Info */}
-            <div className="w-full md:w-1/2 p-6 md:p-8 flex flex-col justify-between overflow-y-auto max-h-[50vh] md:max-h-[90vh]">
+            <div className="w-full md:w-1/2 p-5 sm:p-6 md:p-8 flex flex-col justify-between overflow-y-auto max-h-[55vh] md:max-h-[90vh]">
               <div>
                 <span
-                  className={`inline-block px-3 py-1 rounded-full text-[11px] font-semibold border mb-3 ${
+                  className={`inline-block px-3 py-1 rounded-full text-[10px] sm:text-[11px] font-semibold border mb-2.5 ${
                     CATEGORY_COLORS[activeMember.category]?.bg || 'bg-gray-100'
                   } ${CATEGORY_COLORS[activeMember.category]?.text || 'text-gray-700'} ${
                     CATEGORY_COLORS[activeMember.category]?.border || 'border-gray-200'
@@ -433,20 +433,20 @@ export default function Team() {
                   {activeMember.category}
                 </span>
 
-                <h3 className="font-bold text-[24px] text-brand-ink leading-tight">{activeMember.name}</h3>
-                <div className="text-[14px] font-medium text-brand-red mt-1">{activeMember.role}</div>
+                <h3 className="font-bold text-[20px] sm:text-[24px] text-brand-ink leading-tight">{activeMember.name}</h3>
+                <div className="text-[13px] sm:text-[14px] font-medium text-brand-red mt-1">{activeMember.role}</div>
 
                 {activeMember.story && (
-                  <div className="mt-6 p-4 bg-brand-bg border border-brand-border/60 rounded-2xl relative">
-                    <Quote className="w-6 h-6 text-brand-orange/40 absolute -top-3 left-4 bg-white px-1" />
-                    <div className="text-[14px] text-brand-ink leading-relaxed italic pt-1">
+                  <div className="mt-4 sm:mt-6 p-3.5 sm:p-4 bg-brand-bg border border-brand-border/60 rounded-2xl relative">
+                    <Quote className="w-5 h-5 text-brand-orange/40 absolute -top-2.5 left-4 bg-white px-1" />
+                    <div className="text-[13px] sm:text-[14px] text-brand-ink leading-relaxed italic pt-1">
                       &ldquo;{activeMember.story}&rdquo;
                     </div>
                   </div>
                 )}
               </div>
 
-              <div className="mt-8 pt-4 border-t border-brand-border/40 flex items-center justify-between text-[12px] text-brand-muted">
+              <div className="mt-6 sm:mt-8 pt-3 border-t border-brand-border/40 flex items-center justify-between text-[11px] sm:text-[12px] text-brand-muted">
                 <span>Icebrkr Core Team</span>
                 <span className="font-semibold text-brand-ink">Geneva · SRM Cohort</span>
               </div>
