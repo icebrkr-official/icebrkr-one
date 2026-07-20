@@ -39,17 +39,17 @@ export default function Product() {
 
   return (
     <>
-      <section id="product" className="py-[100px] bg-white">
-        <div className="max-w-7xl mx-auto px-8">
+      <section id="product" className="py-16 md:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="animate-fade-in">
             <span className="inline-block text-[11px] font-bold uppercase tracking-[1.5px] text-brand-red mb-4">COMPASS — 9 Modules</span>
             <h2 className="font-serif text-[clamp(32px,4vw,48px)] leading-[1.15] tracking-[-0.5px] mb-5 text-brand-ink">Your complete AI Life OS.<br />Zero cloud. Zero egress.</h2>
             <p className="text-[17px] text-brand-muted leading-[1.7] max-w-[560px]">Nine AI modules unified in one zero-knowledge intelligence layer — your data never leaves your device.</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-14">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 md:mt-14">
             {modules.map((m, i) => (
-              <div key={i} className="border border-brand-border rounded-[10px] p-7 relative overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] animate-fade-in">
+              <div key={i} className="border border-brand-border rounded-[10px] p-6 sm:p-7 relative overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] animate-fade-in">
                 <div className={`absolute top-0 left-0 right-0 h-[3px] bg-brand-${m.color === 'dark' ? 'dark' : m.color}`}></div>
                 <IconBadge icon={m.icon} tone={m.color} className="mb-4" />
                 <div className="font-bold text-[16px] text-brand-ink mb-1.5">{m.name}</div>
@@ -60,12 +60,12 @@ export default function Product() {
         </div>
       </section>
 
-      <section id="compass" className="py-[100px] bg-brand-bg">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <section id="compass" className="py-16 md:py-24 bg-brand-bg">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div 
               onClick={() => setIsCompassOpen(true)} 
-              className="bg-brand-dark rounded-2xl p-10 text-center relative overflow-hidden animate-fade-in cursor-pointer transition-transform duration-300 hover:scale-[1.02] hover:shadow-2xl group"
+              className="bg-brand-dark rounded-2xl p-6 sm:p-10 text-center relative overflow-hidden animate-fade-in cursor-pointer transition-transform duration-300 hover:scale-[1.02] hover:shadow-2xl group"
             >
               <div className="absolute top-10 left-10 flex flex-col gap-2">
                 <div className="h-1 rounded-[2px] bg-brand-red w-8"></div>

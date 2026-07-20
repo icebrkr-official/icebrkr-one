@@ -252,16 +252,16 @@ export default function Hero() {
             </p>
             
             {/* Action Buttons */}
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4 w-full sm:w-auto">
               <button 
                 onClick={() => { window.dispatchEvent(new Event('openEarlyAccess')); }}
-                className="bg-brand-dark hover:bg-brand-dark2 text-white px-8 py-3.5 rounded-full font-semibold text-[15px] transition-all duration-200 hover:-translate-y-[0.5px] cursor-pointer shadow-md hover:shadow-lg inline-flex items-center justify-center border-none"
+                className="bg-brand-dark hover:bg-brand-dark2 text-white px-8 py-3.5 rounded-full font-semibold text-[15px] transition-all duration-200 hover:-translate-y-[0.5px] cursor-pointer shadow-md hover:shadow-lg inline-flex items-center justify-center border-none w-full sm:w-auto"
               >
                 Get Early Access
               </button>
               <Link 
                 href="/how-it-works"
-                className="bg-transparent hover:bg-gray-50 text-brand-ink px-8 py-3.5 rounded-full font-semibold text-[15px] border border-brand-ink transition-all duration-200 hover:-translate-y-[0.5px] inline-flex items-center justify-center"
+                className="bg-transparent hover:bg-gray-50 text-brand-ink px-8 py-3.5 rounded-full font-semibold text-[15px] border border-brand-ink transition-all duration-200 hover:-translate-y-[0.5px] inline-flex items-center justify-center w-full sm:w-auto"
               >
                 See How It Works
               </Link>

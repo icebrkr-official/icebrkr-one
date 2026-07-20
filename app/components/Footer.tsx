@@ -28,28 +28,25 @@ export default function Footer() {
           </div>
           
           <div>
-            <div className="text-[10px] font-bold uppercase tracking-[1px] text-white/40 mb-3.5">Product</div>
+            <div className="text-[10px] font-bold uppercase tracking-[1px] text-white/40 mb-3.5">Product & Tech</div>
             <ul className="list-none flex flex-col gap-2">
-              <li><button onClick={() => window.dispatchEvent(new Event('openCompassPopup'))} className="text-[13px] text-white/50 hover:text-white transition-colors border-none bg-transparent cursor-pointer p-0 m-0 text-left font-inherit">COMPASS Overview</button></li>
-              <li><Link href="#slm" className="text-[13px] text-white/50 hover:text-white transition-colors">SLM Technology</Link></li>
-              <li><Link href="#future" className="text-[13px] text-white/50 hover:text-white transition-colors">Future Features</Link></li>
-              <li><Link href="#genz" className="text-[13px] text-white/50 hover:text-white transition-colors">GenZ Persona</Link></li>
-              <li><Link href="#traveller" className="text-[13px] text-white/50 hover:text-white transition-colors">Traveller Persona</Link></li>
-              <li><Link href="#ib-challenged" className="text-[13px] text-white/50 hover:text-white transition-colors">IB Challenged</Link></li>
-              <li><Link href="#learn" className="text-[13px] text-white/50 hover:text-white transition-colors">Learn</Link></li>
-              <li><Link href="#patents" className="text-[13px] text-white/50 hover:text-white transition-colors">Patents & IP</Link></li>
+              <li><Link href="/product" className="text-[13px] text-white/50 hover:text-white transition-colors">Product Ecosystem</Link></li>
+              <li><Link href="/technology" className="text-[13px] text-white/50 hover:text-white transition-colors">SLM Technology</Link></li>
+              <li><Link href="/how-it-works" className="text-[13px] text-white/50 hover:text-white transition-colors">How It Works</Link></li>
+              <li><Link href="/product#persona" className="text-[13px] text-white/50 hover:text-white transition-colors">Personas</Link></li>
+              <li><Link href="/product#ib-challenged" className="text-[13px] text-white/50 hover:text-white transition-colors">Accessibility</Link></li>
+              <li><Link href="/product#learn" className="text-[13px] text-white/50 hover:text-white transition-colors">Learn</Link></li>
             </ul>
           </div>
           
           <div>
-            <div className="text-[10px] font-bold uppercase tracking-[1px] text-white/40 mb-3.5">Company</div>
+            <div className="text-[10px] font-bold uppercase tracking-[1px] text-white/40 mb-3.5">Company & Team</div>
             <ul className="list-none flex flex-col gap-2">
-              <li><Link href="#situation" className="text-[13px] text-white/50 hover:text-white transition-colors">The Problem</Link></li>
-              <li><Link href="#market" className="text-[13px] text-white/50 hover:text-white transition-colors">Market</Link></li>
-              <li><Link href="#roadmap" className="text-[13px] text-white/50 hover:text-white transition-colors">Roadmap</Link></li>
-              <li><Link href="#team" className="text-[13px] text-white/50 hover:text-white transition-colors">Team</Link></li>
-              <li><Link href="#investors" className="text-[13px] text-white/50 hover:text-white transition-colors">Investors</Link></li>
-              <li><Link href="#contact" className="text-[13px] text-white/50 hover:text-white transition-colors">Contact</Link></li>
+              <li><Link href="/team" className="text-[13px] text-white/50 hover:text-white transition-colors">Team & Founders</Link></li>
+              <li><Link href="/investors" className="text-[13px] text-white/50 hover:text-white transition-colors">Investors & IP</Link></li>
+              <li><Link href="/investors#patents" className="text-[13px] text-white/50 hover:text-white transition-colors">Patents & IP</Link></li>
+              <li><Link href="/investors#market" className="text-[13px] text-white/50 hover:text-white transition-colors">Market Strategy</Link></li>
+              <li><Link href="/investors#roadmap" className="text-[13px] text-white/50 hover:text-white transition-colors">Roadmap</Link></li>
             </ul>
           </div>
           
@@ -58,7 +55,7 @@ export default function Footer() {
             <ul className="list-none flex flex-col gap-2">
               <li><a href="mailto:invest@icebrkr.one" className="text-[13px] text-white/50 hover:text-white transition-colors">invest@icebrkr.one</a></li>
               <li><a href="mailto:genz@icebrkr.one" className="text-[13px] text-white/50 hover:text-white transition-colors">genz@icebrkr.one</a></li>
-              <li><Link href="#investors" className="text-[13px] text-white/50 hover:text-white transition-colors">Seed Round →</Link></li>
+              <li><Link href="/investors" className="text-[13px] text-white/50 hover:text-white transition-colors">Seed Round →</Link></li>
               <li><a href="https://app.icebrkr.one" target="_blank" rel="noopener noreferrer" className="text-[13px] text-white/50 hover:text-white transition-colors">App (Jul 2026)</a></li>
             </ul>
           </div>

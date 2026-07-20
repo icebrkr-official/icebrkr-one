@@ -1,14 +1,14 @@
 export default function Roadmap() {
   return (
-    <section id="roadmap" className="py-[100px] bg-brand-bg">
-      <div className="max-w-7xl mx-auto px-8">
+    <section id="roadmap" className="py-16 md:py-24 bg-brand-bg">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         <div className="animate-fade-in">
           <span className="inline-block text-[11px] font-bold uppercase tracking-[1.5px] text-brand-red mb-4">Execution</span>
-          <h2 className="font-serif text-[clamp(32px,4vw,48px)] leading-[1.15] tracking-[-0.5px] mb-5 text-brand-ink">Every gate is contractually locked</h2>
-          <p className="text-[17px] text-brand-muted leading-[1.7] max-w-[560px]">19 engineers. 18 languages. Six compliance jurisdictions. One fixed deadline. July 2026 is contractually committed with Technomark.</p>
+          <h2 className="font-serif text-[clamp(28px,4vw,48px)] leading-[1.15] tracking-[-0.5px] mb-5 text-brand-ink">Every gate is contractually locked</h2>
+          <p className="text-[15px] sm:text-[17px] text-brand-muted leading-[1.7] max-w-[560px]">19 engineers. 18 languages. Six compliance jurisdictions. One fixed deadline. July 2026 is contractually committed with Technomark.</p>
         </div>
         
-        <div className="mt-14 grid grid-cols-2 md:grid-cols-6 gap-y-12 md:gap-y-0 relative md:before:content-[''] md:before:absolute md:before:top-5 md:before:left-[8%] md:before:right-[8%] md:before:h-[2px] md:before:bg-brand-border animate-fade-in">
+        <div className="mt-10 md:mt-14 grid grid-cols-2 md:grid-cols-6 gap-y-8 md:gap-y-0 relative md:before:content-[''] md:before:absolute md:before:top-5 md:before:left-[8%] md:before:right-[8%] md:before:h-[2px] md:before:bg-brand-border animate-fade-in">
           
           <div className="text-center relative md:pt-12">
             <div className="hidden md:block absolute top-3 left-1/2 -translate-x-1/2 w-[18px] h-[18px] rounded-full border-2 border-brand-green bg-brand-green"></div>
