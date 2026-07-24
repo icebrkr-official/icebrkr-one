@@ -209,14 +209,14 @@ export default function Hero() {
   };
 
   return (
-    <section id="home" className="pt-32 pb-24 md:pt-40 md:pb-32 bg-white relative overflow-hidden min-h-[600px] flex items-center">
+    <section id="home" className="py-2 lg:py-4 bg-white relative overflow-hidden flex items-center w-full my-auto">
       <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
           
           {/* Left Column: Heading, Subtitle, Buttons */}
           <div className="lg:col-span-6 flex flex-col items-start text-left animate-fade-in">
             {/* Launching Soon & Ratings */}
-            <div className="flex items-center gap-4 flex-wrap mb-8">
+            <div className="flex items-center gap-4 flex-wrap mb-4 lg:mb-6">
               {/* Launching Soon Pill */}
               <div className="border border-brand-ink rounded-full px-5 py-1.5 text-xs font-semibold text-brand-ink tracking-wide">
                 Launching Soon
@@ -241,18 +241,18 @@ export default function Hero() {
             </div>
             
             {/* Main Headline */}
-            <h1 className="text-[clamp(36px,5vw,56px)] font-bold tracking-tight leading-[1.15] text-brand-ink mb-6 font-sans">
+            <h1 className="text-[clamp(32px,4.5vw,52px)] font-bold tracking-tight leading-[1.12] text-brand-ink mb-4 lg:mb-5 font-sans">
               <span className="text-[#E8302A]">Stop</span> switching apps.<br />
               <span className="text-[#27AE60]">Start</span> living your day.
             </h1>
             
             {/* Subtitle */}
-            <p className="text-base md:text-lg text-brand-muted leading-relaxed mb-8 max-w-[500px]">
+            <p className="text-sm md:text-base text-brand-muted leading-relaxed mb-6 lg:mb-7 max-w-[500px]">
               icebrkr organizes everything across your apps and shows you only what matters - <span className="font-semibold text-brand-ink">ranked by priority</span>
             </p>
             
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4 w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
               <button 
                 onClick={() => { window.dispatchEvent(new Event('openEarlyAccess')); }}
                 className="bg-brand-dark hover:bg-brand-dark2 text-white px-8 py-3.5 rounded-full font-semibold text-[15px] transition-all duration-200 hover:-translate-y-[0.5px] cursor-pointer shadow-md hover:shadow-lg inline-flex items-center justify-center border-none w-full sm:w-auto"
@@ -269,7 +269,7 @@ export default function Hero() {
           </div>
           
           {/* Right Column: Phone Mockup & Glass Badges */}
-          <div className="lg:col-span-6 relative flex justify-center items-center h-[580px] lg:h-[650px] animate-fade-in overflow-visible">
+          <div className="lg:col-span-6 relative flex justify-center items-center h-[460px] lg:h-[520px] animate-fade-in overflow-visible">
             
             {/* Glowing Gradient Multi-Ring Orbits Background */}
             <div className="absolute inset-0 -z-10 flex items-center justify-center pointer-events-none overflow-visible select-none">
@@ -350,7 +350,7 @@ export default function Hero() {
                 transition: 'transform 0.15s ease-out',
                 transformStyle: 'preserve-3d',
               }}
-              className={`w-[280px] h-[550px] border-[10px] border-brand-dark rounded-[44px] shadow-2xl relative overflow-hidden flex flex-col z-10 select-none cursor-pointer transition-colors duration-500 ${activeScreen === 0 ? 'bg-white' : 'bg-[#0C1017]'}`}
+              className={`w-[260px] h-[480px] border-[8px] border-brand-dark rounded-[40px] shadow-2xl relative overflow-hidden flex flex-col z-10 select-none cursor-pointer transition-colors duration-500 ${activeScreen === 0 ? 'bg-white' : 'bg-[#0C1017]'}`}
             >
               {/* Dynamic Island */}
               <div className="absolute top-3.5 left-1/2 -translate-x-1/2 w-24 h-5.5 bg-black rounded-full z-30 flex items-center justify-between px-3">

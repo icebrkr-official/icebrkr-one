@@ -23,7 +23,7 @@ export default function Footer() {
               Created in Switzerland<br />
               Developed in Switzerland · India · Nepal<br />
               Privacy by architecture · Live July 2026<br />
-              Swiss Entity · nLPD + GDPR + EU AI Act Compliant
+              India Entity · Built on EU AI privacy guidelines - NLPD_GDPR certified
             </div>
           </div>
           
@@ -53,8 +53,9 @@ export default function Footer() {
           <div>
             <div className="text-[10px] font-bold uppercase tracking-[1px] text-white/40 mb-3.5">Contact</div>
             <ul className="list-none flex flex-col gap-2">
+              <li><a href="mailto:info@icebrkr.one" className="text-[13px] text-white/50 hover:text-white transition-colors">info@icebrkr.one</a></li>
               <li><a href="mailto:invest@icebrkr.one" className="text-[13px] text-white/50 hover:text-white transition-colors">invest@icebrkr.one</a></li>
-              <li><a href="mailto:genz@icebrkr.one" className="text-[13px] text-white/50 hover:text-white transition-colors">genz@icebrkr.one</a></li>
+              <li><a href="mailto:social@icebrkr.one" className="text-[13px] text-white/50 hover:text-white transition-colors">social@icebrkr.one</a></li>
               <li><Link href="/investors" className="text-[13px] text-white/50 hover:text-white transition-colors">Seed Round →</Link></li>
               <li><a href="https://app.icebrkr.one" target="_blank" rel="noopener noreferrer" className="text-[13px] text-white/50 hover:text-white transition-colors">App (Jul 2026)</a></li>
             </ul>
@@ -63,7 +64,7 @@ export default function Footer() {
         
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="text-[11px] text-white/40 text-center md:text-left leading-relaxed">
-            © 2026 icebrkr. All rights reserved. Swiss entity incorporated. Patent-pending UBTS filed Dec 2025. Confidential.
+            © 2026 icebrkr. All rights reserved. India entity incorporated. Patent-pending UBTS filed Dec 2025. Confidential.
           </div>
           <div className="flex gap-2 text-[16px]">
             <span>🇨🇭</span>

@@ -48,22 +48,7 @@ const ERA_ICONS: Record<string, string[]> = {
   feed: ["phone2", "chat", "play", "hash"]
 };
 
-// ============ TOUR LINKS ============
-const LINKS = {
-  deck: "assets/icebrkr_pitch_deck.pdf",
-  architecture: "assets/icebrkr_COMPASS_Architecture.pdf",
-  deeptech: "assets/icebrkr_Deeptech_Investor_Slide.pdf",
-  flow: "compass-flow.html",
-  hub: "aipa-hub.html"
-};
 
-const TOUR = [
-  ["deck", "Pitch deck", "The full story — problem, solution, market, roadmap.", "PDF", "deck"],
-  ["arch", "COMPASS architecture", "AIPA entry point, dual-path routing, consent-gated modules.", "PDF", "architecture"],
-  ["chip", "Deeptech brief", "<20ms on-device, Week 3, n=1 — the model of you.", "PDF", "deeptech"],
-  ["flow", "COMPASS flow", "Walk a live request through the 16-module system.", "Interactive", "flow"],
-  ["grid", "AIPA hub", "The AI Life OS interface — every module in one place.", "Interactive", "hub"]
-];
 
 // ============ MODULES ============
 const MODULES = [
@@ -156,21 +141,21 @@ const GEN: Record<string, any> = {
     name: "Gen X & Millennials",
     yrs: "Gen X + Millennials · 1965–1996",
     pickTag: "MTV, dial-up, LAN parties, Y2K chrome.",
-    palette: ["#0B0B12", "#FF2E9A", "#21E6FF", "#8A5CFF", "#C9D2E3"],
+    palette: ["#FFFFFF", "#E8302A", "#0EA5E9", "#8B5CF6", "#10B981"],
     events: ["MTV launches, 1981", "The Web goes public, 1991", "Grunge, Tamagotchi, Y2K"],
     fashion: "Neon windbreakers, grunge flannel, frosted tips, holographic everything.",
     slang: '"Rad." "As if." "Da bomb."',
     slangFont: "'Orbitron', sans-serif",
     colors: {
-      bg: "#0B0B12",
-      bg2: "#12121e",
-      surface: "#181828",
-      text: "#F2F3FB",
-      dim: "#9aa0c4",
-      border: "#2a2b45",
-      a1: "#FF2E9A",
-      a2: "#21E6FF",
-      a3: "#8A5CFF"
+      bg: "#F8FAFC",
+      bg2: "#F1F5F9",
+      surface: "#FFFFFF",
+      text: "#0F172A",
+      dim: "#475569",
+      border: "#E2E8F0",
+      a1: "#E8302A",
+      a2: "#0EA5E9",
+      a3: "#7C3AED"
     },
     fonts: {
       display: "'Orbitron', sans-serif",
@@ -178,12 +163,12 @@ const GEN: Record<string, any> = {
       accent: "'Space Grotesk', sans-serif"
     },
     disp: { track: "-1px", weight: "800" },
-    glow: "0 0 30px -6px rgba(255,46,154,0.55)",
+    glow: "0 14px 40px -18px rgba(232,48,42,0.35)",
     texture:
-      "repeating-linear-gradient(0deg, rgba(33,230,255,0.05) 0 1px, transparent 1px 3px), linear-gradient(90deg, rgba(138,92,255,0.05) 1px, transparent 1px)",
-    texSize: "auto, 40px 40px",
+      "radial-gradient(600px 300px at 10% 0%, rgba(124,58,237,0.12), transparent), radial-gradient(500px 300px at 100% 20%, rgba(14,165,233,0.12), transparent)",
+    texSize: "auto",
     texOpacity: "1",
-    texBlend: "screen",
+    texBlend: "normal",
     copy: {
       navCta: "Get on the list",
       eyebrow: "Powered by on-device AI",
@@ -214,21 +199,21 @@ const GEN: Record<string, any> = {
     name: "Gen Z & Alphas",
     yrs: "Gen Z + Alpha · 1997–now",
     pickTag: "TikTok, memes, AI, brainrot. it's giving future.",
-    palette: ["#F7F7F5", "#A8C3A0", "#C9B8FF", "#FF6B6B", "#C6FF3D"],
+    palette: ["#0B0B12", "#FF2E9A", "#21E6FF", "#8A5CFF", "#C9D2E3"],
     events: ["Smartphone-native from birth", "TikTok + the creator economy", "The AI boom, fr fr"],
     fashion: "gorpcore, cottagecore, 'that girl' neutrals, Y2K revival, hyperpop.",
     slang: '"rizz." "no cap." "it\'s giving."',
     slangFont: "'Bricolage Grotesque', sans-serif",
     colors: {
-      bg: "#F7F7F5",
-      bg2: "#EFEFEC",
-      surface: "#FFFFFF",
-      text: "#14151A",
-      dim: "#6a6d78",
-      border: "#E2E2DC",
-      a1: "#FF6B6B",
-      a2: "#C6FF3D",
-      a3: "#8B7BD8"
+      bg: "#0B0B12",
+      bg2: "#12121e",
+      surface: "#181828",
+      text: "#F2F3FB",
+      dim: "#9aa0c4",
+      border: "#2a2b45",
+      a1: "#FF2E9A",
+      a2: "#21E6FF",
+      a3: "#8A5CFF"
     },
     fonts: {
       display: "'Bricolage Grotesque', sans-serif",
@@ -236,12 +221,12 @@ const GEN: Record<string, any> = {
       accent: "'Space Grotesk', sans-serif"
     },
     disp: { track: "-1.5px", weight: "800" },
-    glow: "0 14px 40px -18px rgba(255,107,107,0.5)",
+    glow: "0 0 30px -6px rgba(255,46,154,0.55)",
     texture:
-      "radial-gradient(600px 300px at 10% 0%, rgba(201,184,255,0.35), transparent), radial-gradient(500px 300px at 100% 20%, rgba(198,255,61,0.25), transparent)",
-    texSize: "auto",
+      "repeating-linear-gradient(0deg, rgba(33,230,255,0.05) 0 1px, transparent 1px 3px), linear-gradient(90deg, rgba(138,92,255,0.05) 1px, transparent 1px)",
+    texSize: "auto, 40px 40px",
     texOpacity: "1",
-    texBlend: "normal",
+    texBlend: "screen",
     copy: {
       navCta: "lock in",
       eyebrow: "privacy-first · on-device",
@@ -313,14 +298,15 @@ const blendColors = (ca: any, cb: any, t: number) => {
 // Picker column background gradients
 const PBG: Record<string, string> = {
   analog: "linear-gradient(155deg, #F3ECD9 0%, #E9D8B6 55%, #DFC698 100%)",
-  neon: "radial-gradient(70% 55% at 88% 100%, rgba(33,230,255,0.30), transparent), radial-gradient(65% 55% at 8% 88%, rgba(255,46,154,0.32), transparent), radial-gradient(135% 120% at 22% -12%, #1d1338 0%, #0B0B12 62%)",
-  feed: "radial-gradient(58% 48% at 92% 12%, rgba(255,107,107,0.22), transparent), radial-gradient(50% 45% at 4% 96%, rgba(198,255,61,0.28), transparent), linear-gradient(160deg, #FFFFFF 0%, #F1EEFF 52%, #E9F6D7 100%)"
+  neon: "linear-gradient(160deg, #FFFFFF 0%, #F0F4FF 50%, #FFF0F5 100%)",
+  feed: "radial-gradient(70% 55% at 88% 100%, rgba(33,230,255,0.30), transparent), radial-gradient(65% 55% at 8% 88%, rgba(255,46,154,0.32), transparent), radial-gradient(135% 120% at 22% -12%, #1d1338 0%, #0B0B12 62%)"
 };
 
 export default function HowItWorks() {
   const [activeScreen, setActiveScreen] = useState<"picker" | "site">("picker");
   const [activeThemeId, setActiveThemeId] = useState<string>("analog");
   const [currentTheme, setCurrentTheme] = useState<any>(GEN.analog);
+  const [pickerTab, setPickerTab] = useState<string>("neon");
 
   // Mix states
   const [showMixModal, setShowMixModal] = useState(false);
@@ -474,165 +460,130 @@ export default function HowItWorks() {
 
       {/* ================= SCREEN 1: THE INTERACTIVE ERA PICKER ================= */}
       <div
-        className={`fixed inset-0 z-40 bg-[#0c0d12] flex flex-col transition-all duration-700 ease-in-out ${
+        className={`fixed inset-0 z-40 bg-[#07080c] text-white flex flex-col justify-between p-6 md:p-10 transition-all duration-700 ease-in-out overflow-y-auto ${
           activeScreen === "site" ? "opacity-0 pointer-events-none scale-[0.98]" : "opacity-100 scale-100"
         }`}
       >
-        {/* Top hint bar */}
-        <div className="absolute top-0 left-0 right-0 z-20 flex flex-col lg:flex-row items-center justify-between gap-3 lg:gap-4 p-4 lg:p-5 lg:px-8 bg-[#0c0d12]/85 lg:bg-gradient-to-b lg:from-black/80 lg:to-transparent backdrop-blur-md lg:backdrop-blur-none border-b border-white/5 lg:border-none">
-          <Link href="/" className="flex items-center no-underline flex-shrink-0">
-            <Image
-              src="/navlogo.png"
-              alt="icebrkr logo"
-              width={240}
-              height={60}
-              className="h-[42px] lg:h-[60px] w-auto object-contain invert brightness-200"
-              priority
-            />
+        {/* Top Header Bar */}
+        <div className="flex items-center justify-between gap-4 max-w-7xl mx-auto w-full z-30">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 text-white text-xs sm:text-sm font-semibold backdrop-blur-md transition-all duration-200 hover:-translate-y-[1px] shadow-lg no-underline"
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M10 13L5 8L10 3" />
+            </svg>
+            <span>Back to Home</span>
           </Link>
-          <div className="text-xs sm:text-sm text-gray-300 bg-[#0c0d12]/60 border border-white/10 rounded-full px-4 py-2 backdrop-blur-md font-medium text-center">
-            Pick the world you grew up in — <span className="hidden lg:inline text-white">hover to explore</span>
-            <span className="lg:hidden text-white">tap to expand</span> · <b className="text-white bg-white/20 px-1.5 py-0.5 rounded">+</b> to mix eras
+
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => handleOpenMix("neon", "feed")}
+              className="px-4.5 py-2.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 text-xs sm:text-sm font-semibold text-white transition-all cursor-pointer backdrop-blur-md"
+            >
+              + Mix Eras (Cusp Blend)
+            </button>
           </div>
         </div>
 
-        {/* Picker panels */}
-        <div className="flex flex-col lg:flex-row h-full w-full pt-[135px] lg:pt-0 group/panels overflow-y-auto lg:overflow-hidden">
-          {ORDER.map((gid, i) => {
-            const g = GEN[gid];
-            const c = g.colors;
-            const bgGradient = PBG[gid];
+        {/* Center Stage: Title + Era Selector Grid Cards */}
+        <div className="max-w-6xl mx-auto w-full my-auto py-8">
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <span className="text-[11px] font-bold tracking-[2px] uppercase text-[#E8302A] block mb-2 font-mono">
+              Generational Personalisation
+            </span>
+            <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white font-sans">
+              Choose Your Generation
+            </h1>
+            <p className="text-sm md:text-base text-gray-400 mt-3 leading-relaxed">
+              icebrkr adapts its UI, copy, and AI personality to match the world you grew up in.
+            </p>
+          </div>
 
-            // Render customized swatches
-            const swatches = g.palette.map((color: string, sIdx: number) => (
-              <i
-                key={sIdx}
-                className="w-7 h-7 rounded-[7px] border border-black/10 shadow-sm"
-                style={{ backgroundColor: color }}
-              />
-            ));
+          {/* 3 Era Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+            {ORDER.map((gid) => {
+              const g = GEN[gid];
+              const c = g.colors;
+              const isSelected = pickerTab === gid;
 
-            return (
-              <div key={gid} className="contents">
-                {/* Panel Column */}
+              return (
                 <div
-                  role="button"
-                  tabIndex={0}
-                  aria-label={`Enter ${g.era}`}
-                  onClick={() => handleEnterEra(gid)}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                      e.preventDefault();
-                      handleEnterEra(gid);
-                    }
+                  key={gid}
+                  onClick={() => {
+                    setPickerTab(gid);
+                    handleEnterEra(gid);
                   }}
-                  className="relative flex-1 min-w-0 min-h-[420px] lg:min-h-0 cursor-pointer overflow-hidden flex flex-col justify-end p-8 lg:p-12 pb-10 lg:pb-14 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] group/panel border-b lg:border-b-0 lg:border-r border-white/5 saturate-[0.9] brightness-[0.88] hover:saturate-100 hover:brightness-100 lg:group-hover/panels:saturate-[0.82] lg:group-hover/panels:brightness-[0.85] lg:hover:!saturate-100 lg:hover:!brightness-100 lg:hover:flex-[2.3] lg:focus-within:flex-[2.3]"
+                  className={`group relative rounded-3xl p-7 flex flex-col justify-between border cursor-pointer transition-all duration-300 hover:scale-[1.02] shadow-xl ${
+                    isSelected
+                      ? "border-white/40 ring-2 ring-white/30"
+                      : "border-white/10 hover:border-white/25"
+                  }`}
                   style={{
-                    background: bgGradient,
-                    color: c.text,
-                    fontFamily: g.fonts.body
+                    background: PBG[gid]
                   }}
                 >
-                  {/* Subtle dynamic noise/scanlines texture overlay */}
-                  <div
-                    className="absolute inset-0 pointer-events-none opacity-[0.25] mix-blend-overlay"
-                    style={{
-                      backgroundImage: g.texture,
-                      backgroundSize: g.texSize
-                    }}
-                  />
-
-                  {/* Panel Content */}
-                  <div className="relative z-10">
+                  <div className="relative z-10" style={{ color: c.text }}>
                     <div
-                      className="text-[11px] tracking-[2.5px] uppercase font-bold mb-3"
+                      className="text-[11px] font-bold tracking-[2px] uppercase mb-2"
                       style={{ color: c.a1, fontFamily: g.fonts.accent }}
                     >
                       {g.era}
                     </div>
-                    <div
-                      className="text-3xl lg:text-4xl font-extrabold tracking-tight leading-[1.02] max-w-[14ch]"
-                      style={{ fontFamily: g.fonts.display, fontWeight: g.disp.weight }}
+                    <h3
+                      className="text-2xl md:text-3xl font-extrabold tracking-tight mb-1"
+                      style={{ fontFamily: g.fonts.display }}
                     >
                       {g.name}
+                    </h3>
+                    <div className="text-xs font-semibold opacity-75 mb-4">{g.yrs}</div>
+                    <p className="text-xs md:text-sm leading-relaxed opacity-90 mb-6 font-medium">
+                      {g.pickTag}
+                    </p>
+
+                    {/* Color Swatches */}
+                    <div className="flex gap-1.5 mb-6">
+                      {g.palette.map((col: string, sIdx: number) => (
+                        <span
+                          key={sIdx}
+                          className="w-5 h-5 rounded-full border border-black/10 shadow-sm"
+                          style={{ backgroundColor: col }}
+                        />
+                      ))}
                     </div>
-                    <div className="text-xs sm:text-sm opacity-72 mt-2 font-medium">{g.yrs}</div>
 
-                    {/* Revealing section: on desktop height expands on hover, on mobile it remains open */}
-                    <div className="h-auto opacity-100 mt-4 lg:max-h-0 lg:opacity-0 lg:mt-0 lg:group-hover/panel:max-h-[440px] lg:group-hover/panel:opacity-100 lg:group-focus-within/panel:max-h-[440px] lg:group-focus-within/panel:opacity-100 overflow-hidden transition-all duration-550 ease-in-out">
-                      {/* Swatches */}
-                      <div className="flex gap-2 my-5">{swatches}</div>
-
-                      {/* Major events list */}
-                      <ul className="flex flex-col gap-2 mb-5 list-none pl-0">
-                        {g.events.map((ev: string, evIdx: number) => (
-                          <li key={evIdx} className="text-xs sm:text-sm opacity-92 pl-4 relative font-medium">
-                            <span
-                              className="absolute left-0 top-[6px] w-1.5 h-1.5 rounded-full"
-                              style={{ backgroundColor: c.a1 }}
-                            />
-                            {ev}
-                          </li>
-                        ))}
-                      </ul>
-
-                      {/* Era Artifacts Icons */}
-                      <div className="flex gap-3 mb-5" style={{ color: c.a1 }}>
-                        {(ERA_ICONS[gid] || []).map((ic) => (
-                          <span key={ic} className="opacity-90">
-                            {renderIcon(ic, "w-6 h-6")}
-                          </span>
-                        ))}
-                      </div>
-
-                      {/* Era Slang */}
-                      <div
-                        className="text-sm font-medium italic mb-6 opacity-95"
-                        style={{ fontFamily: g.slangFont }}
-                      >
-                        {g.slang}
-                      </div>
-
-                      {/* Interactive Button */}
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleEnterEra(gid);
-                        }}
-                        className="inline-flex items-center gap-2 text-xs font-bold px-5 py-3 rounded-full transition-all duration-200 transform hover:scale-[1.03] cursor-pointer hover:shadow-lg border-none"
-                        style={{
-                          backgroundColor: c.a1,
-                          color: "#fff"
-                        }}
-                      >
-                        Enter this era →
-                      </button>
+                    {/* Era Icons */}
+                    <div className="flex gap-2.5 mb-6" style={{ color: c.a1 }}>
+                      {(ERA_ICONS[gid] || []).map((ic) => (
+                        <span key={ic} className="opacity-90">
+                          {renderIcon(ic, "w-5 h-5")}
+                        </span>
+                      ))}
                     </div>
                   </div>
+
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleEnterEra(gid);
+                    }}
+                    className="relative z-10 w-full py-3.5 px-5 rounded-2xl font-bold text-xs sm:text-sm text-white transition-all cursor-pointer shadow-lg hover:scale-[1.02] border-none mt-4 text-center flex items-center justify-center gap-2"
+                    style={{
+                      backgroundColor: c.a1
+                    }}
+                  >
+                    <span>Enter {g.name}</span>
+                    <span>→</span>
+                  </button>
                 </div>
+              );
+            })}
+          </div>
+        </div>
 
-                {/* Rail / Mixing connector between panels */}
-                {i < ORDER.length - 1 && (
-                  <div className="flex-none lg:w-[60px] h-[52px] lg:h-full flex lg:flex-col items-center justify-center relative bg-[#0c0d12] border-y lg:border-y-0 lg:border-x border-white/5 z-20">
-                    {/* Cusp generation label */}
-                    <div
-                      className="absolute left-4 lg:left-1/2 lg:top-8 lg:-translate-x-1/2 text-[9.5px] font-bold tracking-[2px] uppercase text-[#7a7f96] [writing-mode:horizontal-tb] lg:[writing-mode:vertical-rl]"
-                    >
-                      {CUSP[`${gid}_${ORDER[i + 1]}`]}
-                    </div>
-                    {/* Plus mix button */}
-                    <button
-                      aria-label={`Mix ${g.name} and ${GEN[ORDER[i + 1]].name}`}
-                      onClick={() => handleOpenMix(gid, ORDER[i + 1])}
-                      className="w-10 h-10 rounded-full border border-[#343a52] bg-[#161925] hover:bg-[#20233a] hover:border-white text-white font-bold text-lg cursor-pointer flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 shadow-md"
-                    >
-                      +
-                    </button>
-                  </div>
-                )}
-              </div>
-            );
-          })}
+        {/* Footer info */}
+        <div className="max-w-7xl mx-auto w-full text-center text-xs text-gray-500 font-medium py-2">
+          Click any era to experience the tailored AI Life OS interface.
         </div>
       </div>
 
@@ -761,8 +712,8 @@ export default function HowItWorks() {
                   width={240}
                   height={60}
                   className={`h-[46px] lg:h-[60px] w-auto object-contain transition-all duration-350 ${
-                    activeThemeId === "neon" ||
-                    (activeThemeId === "mix" && dominantTheme.id === "neon")
+                    activeThemeId === "feed" ||
+                    (activeThemeId === "mix" && dominantTheme.id === "feed")
                       ? "invert brightness-200"
                       : ""
                   }`}
@@ -1081,101 +1032,7 @@ export default function HowItWorks() {
             </div>
           </section>
 
-          {/* Compliance & jurisdictions info */}
-          <section className="py-20 border-t border-[var(--border)] bg-[var(--bg2)] z-[2]">
-            <div className="max-w-7xl mx-auto px-6">
-              <span className="text-xs font-bold tracking-[1.5px] uppercase text-[var(--a1)] font-accent-custom">
-                Where we are today
-              </span>
-              <h2 className="text-3xl md:text-4.5xl font-display-custom tracking-tight leading-[1.08] mt-2 mb-10">
-                Building in the open
-              </h2>
 
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-                {[
-                  ["Q4 2026", "COMPASS full-stack go-live"],
-                  ["CHF 5M", "Seed round — open now"],
-                  ["30+", "Student tech engineers active"],
-                  ["17", "Patents ready to file"],
-                  ["6", "Compliance jurisdictions"],
-                  ["16", "COMPASS modules shipping"]
-                ].map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="p-5 rounded-2xl bg-[var(--surface)] border border-[var(--border)] text-center flex flex-col justify-center items-center"
-                  >
-                    <b className="text-2xl md:text-3xl font-extrabold font-display-custom text-[var(--a1)] tracking-tight">
-                      {item[0]}
-                    </b>
-                    <span className="text-[10px] md:text-xs text-[var(--dim)] mt-2 leading-relaxed block font-medium">
-                      {item[1]}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          {/* Tour Section */}
-          <section id="tour" className="py-20 border-t border-[var(--border)] bg-[var(--bg)] z-[2]">
-            <div className="max-w-7xl mx-auto px-6">
-              <span className="text-xs font-bold tracking-[1.5px] uppercase text-[var(--a1)] font-accent-custom">
-                Take the tour
-              </span>
-              <h2 className="text-3xl md:text-4.5xl font-display-custom tracking-tight leading-[1.08] mt-2 mb-3">
-                See the whole company
-              </h2>
-              <p className="text-sm md:text-base text-[var(--dim)] font-body-custom max-w-2xl mb-12">
-                The full picture — product architecture, the deeptech, the market, and the live COMPASS flow.
-              </p>
-
-              {/* Tour Cards Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
-                {TOUR.map(([ic, title, desc, kind, key], idx) => {
-                  const targetLink = (LINKS as any)[key];
-                  return (
-                    <a
-                      key={idx}
-                      href={targetLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex flex-col p-6 rounded-2xl bg-[var(--surface)] border border-[var(--border)] hover:-translate-y-1 transition-all duration-300 group"
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.boxShadow = `0 18px 40px -22px var(--a1)`;
-                        e.currentTarget.style.borderColor = "var(--a1)";
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.boxShadow = "none";
-                        e.currentTarget.style.borderColor = "var(--border)";
-                      }}
-                    >
-                      <div
-                        className="w-10 h-10 rounded-xl flex items-center justify-center mb-4 transition-transform group-hover:scale-105"
-                        style={{
-                          backgroundColor: "color-mix(in srgb, var(--a1) 16%, transparent)",
-                          color: "var(--a1)"
-                        }}
-                      >
-                        {renderIcon(ic, "w-6 h-6")}
-                      </div>
-                      <div className="text-[10px] font-bold tracking-wider uppercase text-[var(--dim)] mb-1">
-                        {kind}
-                      </div>
-                      <h4 className="font-accent-custom font-bold text-sm text-[var(--text)] tracking-tight mb-2">
-                        {title}
-                      </h4>
-                      <p className="text-[11px] md:text-xs text-[var(--dim)] leading-relaxed flex-1">
-                        {desc}
-                      </p>
-                      <span className="text-xs font-bold text-[var(--a1)] mt-4 inline-flex items-center gap-1">
-                        Open →
-                      </span>
-                    </a>
-                  );
-                })}
-              </div>
-            </div>
-          </section>
 
           {/* Final CTA */}
           <section className="py-20 md:py-24 text-center bg-[var(--bg2)] border-t border-[var(--border)] z-[2]">
@@ -1226,18 +1083,10 @@ export default function HowItWorks() {
               </div>
               <div className="contact flex flex-col gap-2 text-xs md:text-sm font-semibold font-accent-custom text-[var(--text)]">
                 <a
-                  href="https://wa.me/41799114608"
-                  className="flex items-center gap-2 hover:opacity-80 transition-opacity"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span className="text-[var(--a3)]">◉</span> +41 79 911 4608
-                </a>
-                <a
-                  href="mailto:bennet@icebrkr.one"
+                  href="mailto:info@icebrkr.one"
                   className="flex items-center gap-2 hover:opacity-80 transition-opacity"
                 >
-                  <span className="text-[var(--a3)]">✉</span> bennet@icebrkr.one
+                  <span className="text-[var(--a3)]">✉</span> info@icebrkr.one
                 </a>
                 <a
                   href="https://www.icebrkr.one"

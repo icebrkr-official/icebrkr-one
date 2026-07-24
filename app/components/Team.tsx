@@ -88,57 +88,85 @@ export default function Team() {
             25 years of enterprise AI.<br className="hidden sm:inline" />One fixed deadline.
           </h2>
           <p className="text-[15px] sm:text-[17px] text-brand-muted leading-[1.7] max-w-[560px]">
-            Bennet&apos;s track record at Roche, Swiss Re, and UNHCR is the guarantee behind every milestone commitment.
+            Bennet&apos;s 25+ years of enterprise technology leadership is the guarantee behind every milestone commitment.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-20 mt-10 md:mt-14 items-start">
-          <div className="border border-brand-border rounded-xl overflow-hidden animate-fade-in shadow-sm hover:shadow-md transition-shadow">
-            <div className="bg-brand-dark p-10 text-center relative">
-              <div className="w-24 h-24 rounded-full bg-gradient-to-br from-brand-red to-brand-orange mx-auto mb-4 flex items-center justify-center font-serif text-[32px] text-white shadow-inner">
-                BP
-              </div>
-              <div className="font-bold text-[22px] text-white mb-1">Bennet Prasannakumar</div>
-              <div className="text-[13px] text-white/70">Founder & CTO · icebrkr · Geneva, Switzerland</div>
+          <div className="border border-brand-border rounded-2xl overflow-hidden animate-fade-in shadow-sm hover:shadow-md transition-shadow bg-white flex flex-col justify-between">
+            {/* Header / Photo Banner */}
+            <div className="bg-brand-dark p-8 sm:p-10 text-center relative flex flex-col items-center justify-center">
+              <a 
+                href="https://www.linkedin.com/in/pkbennet/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="group/photo relative block mb-4"
+              >
+                <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden border-4 border-white/20 shadow-xl bg-gradient-to-br from-brand-red to-brand-orange flex items-center justify-center transition-transform group-hover/photo:scale-105">
+                  <img
+                    src="/icon.jpeg"
+                    alt="Bennet Prasannakumar"
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      (e.target as HTMLElement).style.display = 'none';
+                    }}
+                  />
+                  <div className="font-serif text-[36px] font-bold text-white">BP</div>
+                </div>
+                <div className="absolute bottom-0 right-0 bg-[#0A66C2] text-white p-1.5 rounded-full shadow-md hover:scale-110 transition-transform">
+                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.75a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z" />
+                  </svg>
+                </div>
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/pkbennet/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-[22px] sm:text-[24px] text-white hover:text-brand-orange transition-colors flex items-center gap-2 no-underline"
+              >
+                <span>Bennet Prasannakumar</span>
+                <svg className="w-4 h-4 text-[#0A66C2] fill-current" viewBox="0 0 24 24">
+                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.75a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z" />
+                </svg>
+              </a>
+              <div className="text-[13px] text-white/70 mt-0.5">Founder & CTO · icebrkr · Geneva, Switzerland</div>
             </div>
 
-            <div className="p-8 pb-10 bg-white">
-              <div className="flex flex-wrap gap-2 mb-8">
-                {['Roche', 'Swiss Re', 'UNHCR', 'Trafigura', 'Lonza', 'Koch'].map((tag) => (
-                  <span
-                    key={tag}
-                    className="bg-brand-bg border border-brand-border px-3 py-1 rounded-[100px] text-[11px] font-semibold text-brand-muted uppercase tracking-[0.5px]"
-                  >
-                    {tag}
-                  </span>
-                ))}
+            {/* Content Body */}
+            <div className="p-8 sm:p-10 bg-white flex flex-col justify-between flex-1">
+              {/* About Ben */}
+              <div className="mb-6">
+                <span className="text-[11px] font-bold uppercase tracking-[1.2px] text-brand-red block mb-2">About Bennet</span>
+                <p className="text-[14px] text-brand-ink leading-[1.7] font-medium">
+                  Bennet is a seasoned technology executive with 25+ years of global experience leading large-scale digital transformation and AI initiatives, bringing together the agility of a startup CTO and the strategic governance of an enterprise technology leader.
+                </p>
               </div>
 
-              <div className="flex flex-col gap-5">
-                <div className="flex gap-4 items-start">
-                  <div className="w-2 h-2 rounded-full bg-brand-red mt-[6px] shrink-0"></div>
-                  <div className="text-[14px] text-brand-muted leading-[1.6]">
-                    <strong className="text-brand-ink">July 2026 go-live</strong> — Roche + Lonza delivery experience: complex multi-module launches on fixed regulatory deadlines.
-                  </div>
+              {/* Ben about icebrkr Quote */}
+              <div className="p-5 bg-brand-bg border border-brand-border/80 rounded-2xl relative">
+                <Quote className="w-5 h-5 text-brand-orange/50 absolute -top-2.5 left-4 bg-white px-1" />
+                <div className="text-[11px] font-bold uppercase tracking-[1px] text-brand-muted mb-1 pt-1">On Icebrkr</div>
+                <div className="text-[14px] font-serif text-brand-ink leading-relaxed italic">
+                  &ldquo;icebrkr is my second love. Let’s keep the first a secret.&rdquo;
                 </div>
-                <div className="flex gap-4 items-start">
-                  <div className="w-2 h-2 rounded-full bg-brand-red mt-[6px] shrink-0"></div>
-                  <div className="text-[14px] text-brand-muted leading-[1.6]">
-                    <strong className="text-brand-ink">nLPD / GDPR compliance</strong> — Swiss Re + UNHCR privacy architecture across multiple jurisdictions.
-                  </div>
-                </div>
-                <div className="flex gap-4 items-start">
-                  <div className="w-2 h-2 rounded-full bg-brand-red mt-[6px] shrink-0"></div>
-                  <div className="text-[14px] text-brand-muted leading-[1.6]">
-                    <strong className="text-brand-ink">B2B enterprise sales</strong> — C-suite relationships at Trafigura + Koch in regulated, high-value environments.
-                  </div>
-                </div>
-                <div className="flex gap-4 items-start">
-                  <div className="w-2 h-2 rounded-full bg-brand-red mt-[6px] shrink-0"></div>
-                  <div className="text-[14px] text-brand-muted leading-[1.6]">
-                    <strong className="text-brand-ink">CHF 300K+ personal capital</strong> committed. Swiss entity incorporated. Skin in the game.
-                  </div>
-                </div>
+              </div>
+
+              {/* LinkedIn Link */}
+              <div className="mt-8 pt-6 border-t border-brand-border/50 flex items-center justify-between">
+                <span className="text-[12px] text-brand-muted font-medium">25+ Yrs Enterprise AI</span>
+                <a
+                  href="https://www.linkedin.com/in/pkbennet/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-[#0A66C2] text-white rounded-lg text-[13px] font-semibold hover:bg-[#084e96] transition-colors shadow-sm no-underline"
+                >
+                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.75a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z" />
+                  </svg>
+                  <span>Connect on LinkedIn</span>
+                </a>
               </div>
             </div>
           </div>
@@ -169,9 +197,9 @@ export default function Team() {
             <div className="flex gap-5 items-start">
               <IconBadge icon={Landmark} tone="green" size="sm" className="shrink-0 rounded-lg" />
               <div>
-                <div className="font-bold text-[15px] text-brand-ink mb-1.5">Swiss Legal Architecture</div>
+                <div className="font-bold text-[15px] text-brand-ink mb-1.5">India Legal Architecture</div>
                 <div className="text-[14px] text-brand-muted leading-[1.6]">
-                  Incorporated in Switzerland. Six-jurisdiction compliance coverage from day one. nLPD + GDPR + EU AI Act ready.
+                  Incorporated in India. Built on EU AI privacy guidelines- NLPD_GDPR certified.
                 </div>
               </div>
             </div>
