@@ -77,10 +77,10 @@ export default function Navbar() {
           {/* Desktop nav */}
           <ul className="hidden lg:flex items-center gap-4 xl:gap-6 list-none ml-8 flex-1">
             <li><Link href="/product" className="text-[13px] font-semibold text-brand-muted no-underline tracking-[0.2px] transition-colors duration-200 hover:text-brand-ink">Product</Link></li>
-            <li><Link href="/technology" className="text-[13px] font-semibold text-brand-muted no-underline tracking-[0.2px] transition-colors duration-200 hover:text-brand-ink">Technology</Link></li>
             <li><Link href="/how-it-works" className="text-[13px] font-semibold text-brand-muted no-underline tracking-[0.2px] transition-colors duration-200 hover:text-brand-ink">How It Works</Link></li>
             <li><Link href="/team" className="text-[13px] font-semibold text-brand-muted no-underline tracking-[0.2px] transition-colors duration-200 hover:text-brand-ink">Team</Link></li>
-            <li><Link href="/investors" className="text-[13px] font-semibold text-brand-muted no-underline tracking-[0.2px] transition-colors duration-200 hover:text-brand-ink">Investors</Link></li>
+            <li><Link href="/investors" className="text-[13px] font-semibold text-brand-muted no-underline tracking-[0.2px] transition-colors duration-200 hover:text-brand-ink">Investor Relations</Link></li>
+            <li><Link href="/investors#contact" className="text-[13px] font-semibold text-brand-muted no-underline tracking-[0.2px] transition-colors duration-200 hover:text-brand-ink">Contact Us</Link></li>
 
             <li className="ml-auto flex items-center gap-3">
               <button
@@ -89,9 +89,6 @@ export default function Navbar() {
               >
                 Sign Up for Early Access
               </button>
-              <Link href="/investors" className="bg-brand-red text-white px-5 py-2 rounded-md font-semibold text-[13px] transition-colors duration-200 hover:bg-brand-red/90 inline-flex items-center justify-center h-[38px] whitespace-nowrap">
-                Invest Now
-              </Link>
             </li>
           </ul>
 
@@ -117,10 +114,10 @@ export default function Navbar() {
         >
           <ul className="flex flex-col gap-5 list-none m-0 p-0 pb-6">
             <li><Link href="/product" className="text-[18px] font-bold text-brand-ink no-underline block" onClick={closeMobileMenu}>Product</Link></li>
-            <li><Link href="/technology" className="text-[18px] font-bold text-brand-ink no-underline block" onClick={closeMobileMenu}>Technology</Link></li>
             <li><Link href="/how-it-works" className="text-[18px] font-bold text-brand-ink no-underline block" onClick={closeMobileMenu}>How It Works</Link></li>
             <li><Link href="/team" className="text-[18px] font-bold text-brand-ink no-underline block" onClick={closeMobileMenu}>Team</Link></li>
-            <li><Link href="/investors" className="text-[18px] font-bold text-brand-ink no-underline block" onClick={closeMobileMenu}>Investors & IP</Link></li>
+            <li><Link href="/investors" className="text-[18px] font-bold text-brand-ink no-underline block" onClick={closeMobileMenu}>Investor Relations</Link></li>
+            <li><Link href="/investors#contact" className="text-[18px] font-bold text-brand-ink no-underline block" onClick={closeMobileMenu}>Contact Us</Link></li>
 
             <li className="w-full h-[1px] bg-brand-border my-1" />
 
@@ -131,11 +128,6 @@ export default function Navbar() {
               >
                 Sign Up for Early Access
               </button>
-            </li>
-            <li className="mt-2">
-              <Link href="/investors" className="bg-brand-red text-white px-6 py-3.5 rounded-md font-semibold text-[16px] flex items-center justify-center w-full h-[52px]" onClick={closeMobileMenu}>
-                Invest Now
-              </Link>
             </li>
           </ul>
         </div>
