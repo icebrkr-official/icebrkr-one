@@ -215,29 +215,11 @@ export default function Hero() {
           
           {/* Left Column: Heading, Subtitle, Buttons */}
           <div className="lg:col-span-6 flex flex-col items-start text-left animate-fade-in">
-            {/* Launching Soon & Ratings */}
+            {/* Launching Soon Pill */}
             <div className="flex items-center gap-4 flex-wrap mb-4 lg:mb-6">
-              {/* Launching Soon Pill */}
               <div className="border border-brand-ink rounded-full px-5 py-1.5 text-xs font-semibold text-brand-ink tracking-wide">
                 Launching Soon
               </div>
-              
-              {/* Ratings */}
-              <div className="flex items-center gap-1">
-                {[...Array(4)].map((_, i) => (
-                  <svg key={i} className="w-4.5 h-4.5 text-brand-ink fill-current" viewBox="0 0 24 24">
-                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                  </svg>
-                ))}
-                {/* 5th empty star */}
-                <svg className="w-4.5 h-4.5 text-gray-300 fill-current" viewBox="0 0 24 24">
-                  <path d="M22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.37L12 6.1l1.7 4.04 4.38.37-3.32 2.88 1 4.28L12 15.4z" />
-                </svg>
-              </div>
-              
-              {/* Divider and text */}
-              <span className="text-gray-300 text-sm">|</span>
-              <span className="text-xs font-bold text-brand-ink tracking-wide">3000+ Ratings</span>
             </div>
             
             {/* Main Headline */}
@@ -692,7 +674,7 @@ export default function Hero() {
             {/* FLOATING GLASSMORPHIC BADGES */}
             
             {/* Urgent Badge (Top-Left) */}
-            <div className="absolute top-[18%] left-[calc(50%-150px)] md:left-[calc(50%-220px)] z-20 animate-float-urgent bg-[#E8302A]/10 backdrop-blur-md border border-white/30 rounded-[20px] p-1.5 flex items-center justify-center shadow-[0_8px_32px_0_rgba(232,48,42,0.15)] cursor-pointer transition-all duration-300 badge-jelly">
+            <div className="absolute top-[18%] left-2 sm:left-[calc(50%-150px)] md:left-[calc(50%-220px)] z-20 animate-float-urgent bg-[#E8302A]/10 backdrop-blur-md border border-white/30 rounded-[20px] p-1.5 flex items-center justify-center shadow-[0_8px_32px_0_rgba(232,48,42,0.15)] cursor-pointer transition-all duration-300 badge-jelly">
               <div className="flex items-center gap-2 border border-white/40 bg-white/35 backdrop-blur-sm rounded-full py-1.5 px-4">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E8302A] opacity-75"></span>
@@ -703,7 +685,7 @@ export default function Hero() {
             </div>
             
             {/* On Track Badge (Middle-Right) */}
-            <div className="absolute top-[46%] right-[calc(50%-150px)] md:right-[calc(50%-220px)] z-20 animate-float-ontrack bg-[#27AE60]/10 backdrop-blur-md border border-white/30 rounded-[20px] p-1.5 flex items-center justify-center shadow-[0_8px_32px_0_rgba(39,174,96,0.15)] cursor-pointer transition-all duration-300 badge-jelly">
+            <div className="absolute top-[46%] right-2 sm:right-[calc(50%-150px)] md:right-[calc(50%-220px)] z-20 animate-float-ontrack bg-[#27AE60]/10 backdrop-blur-md border border-white/30 rounded-[20px] p-1.5 flex items-center justify-center shadow-[0_8px_32px_0_rgba(39,174,96,0.15)] cursor-pointer transition-all duration-300 badge-jelly">
               <div className="flex items-center gap-2 border border-white/40 bg-white/35 backdrop-blur-sm rounded-full py-1.5 px-4">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#27AE60] opacity-75"></span>
@@ -714,7 +696,7 @@ export default function Hero() {
             </div>
             
             {/* Important Badge (Bottom-Left) */}
-            <div className="absolute bottom-[20%] left-[calc(50%-150px)] md:left-[calc(50%-220px)] z-20 animate-float-important bg-[#F5A623]/10 backdrop-blur-md border border-white/30 rounded-[20px] p-1.5 flex items-center justify-center shadow-[0_8px_32px_0_rgba(245,166,35,0.15)] cursor-pointer transition-all duration-300 badge-jelly">
+            <div className="absolute bottom-[20%] left-2 sm:left-[calc(50%-150px)] md:left-[calc(50%-220px)] z-20 animate-float-important bg-[#F5A623]/10 backdrop-blur-md border border-white/30 rounded-[20px] p-1.5 flex items-center justify-center shadow-[0_8px_32px_0_rgba(245,166,35,0.15)] cursor-pointer transition-all duration-300 badge-jelly">
               <div className="flex items-center gap-2 border border-white/40 bg-white/35 backdrop-blur-sm rounded-full py-1.5 px-4">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#F5A623] opacity-75"></span>
