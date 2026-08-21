@@ -215,12 +215,6 @@ export default function Hero() {
           
           {/* Left Column: Heading, Subtitle, Buttons */}
           <div className="lg:col-span-6 flex flex-col items-start text-left animate-fade-in">
-            {/* Launching Soon Pill */}
-            <div className="flex items-center gap-4 flex-wrap mb-4 lg:mb-6">
-              <div className="border border-brand-ink rounded-full px-5 py-1.5 text-xs font-semibold text-brand-ink tracking-wide">
-                Launching Soon
-              </div>
-            </div>
             
             {/* Main Headline */}
             <h1 className="text-[clamp(32px,4.5vw,52px)] font-bold tracking-tight leading-[1.12] text-brand-ink mb-4 lg:mb-5 font-sans">
