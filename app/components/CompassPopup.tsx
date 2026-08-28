@@ -184,7 +184,7 @@ const archSegs = [
       { icon: '🖥', text: 'K3s + Supabase + MinIO + HashiCorp Vault + Traefik — full self-hosted stack, zero third-party cloud' },
       { icon: '📍', text: 'Swiss jurisdiction: data physically located in Switzerland under nLPD and Swiss federal law' },
       { icon: '🔧', text: '19 SRM engineers + Technomark delivery — milestone-locked contracts via VAIZ governance' },
-      { icon: '⚡', text: 'Sprint governance: Jan 2026 core ✓ · Mar 2026 health/journal ✓ · Jul 2026 public go-live' },
+      { icon: '⚡', text: 'Sprint governance: Jan 2026 core ✓ · Mar 2026 health/journal ✓' },
       { icon: '📊', text: 'Annual ops run-rate: CHF 820K/year · CHF 68,333/month — lean, owned infrastructure' },
     ],
     tech: ['K3s', 'Supabase', 'MinIO', 'HashiCorp Vault', 'Traefik', 'PostgreSQL', 'Redis'],

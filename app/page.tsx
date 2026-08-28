@@ -1,15 +1,45 @@
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import TrustBar from './components/TrustBar';
+import Product from './components/Product';
+import Personas from './components/Personas';
+import Accessibility from './components/Accessibility';
+import Learn from './components/Learn';
+import Technology from './components/Technology';
+import SLM from './components/SLM';
+import Future from './components/Future';
+import Situation from './components/Situation';
+import Market from './components/Market';
+import Patents from './components/Patents';
+import Roadmap from './components/Roadmap';
+import Investors from './components/Investors';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
 
 export default function Home() {
   return (
-    <main className="min-h-screen min-h-dvh lg:h-screen w-full overflow-y-auto lg:overflow-hidden flex flex-col justify-between bg-white relative">
-      <Navbar />
-      <div className="flex-1 pt-[80px] flex items-center justify-center lg:overflow-hidden py-4 lg:py-0">
-        <Hero />
-      </div>
-      <TrustBar />
-    </main>
+    <>
+      <main className="min-h-dvh w-full bg-white relative">
+        <Navbar />
+        <div className="pt-20">
+          <Hero />
+        </div>
+        <TrustBar />
+        <Situation />
+        <Product />
+        <Personas />
+        <Accessibility />
+        <Learn />
+        <Technology />
+        <SLM />
+        <Future />
+        <Market />
+        <Patents />
+        <Roadmap />
+        <Investors />
+        <Contact />
+        <Footer />
+      </main>
+    </>
   );
 }

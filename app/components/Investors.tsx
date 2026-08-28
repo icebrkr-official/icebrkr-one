@@ -11,7 +11,7 @@ export default function Investors() {
           <h2 className="font-serif text-[clamp(32px,6vw,64px)] leading-[1.1] tracking-[-1px] text-white mb-6">
             ₹2.5 Cr<br />Seed Round 1 Open
           </h2>
-          <p className="text-[15px] sm:text-[18px] text-white/60 leading-[1.6] max-w-[640px] mx-auto">
+          <p className="text-[15px] sm:text-[18px] text-white/60 leading-[1.6] max-w-168.25 mx-auto">
             The zero-knowledge AI personal assistant architecturally ready for global compliance (EU AI Act, GDPR, DPDP Act 2023). Investable now in Seed Round 1.
           </p>
         </div>
@@ -72,7 +72,7 @@ export default function Investors() {
           <div className="text-center mb-10">
             <span className="inline-block text-[11px] font-bold uppercase tracking-[1.5px] text-brand-green mb-2">The Ask</span>
             <h2 className="font-serif text-[clamp(28px,4vw,44px)] font-bold text-white">
-              Join the seed round closing August 31, 2026.
+              Join the seed round closing September 30, 2026.
             </h2>
           </div>
 
@@ -124,7 +124,7 @@ export default function Investors() {
               </div>
 
               <div className="mt-8 pt-5 border-t border-white/10 text-xs font-semibold text-white/50 uppercase tracking-[1px]">
-                Closing Target: August 31, 2026
+                Closing Target: September 30, 2026
               </div>
             </div>
           </div>
@@ -132,7 +132,7 @@ export default function Investors() {
 
         {/* CTA Contact Footer */}
         <div className="text-center py-12 px-6 bg-white/5 border border-white/10 rounded-2xl animate-fade-in max-w-[800px] mx-auto">
-          <div className="font-serif text-[28px] text-white tracking-[-0.5px] mb-2">Seed Round Closing August 31, 2026</div>
+          <div className="font-serif text-[28px] text-white tracking-[-0.5px] mb-2">Seed Round Closing September 30, 2026</div>
           <div className="text-[15px] text-white/60 mb-8">Preferred ticket ₹25L–50L · SAFE / CCD Instrument.</div>
           <div className="flex gap-4 justify-center flex-wrap">
             <a href="mailto:invest@icebrkr.one" className="bg-brand-red text-white px-8 py-3.5 rounded-md font-semibold text-[15px] transition-all duration-150 hover:bg-[#c92a24] hover:-translate-y-[1px] inline-block no-underline">Contact Investor Relations →</a>

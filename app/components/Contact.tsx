@@ -61,7 +61,7 @@ export default function Contact() {
         <div className="mt-8 sm:mt-12 p-6 sm:p-9 bg-white border border-brand-border rounded-[10px] flex justify-between items-center flex-wrap gap-6 animate-fade-in">
           <div>
             <div className="font-bold text-[16px] sm:text-[18px] text-brand-ink mb-1">Breaking the ice. Bridging the Gap.</div>
-            <div className="text-[13px] sm:text-[14px] text-brand-muted">Created in Switzerland · Developed in Switzerland, India & Nepal · Live July 2026</div>
+            <div className="text-[13px] sm:text-[14px] text-brand-muted">Created in India</div>
           </div>
           <div className="flex gap-3 shrink-0 w-full sm:w-auto">
             <a href="mailto:invest@icebrkr.one" className="bg-brand-dark text-white px-6 sm:px-8 py-3.5 rounded-md font-semibold text-[14px] sm:text-[15px] transition-all duration-150 hover:bg-brand-dark2 hover:-translate-y-[1px] inline-flex items-center justify-center flex-1 sm:flex-none no-underline">Invest</a>

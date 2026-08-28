@@ -19,7 +19,7 @@ export default function InvestorsPage() {
       <Situation />
       <Market />
       <Patents />
-      <Roadmap />
+      {/* <Roadmap /> */}
       <Investors />
       <Contact />
       <Footer />

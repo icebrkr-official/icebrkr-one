@@ -104,19 +104,13 @@ export default function Team() {
               >
                 <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden border-4 border-white/20 shadow-xl bg-gradient-to-br from-brand-red to-brand-orange flex items-center justify-center transition-transform group-hover/photo:scale-105">
                   <img
-                    src="/icon.jpeg"
+                    src="/team/bennet.jpg"
                     alt="Bennet Prasannakumar"
                     className="w-full h-full object-cover"
                     onError={(e) => {
                       (e.target as HTMLElement).style.display = 'none';
                     }}
                   />
-                  <div className="font-serif text-[36px] font-bold text-white">BP</div>
-                </div>
-                <div className="absolute bottom-0 right-0 bg-[#0A66C2] text-white p-1.5 rounded-full shadow-md hover:scale-110 transition-transform">
-                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.75a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z" />
-                  </svg>
                 </div>
               </a>
 
@@ -131,7 +125,7 @@ export default function Team() {
                   <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.75a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z" />
                 </svg>
               </a>
-              <div className="text-[13px] text-white/70 mt-0.5">Founder & CTO · icebrkr · Geneva, Switzerland</div>
+              <div className="text-[13px] text-white/70 mt-0.5">Founder · icebrkr · Geneva, Switzerland</div>
             </div>
 
             {/* Content Body */}
@@ -179,20 +173,11 @@ export default function Team() {
               <div>
                 <div className="font-bold text-[15px] text-brand-ink mb-1.5">Technomark</div>
                 <div className="text-[14px] text-brand-muted leading-[1.6]">
-                  Technology delivery partner. 19 SRM engineers on active sprints. Milestone-locked contracts. Sprint governance via VAIZ platform.
+                  Technology delivery partner. 30+ SRM engineers on active sprints. Milestone-locked contracts. Sprint governance via VAIZ platform.
                 </div>
               </div>
             </div>
 
-            <div className="flex gap-5 items-start">
-              <IconBadge icon={GraduationCap} tone="orange" size="sm" className="shrink-0 rounded-lg" />
-              <div>
-                <div className="font-bold text-[15px] text-brand-ink mb-1.5">SRM University</div>
-                <div className="text-[14px] text-brand-muted leading-[1.6]">
-                  19 engineers on active development sprints. 50,000+ captive first users from the SRM engineer cohort at go-live.
-                </div>
-              </div>
-            </div>
 
             <div className="flex gap-5 items-start">
               <IconBadge icon={Landmark} tone="green" size="sm" className="shrink-0 rounded-lg" />
@@ -207,7 +192,7 @@ export default function Team() {
             <div className="mt-4 p-6 bg-brand-bg rounded-[10px] border border-brand-border">
               <div className="text-[11px] font-bold uppercase tracking-[1px] text-brand-muted mb-3">96-Day Launch Campaign</div>
               <div className="text-[14px] text-brand-ink leading-[1.6]">
-                Live 5 April – 9 July 2026. 18-language social reach. 50,000+ captive early adopters from SRM University cohort. GenZ-first acquisition strategy.
+                18-language social reach. 50,000+ captive early adopters from SRM University cohort. GenZ-first acquisition strategy.
               </div>
               <div className="mt-3 text-[13px] text-brand-muted">
                 For GenZ partnerships:{' '}

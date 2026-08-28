@@ -17,7 +17,7 @@ const dmSerifDisplay = DM_Serif_Display({
 
 export const metadata: Metadata = {
   title: "icebrkr - AI Proactive Assistant | Privacy by Architecture",
-  description: "icebrkr COMPASS: The only zero-knowledge AI Life OS. Created in Switzerland. EU AI Act compliant. Live July 2026.",
+  description: "icebrkr COMPASS: The only zero-knowledge AI Life OS. Created in India. EU AI Act compliant.",
   icons: {
     icon: "/icon.jpeg",
   },

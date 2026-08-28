@@ -64,7 +64,7 @@ export default function Technology() {
               <div className="w-9 h-9 rounded-lg flex items-center justify-center font-bold text-[14px] shrink-0 bg-[#F5A623]/10 text-brand-orange">⚡</div>
               <div>
                 <div className="font-bold text-[16px] text-brand-ink mb-1.5">Sprint Governance via VAIZ</div>
-                <div className="text-[14px] text-brand-muted leading-[1.6]">19 SRM engineers on active sprints. Technology delivery partner Technomark. Milestone-locked contracts with contractual go-live July 2026.</div>
+                <div className="text-[14px] text-brand-muted leading-[1.6]">19 SRM engineers on active sprints. Technology delivery partner Technomark. Milestone-locked contracts.</div>
               </div>
             </div>
             
