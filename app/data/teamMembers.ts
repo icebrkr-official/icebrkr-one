@@ -24,22 +24,22 @@ export const TEAM_MEMBERS: TeamMember[] = [
     "story": "I love the vision of building an AI that can genuinely help people in their daily lives, making technology feel more natural and useful. I'm excited to use Icebrkr, explore its capabilities, and be part of its journey as it grows into something people rely on every day.",
     "photo": "/team/anmol_sharma.jpg"
   },
-  {
-    "id": "priyanshu_kumar_singh",
-    "name": "Priyanshu Kumar Singh",
-    "role": "Hardware Intern",
-    "category": "Hardware & IoT",
-    "story": "Icebkr has been an exciting learning experience. I enjoy working with a team that’s building innovative AI-powered smart solutions. It’s given me the opportunity to contribute to real-world projects and learn from experienced mentors.",
-    "photo": "/team/priyanshu_kumar_singh.jpg"
-  },
-  {
-    "id": "keshav_singla",
-    "name": "Keshav Singla",
-    "role": "TEAM LEAD (IB Health, IB Learn and AIPA / AIML) & Marketing Lead",
-    "category": "AI & Software",
-    "story": "IB is the first thing I’ve seen that tries to fix the whole mess instead of shipping one more app. What sells me is how the pieces actually talk to each other — Learn, Bud, Health, all through one assistant, all on-device and private. I’d trust it with the boring-but-important parts of my life, which is rare. Genuinely can’t wait to use it daily.",
-    "photo": "/team/keshav_singla.jpg"
-  },
+  // {
+  //   "id": "priyanshu_kumar_singh",
+  //   "name": "Priyanshu Kumar Singh",
+  //   "role": "Hardware Intern",
+  //   "category": "Hardware & IoT",
+  //   "story": "Icebkr has been an exciting learning experience. I enjoy working with a team that’s building innovative AI-powered smart solutions. It’s given me the opportunity to contribute to real-world projects and learn from experienced mentors.",
+  //   "photo": "/team/priyanshu_kumar_singh.jpg"
+  // },
+  // {
+  //   "id": "keshav_singla",
+  //   "name": "Keshav Singla",
+  //   "role": "TEAM LEAD (IB Health, IB Learn and AIPA / AIML) & Marketing Lead",
+  //   "category": "AI & Software",
+  //   "story": "IB is the first thing I’ve seen that tries to fix the whole mess instead of shipping one more app. What sells me is how the pieces actually talk to each other — Learn, Bud, Health, all through one assistant, all on-device and private. I’d trust it with the boring-but-important parts of my life, which is rare. Genuinely can’t wait to use it daily.",
+  //   "photo": "/team/keshav_singla.jpg"
+  // },
   {
     "id": "garvita_varshney",
     "name": "Garvita Varshney",
@@ -64,22 +64,22 @@ export const TEAM_MEMBERS: TeamMember[] = [
     "story": "My experience with Icebkr has been really positive. I enjoyed being part of the team, learning new skills, and working on meaningful tasks. The platform has great potential, and I'm excited to see how it grows. Thank you to the entire Icebkr team for a wonderful learning experience!",
     "photo": "/team/shubiksha_k.jpg"
   },
-  {
-    "id": "ishan_sharma",
-    "name": "Ishan Sharma",
-    "role": "AIML Data Analyst",
-    "category": "AI & Software",
-    "story": "",
-    "photo": "/team/ishan_sharma.jpg"
-  },
-  {
-    "id": "spandan_panda",
-    "name": "Spandan Panda",
-    "role": "Team Hardware",
-    "category": "Hardware & IoT",
-    "story": "Working at Icebkr has been an exciting experience where I got to contribute to innovative product ideas and learn how user-centric technology is built. I'm excited to see the product evolve and would love to use it once it's launched, as it has the potential to make everyday interactions smarter and more engaging.",
-    "photo": "/team/spandan_panda.jpg"
-  },
+  // {
+  //   "id": "ishan_sharma",
+  //   "name": "Ishan Sharma",
+  //   "role": "AIML Data Analyst",
+  //   "category": "AI & Software",
+  //   "story": "",
+  //   "photo": "/team/ishan_sharma.jpg"
+  // },
+  // {
+  //   "id": "spandan_panda",
+  //   "name": "Spandan Panda",
+  //   "role": "Team Hardware",
+  //   "category": "Hardware & IoT",
+  //   "story": "Working at Icebkr has been an exciting experience where I got to contribute to innovative product ideas and learn how user-centric technology is built. I'm excited to see the product evolve and would love to use it once it's launched, as it has the potential to make everyday interactions smarter and more engaging.",
+  //   "photo": "/team/spandan_panda.jpg"
+  // },
   {
     "id": "sakthi_devi",
     "name": "Sakthi Devi",
@@ -144,30 +144,30 @@ export const TEAM_MEMBERS: TeamMember[] = [
     "story": "Joining Icebrkr has been an exciting journey. What stands out to me is the vision of building AI that genuinely helps people in their everyday lives. Being part of the team has given me the opportunity to learn, experiment, and contribute to meaningful products like IB Learn. I'm excited to see Icebrkr grow and can't wait for more people to experience what we're building. It feels great to be part of something that's focused on innovation and making a real impact.",
     "photo": "/team/khushi_sharma.jpg"
   },
-  {
-    "id": "harsh_gupta",
-    "name": "Harsh Gupta",
-    "role": "AI/ML",
-    "category": "AI & Software",
-    "story": "Family",
-    "photo": "/team/harsh_gupta.jpg"
-  },
-  {
-    "id": "r_aaditya_narayanan",
-    "name": "R Aaditya Narayanan",
-    "role": "Business Analyst Finance and Accounting",
-    "category": "Operations & Legal",
-    "story": "Really excited to have my personalized AI",
-    "photo": "/team/r_aaditya_narayanan.jpg"
-  },
-  {
-    "id": "harshmeet",
-    "name": "Harshmeet",
-    "role": "Ai ml engineer",
-    "category": "AI & Software",
-    "story": "Icebkr feels like a breath of fresh air. I love the idea of meaningful conversations over mindless swiping, and that’s what made me want to try it. I’m excited to meet amazing people and see how the platform evolves. Rooting for the team—you’ve got something really promising here!",
-    "photo": "/team/harshmeet.jpg"
-  },
+  // {
+  //   "id": "harsh_gupta",
+  //   "name": "Harsh Gupta",
+  //   "role": "AI/ML",
+  //   "category": "AI & Software",
+  //   "story": "Family",
+  //   "photo": "/team/harsh_gupta.jpg"
+  // },
+  // {
+  //   "id": "r_aaditya_narayanan",
+  //   "name": "R Aaditya Narayanan",
+  //   "role": "Business Analyst Finance and Accounting",
+  //   "category": "Operations & Legal",
+  //   "story": "Really excited to have my personalized AI",
+  //   "photo": "/team/r_aaditya_narayanan.jpg"
+  // },
+  // {
+  //   "id": "harshmeet",
+  //   "name": "Harshmeet",
+  //   "role": "Ai ml engineer",
+  //   "category": "AI & Software",
+  //   "story": "Icebkr feels like a breath of fresh air. I love the idea of meaningful conversations over mindless swiping, and that’s what made me want to try it. I’m excited to meet amazing people and see how the platform evolves. Rooting for the team—you’ve got something really promising here!",
+  //   "photo": "/team/harshmeet.jpg"
+  // },
   {
     "id": "preetha",
     "name": "Preetha",
@@ -224,14 +224,14 @@ export const TEAM_MEMBERS: TeamMember[] = [
     "story": "Really excited to be a part of this amazing project ,which is going to be one of its kind",
     "photo": "/team/pawan_kumar_y.jpg"
   },
-  {
-    "id": "girithar_v",
-    "name": "Girithar V",
-    "role": "AIPA (AI/ML Team)",
-    "category": "AI & Software",
-    "story": "Icebkr isn't just another AI—it's a vision for real change. Super excited to be part of the journey and can't wait to see the impact it creates.",
-    "photo": "/team/girithar_v.jpg"
-  },
+  // {
+  //   "id": "girithar_v",
+  //   "name": "Girithar V",
+  //   "role": "AIPA (AI/ML Team)",
+  //   "category": "AI & Software",
+  //   "story": "Icebkr isn't just another AI—it's a vision for real change. Super excited to be part of the journey and can't wait to see the impact it creates.",
+  //   "photo": "/team/girithar_v.jpg"
+  // },
   {
     "id": "vanshika_sharma",
     "name": "Vanshika Sharma",
@@ -240,14 +240,14 @@ export const TEAM_MEMBERS: TeamMember[] = [
     "story": "Hoping to learn and gain experience. I’m really excited to work and build the product as it solved most of the problems I face",
     "photo": "/team/vanshika_sharma.jpg"
   },
-  {
-    "id": "harsh",
-    "name": "Harsh",
-    "role": "Legal PM and Consultant",
-    "category": "Operations & Legal",
-    "story": "From what I've seen, Icebkr is evolving into more than just a single product by bringing together features like IB Map, IB Fridge, and other lifestyle-focused tools in one ecosystem. The idea of making everyday interactions and experiences more convenient is interesting, and I'm curious to see how the platform develops over time. As someone joining in a legal capacity, I'm looking forward to understanding the product better while contributing to its growth by helping build a strong legal and compliance framework. Overall, I'm interested in being part of the journey and seeing how the platform evolves.",
-    "photo": "/team/harsh.jpg"
-  },
+  // {
+  //   "id": "harsh",
+  //   "name": "Harsh",
+  //   "role": "Legal PM and Consultant",
+  //   "category": "Operations & Legal",
+  //   "story": "From what I've seen, Icebkr is evolving into more than just a single product by bringing together features like IB Map, IB Fridge, and other lifestyle-focused tools in one ecosystem. The idea of making everyday interactions and experiences more convenient is interesting, and I'm curious to see how the platform develops over time. As someone joining in a legal capacity, I'm looking forward to understanding the product better while contributing to its growth by helping build a strong legal and compliance framework. Overall, I'm interested in being part of the journey and seeing how the platform evolves.",
+  //   "photo": "/team/harsh.jpg"
+  // },
   {
     "id": "subhasish_debnath",
     "name": "Subhasish Debnath",
@@ -288,36 +288,36 @@ export const TEAM_MEMBERS: TeamMember[] = [
     "story": "Being part of Icebkr has been an amazing experience. It’s exciting to work on a product that’s not just following the AI trend but actually rethinking how AI should work with privacy and user control at its core.",
     "photo": "/team/md_inshal_ashraf.jpg"
   },
-  {
-    "id": "dhiraj",
-    "name": "Dhiraj",
-    "role": "Legal department",
-    "category": "Operations & Legal",
-    "story": "Well i m interested in testing some of the models ,so excited\nI will handle the legal work😉",
-    "photo": "/team/dhiraj.jpg"
-  },
-  {
-    "id": "ishita_chaurasia",
-    "name": "Ishita Chaurasia",
-    "role": "Design Team",
-    "category": "Design",
-    "story": "I’m excited to be part of IceBkr and contribute to something that helps people connect in a meaningful way. Looking forward to learning, growing, and building together!",
-    "photo": "/team/ishita_chaurasia.jpg"
-  },
-  {
-    "id": "srushtitha_m",
-    "name": "Srushtitha M",
-    "role": "UIUX Intern / Design",
-    "category": "Design",
-    "story": "I am glad I am part of something this BIG. And I believe \"proactive\" is the new way of living that's gonna transform everyone's lives.",
-    "photo": "/team/srushtitha_m.jpg"
-  },
-  {
-    "id": "abirami",
-    "name": "ABIRAMI",
-    "role": "Design",
-    "category": "Design",
-    "story": "I've always wanted an all-in-one app that actually gets me and stays one step ahead. Seeing icebrkr bring that idea to life is honestly so cool. Can't wait to name my AIPA!! 🧿😌",
-    "photo": "/team/abirami.jpg"
-  }
+  // {
+  //   "id": "dhiraj",
+  //   "name": "Dhiraj",
+  //   "role": "Legal department",
+  //   "category": "Operations & Legal",
+  //   "story": "Well i m interested in testing some of the models ,so excited\nI will handle the legal work😉",
+  //   "photo": "/team/dhiraj.jpg"
+  // },
+  // {
+  //   "id": "ishita_chaurasia",
+  //   "name": "Ishita Chaurasia",
+  //   "role": "Design Team",
+  //   "category": "Design",
+  //   "story": "I’m excited to be part of IceBkr and contribute to something that helps people connect in a meaningful way. Looking forward to learning, growing, and building together!",
+  //   "photo": "/team/ishita_chaurasia.jpg"
+  // },
+  // {
+  //   "id": "srushtitha_m",
+  //   "name": "Srushtitha M",
+  //   "role": "UIUX Intern / Design",
+  //   "category": "Design",
+  //   "story": "I am glad I am part of something this BIG. And I believe \"proactive\" is the new way of living that's gonna transform everyone's lives.",
+  //   "photo": "/team/srushtitha_m.jpg"
+  // },
+  // {
+  //   "id": "abirami",
+  //   "name": "ABIRAMI",
+  //   "role": "Design",
+  //   "category": "Design",
+  //   "story": "I've always wanted an all-in-one app that actually gets me and stays one step ahead. Seeing icebrkr bring that idea to life is honestly so cool. Can't wait to name my AIPA!! 🧿😌",
+  //   "photo": "/team/abirami.jpg"
+  // }
 ];

@@ -20,9 +20,8 @@ export default function Footer() {
               Breaking the ice. Bridging the Gap.
             </div>
             <div className="text-[11px] text-white/20 leading-[1.7]">
-              Created in Switzerland<br />
-              Developed in Switzerland · India · Nepal<br />
-              Privacy by architecture · Live July 2026<br />
+              Created in India<br />
+              Privacy by architecture<br />
               India Entity · Built on EU AI privacy guidelines - NLPD_GDPR certified
             </div>
           </div>
@@ -57,7 +56,6 @@ export default function Footer() {
               <li><a href="mailto:invest@icebrkr.one" className="text-[13px] text-white/50 hover:text-white transition-colors">invest@icebrkr.one</a></li>
               <li><a href="mailto:social@icebrkr.one" className="text-[13px] text-white/50 hover:text-white transition-colors">social@icebrkr.one</a></li>
               <li><Link href="/investors" className="text-[13px] text-white/50 hover:text-white transition-colors">Seed Round →</Link></li>
-              <li><a href="https://app.icebrkr.one" target="_blank" rel="noopener noreferrer" className="text-[13px] text-white/50 hover:text-white transition-colors">App (Jul 2026)</a></li>
             </ul>
           </div>
         </div>
